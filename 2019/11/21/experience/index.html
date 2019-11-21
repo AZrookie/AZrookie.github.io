@@ -90,16 +90,16 @@
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo搭建过程中的问题">
-<meta property="og:url" content="http:&#x2F;&#x2F;mackin.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;experience&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;mackxin.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;experience&#x2F;index.html">
 <meta property="og:site_name" content="myland">
 <meta property="og:description" content="1.                hexo中出现的中文乱码现象 第一步： 首先找到根目录下_config.yml文件，将langue字段设为zh-Hans或者zh-CN（简体中文），具体何种类型取决于theme主题中source文件中的language文件夹中有何种语言文件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;mackin.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;experience&#x2F;config_language.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mackin.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;experience&#x2F;theme_language.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;mackin.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;experience&#x2F;sublime_encode.png">
-<meta property="og:updated_time" content="2019-11-21T07:25:00.557Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;mackxin.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;experience&#x2F;config_language.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mackxin.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;experience&#x2F;theme_language.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mackxin.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;experience&#x2F;sublime_encode.png">
+<meta property="og:updated_time" content="2019-11-21T16:49:22.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;mackin.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;experience&#x2F;config_language.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;mackxin.com&#x2F;2019&#x2F;11&#x2F;21&#x2F;experience&#x2F;config_language.png">
 
 
 
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="http://mackin.com/2019/11/21/experience/"/>
+  <link rel="canonical" href="http://mackxin.com/2019/11/21/experience/"/>
 
 
 
@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mackin.com/2019/11/21/experience/">
+    <link itemprop="mainEntityOfPage" href="http://mackxin.com/2019/11/21/experience/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AZrookie">
@@ -434,7 +434,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  147
+                  215
                 </span>
               
 
@@ -474,14 +474,51 @@
         <h1 id="1-hexo中出现的中文乱码现象"><a href="#1-hexo中出现的中文乱码现象" class="headerlink" title="1.                hexo中出现的中文乱码现象"></a>1.                hexo中出现的中文乱码现象</h1><p> 第一步： 首先找到根目录下_config.yml文件，将langue字段设为zh-Hans或者zh-CN（简体中文），具体何种类型取决于theme主题中source文件中的language文件夹中有何种语言文件。<br> <a id="more"></a><br><img src="/2019/11/21/experience/config_language.png" alt></p>
 <p><img src="/2019/11/21/experience/theme_language.png" alt><br> 第二步： 出现乱码可能是因为用记事本编辑没有使用UTF-8编码，解决办法：下载文本编辑器（例如sublime）进行编辑。</p>
 <p><img src="/2019/11/21/experience/sublime_encode.png" alt><br> 第三步： 点击sublime中file下的save with Encoding，选择UTF-8，<br> 直接点击save可能会出现警告</p>
-<p>#2.hexo的图片上传</p>
+<h1 id="2-hexo的图片上传"><a href="#2-hexo的图片上传" class="headerlink" title="2.hexo的图片上传"></a>2.hexo的图片上传</h1><h1 id="3-版权测试"><a href="#3-版权测试" class="headerlink" title="3.版权测试"></a>3.版权测试</h1><ul>
+<li>1.y_post_copyright p{margin:0;}<br>.my_post_copyright span {<br>display: inline-block;<br>width: 5.2em;<br>color: #b5b5b5;<br>font-weight: bold;<br>}<br>.my_post_copyright .raw {<br>margin-left: 1em;<br>width: 5em;<br>}<br>.my_post_copyright a {<br>color: #808080;<br>border-bottom:0;<br>}<br>.my_post_copyright a:hover {<br>color: #a3d2a3;<br>text-decoration: underline;<br>}<br>.my_post_copyright:hover .fa-clipboard {<br>color: #000;<br>}<br>.my_post_copyright .post-url:hover {<br>font-weight: normal;<br>}<br>.my_post_copyright .copy-path {<br>margin-left: 1em;<br>width: 1em;<br>+mobile(){display:none;}<br>}</li>
+</ul>
 
       
     </div>
     
     
     
+    
+    <div>
+       
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/11/21/experience/">hexo搭建过程中的问题</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
+  <p><span>发布时间:</span>2019年11月21日 - 00:11</p>
+  <p><span>最后更新:</span>2019年11月22日 - 00:11</p>
+  <p><span>原始链接:</span><a href="/2019/11/21/experience/" title="hexo搭建过程中的问题">http://mackxin.com/2019/11/21/experience/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mackxin.com/2019/11/21/experience/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
 
+
+       
+    </div>
     
       <div>
         <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
@@ -747,7 +784,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-hexo中出现的中文乱码现象"><span class="nav-number">1.</span> <span class="nav-text">1.                hexo中出现的中文乱码现象</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-hexo中出现的中文乱码现象"><span class="nav-number">1.</span> <span class="nav-text">1.                hexo中出现的中文乱码现象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-hexo的图片上传"><span class="nav-number">2.</span> <span class="nav-text">2.hexo的图片上传</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-版权测试"><span class="nav-number">3.</span> <span class="nav-text">3.版权测试</span></a></li></ol></div>
             
 
           </div>
@@ -781,7 +818,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">220</span>
+    <span title="Site words total count">288</span>
   
 </div>
 
