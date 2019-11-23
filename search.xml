@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>字符串</title>
+    <url>/2019/11/23/c/</url>
+    <content><![CDATA[<h1 id="scanf输入字符串"><a href="#scanf输入字符串" class="headerlink" title="scanf输入字符串"></a>scanf输入字符串</h1><p>scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int main(int argc, char *argv[]) &#123;</span><br><span class="line">char str1[30],str2[30],str3[30];</span><br><span class="line">scanf(&quot;%s%s%s&quot;,str1,str2,str3); </span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="字符串存储在一个数组中"><a href="#字符串存储在一个数组中" class="headerlink" title="字符串存储在一个数组中"></a>字符串存储在一个数组中</h1><p>用二维数组定义。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int main(int argc, char *argv[]) &#123;</span><br><span class="line">char str1[3][20];</span><br><span class="line">int i;</span><br><span class="line">for(i=0;i&lt;3;i++)&#123;</span><br><span class="line">	scanf(&quot;%s&quot;,str1[i]);</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;%s&quot;,str1[1]);  //输出第二个字符串</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h1><ol>
+<li>puts函数：函数中可以加入转义符，且在输出结束字符串后会自动转行<br><code>char str[]={&quot;hello\nworld!&quot;};</code></li>
+<li>strcat函数：<code>strcat(str1,str2);</code>是将两个字符串连接起来，返回值是字符串数组1的地址，并且注意字符串1的长度必须足够大。</li>
+<li>strcpy：字符串复制函数<code>strcpy(str1,str2)</code>若是采用数组元素一个个赋值不方便，直接用函数赋值。<br>strcpy可以是数组名复制，也可以是字符串常量<code>strcpy(str1,&quot;china!&quot;);</code></li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>c语言</category>
+      </categories>
+      <tags>
+        <tag>字符串，c语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo搭建过程中的问题</title>
     <url>/2019/11/21/experience/</url>
-    <content><![CDATA[<h1 id="1-hexo中出现的中文乱码现象"><a href="#1-hexo中出现的中文乱码现象" class="headerlink" title="1.                hexo中出现的中文乱码现象"></a>1.                hexo中出现的中文乱码现象</h1><p> 第一步： 首先找到根目录下_config.yml文件，将langue字段设为zh-Hans或者zh-CN（简体中文），具体何种类型取决于theme主题中source文件中的language文件夹中有何种语言文件。<br> <a id="more"></a><br><img src="/2019/11/21/experience/config_language.png" alt></p>
+    <content><![CDATA[<h1 id="hexo中出现的中文乱码现象"><a href="#hexo中出现的中文乱码现象" class="headerlink" title="hexo中出现的中文乱码现象"></a>hexo中出现的中文乱码现象</h1><p> 第一步： 首先找到根目录下_config.yml文件，将langue字段设为zh-Hans或者zh-CN（简体中文），具体何种类型取决于theme主题中source文件中的language文件夹中有何种语言文件。<br> <a id="more"></a><br><img src="/2019/11/21/experience/config_language.png" alt></p>
 <p><img src="/2019/11/21/experience/theme_language.png" alt><br> 第二步： 出现乱码可能是因为用记事本编辑没有使用UTF-8编码，解决办法：下载文本编辑器（例如sublime）进行编辑。</p>
-<p><img src="/2019/11/21/experience/sublime_encode.png" alt><br> 第三步： 点击sublime中file下的save with Encoding，选择UTF-8，<br> 直接点击save可能会出现警告</p>
-<h1 id="2-hexo的图片上传"><a href="#2-hexo的图片上传" class="headerlink" title="2.hexo的图片上传"></a>2.hexo的图片上传</h1><h1 id="3-版权测试"><a href="#3-版权测试" class="headerlink" title="3.版权测试"></a>3.版权测试</h1><ul>
-<li>1.y_post_copyright p{margin:0;}<br>.my_post_copyright span {<br>display: inline-block;<br>width: 5.2em;<br>color: #b5b5b5;<br>font-weight: bold;<br>}<br>.my_post_copyright .raw {<br>margin-left: 1em;<br>width: 5em;<br>}<br>.my_post_copyright a {<br>color: #808080;<br>border-bottom:0;<br>}<br>.my_post_copyright a:hover {<br>color: #a3d2a3;<br>text-decoration: underline;<br>}<br>.my_post_copyright:hover .fa-clipboard {<br>color: #000;<br>}<br>.my_post_copyright .post-url:hover {<br>font-weight: normal;<br>}<br>.my_post_copyright .copy-path {<br>margin-left: 1em;<br>width: 1em;<br>+mobile(){display:none;}<br>}</li>
-</ul>
+<p><img src="/2019/11/21/experience/sublime_encode.png" alt><br> 第三步： 点击sublime中file下的save with Encoding，选择UTF-8，<br> 直接点击save可能会出现警告.</p>
+<hr>
+<h1 id="hexo的图片上传"><a href="#hexo的图片上传" class="headerlink" title="hexo的图片上传"></a>hexo的图片上传</h1><p>  在根目录下建立与文章同名的文件夹，将图片放进去引用即可，或者用网络地址引用。<br> <img src="/2019/11/21/experience/image_post.png" alt></p>
+<hr>
+<h1 id="图标点击显示找不到页面。"><a href="#图标点击显示找不到页面。" class="headerlink" title="图标点击显示找不到页面。"></a>图标点击显示找不到页面。</h1><p><img src="/2019/11/21/experience/icon.png" alt><br>第一步：打开主题目录设置文件，找到menu。<br><img src="/2019/11/21/experience/menu.png" alt><br>第二步：将每个图标斜杠/后的空格删去。<br><img src="/2019/11/21/experience/menu1.png" alt></p>
+<h1 id="文章添加多个tags"><a href="#文章添加多个tags" class="headerlink" title="文章添加多个tags"></a>文章添加多个tags</h1><p>不能直接在tags标签后用空格隔开标签，应该用方括号中间用逗号隔开,<br>否则会出现文章无法上传的问题。<br><code>tags: [c语言，字符串]</code></p>
 ]]></content>
       <categories>
         <category>problem solution</category>
