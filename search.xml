@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>哈希函数和哈希表（其他查找函数）</title>
+    <url>/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><p>定义：根据哈希函数和冲突处理办法将数据存储在一段连续的空间中。</p>
+<p>不同于其他查找函数需要对值进行匹配，哈希表在建立时为每一个数据建立一个独一无二的关键字，这样查找时可以根据关键字直接找到数据。</p>
+<hr>
+<h1 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h1><p>哈希函数需要满足两个条件，假设哈希表有m个关键字，则取值范围是<br>[0，m-1]。</p>
+<ol>
+<li>哈希函数的值域必须在[0，m-1]的范围内。</li>
+<li>保证哈希函数的每个值在[0,m-1]内的概率相等。</li>
+</ol>
+<hr>
+<h1 id="哈希函数的几种办法"><a href="#哈希函数的几种办法" class="headerlink" title="哈希函数的几种办法"></a>哈希函数的几种办法</h1><ol>
+<li>直接定址法：适用与线性数据，比如年龄，日期等</li>
+<li>数字分析法：适用与某些数据中有大量重复字段，且可以预知全部的可能出现的值，取其中若干的字段作为关键字。</li>
+<li>平方取中法：适用与字段较短，可以先平方，再取中间的字段作为关键字，因为中间的字段与每个数据都有关系，可以增加概率的平均性。</li>
+<li>折叠法：将关键值分割为几个位数相同的部分，取这几个部分的叠加和作为哈希地址。</li>
+</ol>
+<ul>
+<li>移位叠加<br>   各部分按照最低位对齐（舍去进位，即相加后多出切割位的数字），然后相加。</li>
+<li>间界叠加<br>   关键字值从一端向另一端沿分界线来回折叠，然后对齐相加。</li>
+</ul>
+<ol start="5">
+<li>除留余数法：被除数必须是素数，否则会出现关键字大量重复。（最大公倍数原理）</li>
+</ol>
+<hr>
+<h1 id="处理冲突方法"><a href="#处理冲突方法" class="headerlink" title="处理冲突方法"></a>处理冲突方法</h1><p>当哈希函数值相同时，位置已经被其他数据占用，则按照冲突处理方法寻找下一个位置。</p>
+<ol>
+<li>开放定址法：令Hi=(H(key)+di)%m,其中H(key)时哈希函数，di是增量序列。</li>
+</ol>
+<ul>
+<li>若di取1，2，3，4….m-1，则为线性探测再散列。</li>
+<li>若di取1^2,-1^2,2^2,-2^2..+k^2,-k^2,则为二次探测再散列。</li>
+<li>若di取伪随机数序列，则称伪随机探测再散列。</li>
+</ul>
+<ol start="2">
+<li>链表寻址法： 对重复数据建立链表，并且将每个链表有序排列，</li>
+<li>公共溢出区法： 将哈希表的一部分作为公共区，重复数据依次放入。</li>
+</ol>
+<hr>
+<h1 id="哈希表中查找元素"><a href="#哈希表中查找元素" class="headerlink" title="哈希表中查找元素"></a>哈希表中查找元素</h1><p>  与插入的方法差不多，按关键字寻找，遇到冲突按照法则寻找。</p>
+]]></content>
+      <categories>
+        <category>c语言</category>
+      </categories>
+      <tags>
+        <tag>c语言，数据结构，查找算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>函数输出水仙花数（求各位数之和新解）</title>
+    <url>/2019/11/24/pta/</url>
+    <content><![CDATA[<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</span><br><span class="line">          temp=x%<span class="number">10</span>;<span class="comment">//取出最后一位数</span></span><br><span class="line">          x=x/<span class="number">10</span>;<span class="comment">//去掉最后一位数</span></span><br><span class="line">          y=temp+y*<span class="number">10</span>;<span class="comment">//在还原</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码是求出未知数各个位置的和。<br>与之前从第一位开始求不同，这种更方便，无需根据具体位数设置相应个数的变量。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* run this program using the console pauser or add your own getch, system("pause") or input loop */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line"><span class="keyword">int</span> i,a,b,c,d,e,f,g,t; </span><br><span class="line"><span class="keyword">if</span>(N==<span class="number">3</span>)&#123;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">100</span>;i&lt;=<span class="number">999</span>;i++)&#123;</span><br><span class="line">		a=i/<span class="number">100</span>;</span><br><span class="line">		b=(i%<span class="number">100</span>)/<span class="number">10</span>;</span><br><span class="line">		c=(i%<span class="number">100</span>)%<span class="number">10</span>;</span><br><span class="line">	t=a*a*a+b*b*b+c*c*c;</span><br><span class="line">    <span class="keyword">if</span>((a*<span class="number">100</span>+b*<span class="number">10</span>+c)==t)</span><br><span class="line">    	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a*<span class="number">100</span>+b*<span class="number">10</span>+c);</span><br><span class="line">	&#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="keyword">if</span>(N==<span class="number">4</span>)&#123;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1000</span>;i&lt;=<span class="number">9999</span>;i++)&#123;</span><br><span class="line">		a=i/<span class="number">1000</span>;</span><br><span class="line">		b=i%<span class="number">1000</span>/<span class="number">100</span>;</span><br><span class="line">		c=i%<span class="number">1000</span>%<span class="number">100</span>/<span class="number">10</span>;</span><br><span class="line">		d=i%<span class="number">1000</span>%<span class="number">100</span>%<span class="number">10</span>;</span><br><span class="line">	t=a*a*a*a+b*b*b*b+c*c*c*c+d*d*d*d;</span><br><span class="line">    <span class="keyword">if</span>((a*<span class="number">1000</span>+b*<span class="number">100</span>+c*<span class="number">10</span>+d)==t)</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,t);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;	</span><br><span class="line"> <span class="keyword">if</span>(N==<span class="number">5</span>)&#123;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">10000</span>;i&lt;<span class="number">99999</span>;i++)&#123;</span><br><span class="line">		a=i/<span class="number">10000</span>;</span><br><span class="line">		b=(i%<span class="number">10000</span>)/<span class="number">1000</span>;</span><br><span class="line">		c=(i%<span class="number">10000</span>)%<span class="number">1000</span>/<span class="number">100</span>;</span><br><span class="line">		d=(i%<span class="number">10000</span>)%<span class="number">1000</span>%<span class="number">100</span>/<span class="number">10</span>;</span><br><span class="line">		e=(i%<span class="number">10000</span>)%<span class="number">1000</span>%<span class="number">100</span>%<span class="number">10</span>;</span><br><span class="line">	t=a*a*a*a*a+b*b*b*b*b+c*c*c*c*c+d*d*d*d*d+e*e*e*e*e;</span><br><span class="line">    <span class="keyword">if</span>(a*<span class="number">10000</span>+b*<span class="number">1000</span>+c*<span class="number">100</span>+d*<span class="number">10</span>+e==t)</span><br><span class="line">    	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</span><br><span class="line">    </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="keyword">if</span>(N==<span class="number">6</span>)&#123;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">100000</span>;i&lt;<span class="number">999999</span>;i++)&#123;</span><br><span class="line">		a=i/<span class="number">100000</span>;</span><br><span class="line">		b=i%<span class="number">100000</span>/<span class="number">10000</span>;</span><br><span class="line">		c=i%<span class="number">100000</span>%<span class="number">10000</span>/<span class="number">1000</span>;</span><br><span class="line">		d=i%<span class="number">100000</span>%<span class="number">10000</span>%<span class="number">1000</span>/<span class="number">100</span>;</span><br><span class="line">		e=i%<span class="number">100000</span>%<span class="number">10000</span>%<span class="number">1000</span>%<span class="number">100</span>/<span class="number">10</span>;</span><br><span class="line">		f=i%<span class="number">100000</span>%<span class="number">10000</span>%<span class="number">1000</span>%<span class="number">100</span>%<span class="number">10</span>;</span><br><span class="line">	t=a*a*a*a*a*a+b*b*b*b*b*b+c*c*c*c*c*c+d*d*d*d*d*d+e*e*e*e*e*e+f*f*f*f*f*f;</span><br><span class="line">    <span class="keyword">if</span>((a*<span class="number">100000</span>+b*<span class="number">10000</span>+c*<span class="number">1000</span>+d*<span class="number">100</span>+e*<span class="number">10</span>+f)==t)</span><br><span class="line">    	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a*<span class="number">100000</span>+b*<span class="number">10000</span>+c*<span class="number">1000</span>+d*<span class="number">100</span>+e*<span class="number">10</span>+f);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> <span class="keyword">if</span>(N==<span class="number">7</span>)&#123;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1741723</span>;i&lt;<span class="number">9999999</span>;i++)&#123;</span><br><span class="line">		a=i/<span class="number">1000000</span>;</span><br><span class="line">		b=i%<span class="number">1000000</span>/<span class="number">100000</span>;</span><br><span class="line">		c=i%<span class="number">1000000</span>%<span class="number">100000</span>/<span class="number">10000</span>;</span><br><span class="line">		d=i%<span class="number">1000000</span>%<span class="number">100000</span>%<span class="number">10000</span>/<span class="number">1000</span>;</span><br><span class="line">		e=i%<span class="number">1000000</span>%<span class="number">100000</span>%<span class="number">10000</span>%<span class="number">1000</span>/<span class="number">100</span>;</span><br><span class="line">		f=i%<span class="number">1000000</span>%<span class="number">100000</span>%<span class="number">10000</span>%<span class="number">1000</span>%<span class="number">100</span>/<span class="number">10</span>;</span><br><span class="line">		g=i%<span class="number">1000000</span>%<span class="number">100000</span>%<span class="number">10000</span>%<span class="number">1000</span>%<span class="number">100</span>%<span class="number">10</span>;</span><br><span class="line">		t=a*a*a*a*a*a*a+b*b*b*b*b*b*b+c*c*c*c*c*c*c+d*d*d*d*d*d*d+e*e*e*e*e*e*e+f*f*f*f*f*f*f+g*g*g*g*g*g*g;</span><br><span class="line">	<span class="keyword">if</span>((a*<span class="number">1000000</span>+b*<span class="number">100000</span>+c*<span class="number">10000</span>+d*<span class="number">1000</span>+e*<span class="number">100</span>+f*<span class="number">10</span>+g)==t)</span><br><span class="line">	                        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a*<span class="number">1000000</span>+b*<span class="number">100000</span>+c*<span class="number">10000</span>+d*<span class="number">1000</span>+e*<span class="number">100</span>+f*<span class="number">10</span>+g);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然上面也可以用for循环+pow函数但还是不够简便。</p>
+]]></content>
+      <categories>
+        <category>c语言</category>
+      </categories>
+      <tags>
+        <tag>求各个位数和新解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>字符串</title>
     <url>/2019/11/23/c/</url>
     <content><![CDATA[<h1 id="scanf输入字符串"><a href="#scanf输入字符串" class="headerlink" title="scanf输入字符串"></a>scanf输入字符串</h1><p>scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔</p>

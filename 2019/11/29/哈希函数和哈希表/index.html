@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="字符串，c语言," />
+  <meta name="keywords" content="c语言，数据结构，查找算法," />
 
 
 
@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="scanf输入字符串scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔">
-<meta name="keywords" content="字符串，c语言">
+<meta name="description" content="哈希表定义：根据哈希函数和冲突处理办法将数据存储在一段连续的空间中。 不同于其他查找函数需要对值进行匹配，哈希表在建立时为每一个数据建立一个独一无二的关键字，这样查找时可以根据关键字直接找到数据。  哈希函数哈希函数需要满足两个条件，假设哈希表有m个关键字，则取值范围是[0，m-1]。  哈希函数的值域必须在[0，m-1]的范围内。 保证哈希函数的每个值在[0,m-1]内的概率相等。   哈希函数">
+<meta name="keywords" content="c语言，数据结构，查找算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="字符串">
-<meta property="og:url" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;11&#x2F;23&#x2F;c&#x2F;index.html">
+<meta property="og:title" content="哈希函数和哈希表（其他查找函数）">
+<meta property="og:url" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;11&#x2F;29&#x2F;%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8&#x2F;index.html">
 <meta property="og:site_name" content="welcome to my land">
-<meta property="og:description" content="scanf输入字符串scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔">
+<meta property="og:description" content="哈希表定义：根据哈希函数和冲突处理办法将数据存储在一段连续的空间中。 不同于其他查找函数需要对值进行匹配，哈希表在建立时为每一个数据建立一个独一无二的关键字，这样查找时可以根据关键字直接找到数据。  哈希函数哈希函数需要满足两个条件，假设哈希表有m个关键字，则取值范围是[0，m-1]。  哈希函数的值域必须在[0，m-1]的范围内。 保证哈希函数的每个值在[0,m-1]内的概率相等。   哈希函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-24T01:19:31.328Z">
+<meta property="og:updated_time" content="2019-11-30T11:48:59.121Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://AZrookie.com/2019/11/23/c/"/>
+  <link rel="canonical" href="http://AZrookie.com/2019/11/29/哈希函数和哈希表/"/>
 
 
 
 
 
-  <title>字符串 | welcome to my land</title>
+  <title>哈希函数和哈希表（其他查找函数） | welcome to my land</title>
   
 
 
@@ -332,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://AZrookie.com/2019/11/23/c/">
+    <link itemprop="mainEntityOfPage" href="http://AZrookie.com/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AZrookie">
@@ -349,7 +349,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">字符串</h1>
+          <h1 class="post-title" itemprop="name headline">哈希函数和哈希表（其他查找函数）</h1>
         
 
         <div class="post-meta">
@@ -361,8 +361,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-23T21:27:33+08:00">
-                2019-11-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-29T22:33:20+08:00">
+                2019-11-29
               </time>
             
 
@@ -402,8 +402,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/11/23/c/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/23/c/" itemprop="commentCount"></span>
+                <a href="/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  286
+                  637
                 </span>
               
 
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -467,22 +467,44 @@
       
 
       
-        <h1 id="scanf输入字符串"><a href="#scanf输入字符串" class="headerlink" title="scanf输入字符串"></a>scanf输入字符串</h1><p>scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔</p>
-<a id="more"></a>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">30</span>],str2[<span class="number">30</span>],str3[<span class="number">30</span>];</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s%s%s"</span>,str1,str2,str3); </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><p>定义：根据哈希函数和冲突处理办法将数据存储在一段连续的空间中。</p>
+<p>不同于其他查找函数需要对值进行匹配，哈希表在建立时为每一个数据建立一个独一无二的关键字，这样查找时可以根据关键字直接找到数据。</p>
 <hr>
-<h1 id="字符串存储在一个数组中"><a href="#字符串存储在一个数组中" class="headerlink" title="字符串存储在一个数组中"></a>字符串存储在一个数组中</h1><p>用二维数组定义。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">3</span>][<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str1[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>,str1[<span class="number">1</span>]);  <span class="comment">//输出第二个字符串</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h1><ol>
-<li>puts函数：函数中可以加入转义符，且在输出结束字符串后会自动转行<br><code>char str[]={&quot;hello\nworld!&quot;};</code></li>
-<li>strcat函数：<code>strcat(str1,str2);</code>是将两个字符串连接起来，返回值是字符串数组1的地址，并且注意字符串1的长度必须足够大。</li>
-<li>strcpy：字符串复制函数<code>strcpy(str1,str2)</code>若是采用数组元素一个个赋值不方便，直接用函数赋值。<br>strcpy可以是数组名复制，也可以是字符串常量<code>strcpy(str1,&quot;china!&quot;);</code></li>
-<li>strcmp：</li>
+<h1 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h1><p>哈希函数需要满足两个条件，假设哈希表有m个关键字，则取值范围是<br>[0，m-1]。</p>
+<ol>
+<li>哈希函数的值域必须在[0，m-1]的范围内。</li>
+<li>保证哈希函数的每个值在[0,m-1]内的概率相等。</li>
 </ol>
+<hr>
+<h1 id="哈希函数的几种办法"><a href="#哈希函数的几种办法" class="headerlink" title="哈希函数的几种办法"></a>哈希函数的几种办法</h1><ol>
+<li>直接定址法：适用与线性数据，比如年龄，日期等</li>
+<li>数字分析法：适用与某些数据中有大量重复字段，且可以预知全部的可能出现的值，取其中若干的字段作为关键字。</li>
+<li>平方取中法：适用与字段较短，可以先平方，再取中间的字段作为关键字，因为中间的字段与每个数据都有关系，可以增加概率的平均性。</li>
+<li>折叠法：将关键值分割为几个位数相同的部分，取这几个部分的叠加和作为哈希地址。</li>
+</ol>
+<ul>
+<li>移位叠加<br>   各部分按照最低位对齐（舍去进位，即相加后多出切割位的数字），然后相加。</li>
+<li>间界叠加<br>   关键字值从一端向另一端沿分界线来回折叠，然后对齐相加。</li>
+</ul>
+<ol start="5">
+<li>除留余数法：被除数必须是素数，否则会出现关键字大量重复。（最大公倍数原理）</li>
+</ol>
+<hr>
+<h1 id="处理冲突方法"><a href="#处理冲突方法" class="headerlink" title="处理冲突方法"></a>处理冲突方法</h1><p>当哈希函数值相同时，位置已经被其他数据占用，则按照冲突处理方法寻找下一个位置。</p>
+<ol>
+<li>开放定址法：令Hi=(H(key)+di)%m,其中H(key)时哈希函数，di是增量序列。</li>
+</ol>
+<ul>
+<li>若di取1，2，3，4….m-1，则为线性探测再散列。</li>
+<li>若di取1^2,-1^2,2^2,-2^2..+k^2,-k^2,则为二次探测再散列。</li>
+<li>若di取伪随机数序列，则称伪随机探测再散列。</li>
+</ul>
+<ol start="2">
+<li>链表寻址法： 对重复数据建立链表，并且将每个链表有序排列，</li>
+<li>公共溢出区法： 将哈希表的一部分作为公共区，重复数据依次放入。</li>
+</ol>
+<hr>
+<h1 id="哈希表中查找元素"><a href="#哈希表中查找元素" class="headerlink" title="哈希表中查找元素"></a>哈希表中查找元素</h1><p>  与插入的方法差不多，按关键字寻找，遇到冲突按照法则寻找。</p>
 
       
     </div>
@@ -499,12 +521,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2019/11/23/c/">字符串</a></p>
+  <p><span>本文标题:</span><a href="/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希函数和哈希表（其他查找函数）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
-  <p><span>发布时间:</span>2019年11月23日 - 21:11</p>
-  <p><span>最后更新:</span>2019年11月24日 - 09:11</p>
-  <p><span>原始链接:</span><a href="/2019/11/23/c/" title="字符串">http://azrookie.com/2019/11/23/c/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2019/11/23/c/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年11月29日 - 22:11</p>
+  <p><span>最后更新:</span>2019年11月30日 - 19:11</p>
+  <p><span>原始链接:</span><a href="/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希函数和哈希表（其他查找函数）">http://azrookie.com/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -572,9 +594,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8Cc%E8%AF%AD%E8%A8%80/" rel="tag">
+            <a href="/tags/c%E8%AF%AD%E8%A8%80%EF%BC%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8C%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/" rel="tag">
 <i class="fa fa-space-shuttle" aria-hidden="true"></i>
-            <a> 字符串，c语言</a>
+            <a> c语言，数据结构，查找算法</a>
           
         </div>
       
@@ -587,8 +609,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/21/experience/" rel="next" title="hexo搭建过程中的问题">
-                <i class="fa fa-chevron-left"></i> hexo搭建过程中的问题
+              <a href="/2019/11/24/pta/" rel="next" title="函数输出水仙花数（求各位数之和新解）">
+                <i class="fa fa-chevron-left"></i> 函数输出水仙花数（求各位数之和新解）
               </a>
             
           </div>
@@ -596,10 +618,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/24/pta/" rel="prev" title="函数输出水仙花数（求各位数之和新解）">
-                函数输出水仙花数（求各位数之和新解） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -794,7 +812,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#scanf输入字符串"><span class="nav-number">1.</span> <span class="nav-text">scanf输入字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串存储在一个数组中"><span class="nav-number">2.</span> <span class="nav-text">字符串存储在一个数组中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串函数"><span class="nav-number">3.</span> <span class="nav-text">字符串函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希表"><span class="nav-number">1.</span> <span class="nav-text">哈希表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希函数"><span class="nav-number">2.</span> <span class="nav-text">哈希函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希函数的几种办法"><span class="nav-number">3.</span> <span class="nav-text">哈希函数的几种办法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理冲突方法"><span class="nav-number">4.</span> <span class="nav-text">处理冲突方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希表中查找元素"><span class="nav-number">5.</span> <span class="nav-text">哈希表中查找元素</span></a></li></ol></div>
             
 
           </div>
