@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>平常的问题</title>
+    <url>/2019/12/01/problem/</url>
+    <content><![CDATA[<h1 id="devc-中文乱码"><a href="#devc-中文乱码" class="headerlink" title="devc++中文乱码"></a>devc++中文乱码</h1><p>是因为dev采用ANCI编码，不是用UTF-8编码<br>解决办法： </p>
+<ul>
+<li><p>用notpadc++打开，选择ANCI编码。</p>
+<a id="more"></a>
+<p><img src="/2019/12/01/problem/devc++.png" alt></p>
+<ul>
+<li>直接在dev中编辑</li>
+</ul>
+</li>
+</ul>
+<h1 id="dev中斜杠报错"><a href="#dev中斜杠报错" class="headerlink" title="dev中斜杠报错"></a>dev中斜杠报错</h1><p>是不支持c++注释语法，误点击编辑器选项<br>解决办法：将<code>支持所有ANCI标准设置为NO</code><br><img src="/2019/12/01/problem/devc++1.png" alt></p>
+]]></content>
+      <categories>
+        <category>problem solution</category>
+      </categories>
+      <tags>
+        <tag>c语言，乱码</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>哈希函数和哈希表（其他查找函数）</title>
     <url>/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><p>定义：根据哈希函数和冲突处理办法将数据存储在一段连续的空间中。</p>
