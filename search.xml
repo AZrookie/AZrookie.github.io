@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>leetcode周赛题目</title>
+    <url>/2019/12/02/leetcode/</url>
+    <content><![CDATA[<h1 id="164周赛第1题"><a href="#164周赛第1题" class="headerlink" title="164周赛第1题"></a>164周赛第1题</h1><p> 访问所有点的最小时间（切比雪夫距离）</p>
+<p>平面上有 n 个点，点的位置用整数坐标表示 points[i] = [xi, yi]。请你计算访问所有这些点需要的最小时间（以秒为单位）。</p>
+<p>你可以按照下面的规则在平面上移动：</p>
+<p>每一秒沿水平或者竖直方向移动一个单位长度，或者跨过对角线（可以看作在一秒内向水平和竖直方向各移动一个单位长度）。<br>必须按照数组中出现的顺序来访问这些点。</p>
+<p>在二维坐标中，二个点之间的距离定义为其各座标数值差绝对值的最大值。以(x1,y1)和(x2,y2)二点为例，其切比雪夫距离为max(|x2-x1|,|y2-y1|)。</p>
+<a id="more"></a>
+
+<p><img src="/2019/12/02/leetcode/%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB.png" alt><br><img src="/2019/12/02/leetcode/%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%B7%9D%E7%A6%BB1.png" alt><br>points.length是点的个数，范围是[1,100]，points[i].length是坐标长度，为2（x，y）。x，y距离都是-1000，1000</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minTimeToVisitAllPoints</span><span class="params">(<span class="keyword">int</span>** points, <span class="keyword">int</span> pointsSize, <span class="keyword">int</span>* pointsColSize)</span></span>&#123;</span><br><span class="line"><span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> a=<span class="number">0</span>,b=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span>(!points)   <span class="comment">//是points（点个数）为0的特殊情况</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (i;i&lt;pointsSize<span class="number">-1</span>;i++)</span><br><span class="line">&#123;</span><br><span class="line">a=<span class="built_in">abs</span>(points[i][<span class="number">0</span>]-points[i+<span class="number">1</span>][<span class="number">0</span>]);<span class="comment">//x的最大值，i表示第几个点，0是每个元素的第一个值，即横坐标</span></span><br><span class="line">b=<span class="built_in">abs</span>(points[i][<span class="number">1</span>]-points[i+<span class="number">1</span>][<span class="number">1</span>]);<span class="comment">//y的最大值，i表示第几个点，1是每个元素的第一个值，即纵坐标</span></span><br><span class="line"><span class="keyword">if</span> (a&gt;=b)    <span class="comment">//a的差值大，就加a</span></span><br><span class="line">&#123;</span><br><span class="line">sum=sum+a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">sum=sum+b;  <span class="comment">//b的差值大，就加b</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="164周赛第2题"><a href="#164周赛第2题" class="headerlink" title="164周赛第2题"></a>164周赛第2题</h1><p> 统计参与通信的服务器（逆向思维，从反面，减法出发）<br> 类似求某种存在多少符合条件的结果时，有时用逆向思维，用总数减去不符合的结果可能更简便。</p>
+<p> 这里有一幅服务器分布图，服务器的位置标识在 m * n 的整数矩阵网格 grid 中，1 表示单元格上有服务器，0 表示没有。</p>
+<p>如果两台服务器位于同一行或者同一列，我们就认为它们之间可以进行通信。</p>
+<p>请你统计并返回能够与至少一台其他服务器进行通信的服务器的数量。</p>
+<p>示例 1：<br><img src="/2019/12/02/leetcode/%E9%80%86%E5%90%91%E6%80%9D%E7%BB%B4.jpg" alt></p>
+<p>输入：grid = [[1,0],[0,1]]<br>输出：0<br>解释：没有一台服务器能与其他服务器进行通信。<br>示例 2：<br><img src="/2019/12/02/leetcode/%E9%80%86%E5%90%91%E6%80%9D%E7%BB%B41.jpg" alt></p>
+<p>输入：grid = [[1,0],[1,1]]<br>输出：3<br>解释：所有这些服务器都至少可以与一台别的服务器进行通信。<br>示例 3：</p>
+<p><img src="/2019/12/02/leetcode/%E9%80%86%E5%90%91%E6%80%9D%E7%BB%B42.jpg" alt></p>
+<p>输入：grid = [[1,1,0,0],[0,0,1,0],[0,0,1,0],[0,0,0,1]]<br>输出：4<br>解释：第一行的两台服务器互相通信，第三列的两台服务器互相通信，但右下角的服务器无法与其他服务器通信。</p>
+<p>提示：<br>m == grid.length   //行数<br>n == grid[i].length  //列数<br>1 &lt;= m &lt;= 250<br>1 &lt;= n &lt;= 250<br>grid[i][j] == 0 or 1  //存在or不存在</p>
+<p>思路：</p>
+<ol>
+<li>由第一题启发，先遍历数组，将服务器位置输入，在统计能通信的（先遍历行，存在两个以上的服务器就是一台，列同理，但是缺点明显，会有重复的不好甄别）。</li>
+<li>因此选用第二种方法，统计总服务器数目，减去不合结果的服务器（就是那台服务器所在行和列都只有一个1。<br>建立row数组用来存放每行服务器的数目，col数组用来存放每列服务器的数目，遍历数组，如果grid[row][col]存在服务器，且row=1，col=1.则此服务器无法与其他服务器通信，总数减一。<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//统计所有服务器</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(grid[i][j]==<span class="number">1</span>)&#123;</span><br><span class="line">			row[i]++;</span><br><span class="line">			col[j]++;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除不能通信的服务器</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(grid[i][j]==<span class="number">1</span>&amp;&amp;col[j]==<span class="number">1</span>&amp;&amp;row[i]==<span class="number">1</span>)&#123;</span><br><span class="line">			count--;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>c语言</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>平常的问题</title>
     <url>/2019/12/01/problem/</url>
     <content><![CDATA[<h1 id="devc-中文乱码"><a href="#devc-中文乱码" class="headerlink" title="devc++中文乱码"></a>devc++中文乱码</h1><p>是因为dev采用ANCI编码，不是用UTF-8编码<br>解决办法： </p>
