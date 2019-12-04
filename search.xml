@@ -160,6 +160,44 @@
       </tags>
   </entry>
   <entry>
+    <title>字符串</title>
+    <url>/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<h1 id="scanf输入字符串"><a href="#scanf输入字符串" class="headerlink" title="scanf输入字符串"></a>scanf输入字符串</h1><p>scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔</p>
+<a id="more"></a>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">30</span>],str2[<span class="number">30</span>],str3[<span class="number">30</span>];</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s%s%s"</span>,str1,str2,str3); </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="字符串存储在一个数组中"><a href="#字符串存储在一个数组中" class="headerlink" title="字符串存储在一个数组中"></a>字符串存储在一个数组中</h1><p>用二维数组定义。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">3</span>][<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str1[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>,str1[<span class="number">1</span>]);  <span class="comment">//输出第二个字符串</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h1><ol>
+<li>puts函数：函数中可以加入转义符，且在输出结束字符串后会自动转行<br><code>char str[]={&quot;hello\nworld!&quot;};</code></li>
+<li>strcat函数：<code>strcat(str1,str2);</code>是将两个字符串连接起来，返回值是字符串数组1的地址，并且注意字符串1的长度必须足够大。</li>
+<li>strcpy：字符串复制函数<code>strcpy(str1,str2)</code>若是采用数组元素一个个赋值不方便，直接用函数赋值。<br>strcpy可以是数组名复制，也可以是字符串常量<code>strcpy(str1,&quot;china!&quot;);</code></li>
+<li>strcmp：字符串比较函数（strcmp（str1，str2）），若str1&lt; str2，返回值小于0，若str1&gt;str2,返回值大于0.若str1==str2，则返回0（用来判断字符串的结束标志）。</li>
+</ol>
+<h1 id="字符串数组与函数名做参"><a href="#字符串数组与函数名做参" class="headerlink" title="字符串数组与函数名做参"></a>字符串数组与函数名做参</h1><ol>
+<li>当要通过某个特定值来确定函数是否结束时，用strcmp==0来判断，而不    用srt[i]==’#’或者str [i] [j]=’#’来判断,即使特 定符号已经出现程序也会直接跳过(具体原因不知，有空再说)。</li>
+<li>给字符串数组赋结束标志’\0’时，不能用str[i]==’\0’，而是应用str<br>[i][j]==’\0’来赋值(可能因为一个字符只能放一个数组格)</li>
+<li>数组名做参：定义函数时，如果定义二维数组，那么列的值不能为空<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">void</span> fet (<span class="built_in">int</span> han[][<span class="number">20</span>])&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li><p>注意形参要带变量类型，但是调用函数时不需要，尤其是字符串数组，只要带入数组名即可不需要包括后面[]的大小</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">fet(<span class="name">han</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li></li>
+</ul>
+]]></content>
+      <categories>
+        <category>c语言</category>
+      </categories>
+      <tags>
+        <tag>字符串，c语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo搭建过程中的问题</title>
     <url>/2019/11/21/experience/</url>
     <content><![CDATA[<h1 id="hexo中出现的中文乱码现象"><a href="#hexo中出现的中文乱码现象" class="headerlink" title="hexo中出现的中文乱码现象"></a>hexo中出现的中文乱码现象</h1><p> 第一步： 首先找到根目录下_config.yml文件，将langue字段设为zh-Hans或者zh-CN（简体中文），具体何种类型取决于theme主题中source文件中的language文件夹中有何种语言文件。<br> <a id="more"></a><br><img src="/2019/11/21/experience/config_language.png" alt></p>
