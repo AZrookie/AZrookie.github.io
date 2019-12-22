@@ -95,7 +95,7 @@
 <meta property="og:description" content="变量 局部变量(local variable):方法或语句块内的变量，其生命周期是从声明位置开始到方法或语句块结束为止。(和c的函数局部变量一样)。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;java&#x2F;%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png">
-<meta property="og:updated_time" content="2019-12-19T11:49:20.071Z">
+<meta property="og:updated_time" content="2019-12-21T16:26:24.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;java&#x2F;%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png">
 
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  481
+                  924
                 </span>
               
 
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -492,7 +492,37 @@
 
 </li>
 </ol>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ol>
+<li>主类中方法前加static，表名该方法是类的共享成员，可以被该类所有的实例化对象访问，当类加载时，static方法就被加载，其声明周期从属于类。若是不定义static，也可以通过对象调用普通方法。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Testmethod</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> n = scanner.nextInt();</span><br><span class="line">	<span class="keyword">int</span> m = scanner.nextInt();</span><br><span class="line">	<span class="keyword">int</span> x = sum(n,m);</span><br><span class="line">	System.out.println(<span class="string">"n+m="</span>+x);<span class="comment">//直接调用</span></span><br><span class="line">	</span><br><span class="line">	Testmethod th = <span class="keyword">new</span> Testmethod();</span><br><span class="line">	<span class="keyword">int</span> a = th.sum(<span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>);</span><br><span class="line">	System.out.println(a);<span class="comment">//对象调用</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n ,<span class="keyword">int</span> m)</span> </span>&#123; 	<span class="comment">//static 修饰的函数可以在主类中直接调用</span></span><br><span class="line">	<span class="keyword">return</span> m+n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m,<span class="keyword">int</span> x)</span> </span>&#123;<span class="comment">//没有static要先创建对象，在通过对象调用方法</span></span><br><span class="line">	<span class="keyword">return</span> n+m+x;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法的重载(overload)：函数名相同但参数列表不同(参数个数，顺序，类型)，只有返回值和形参名称不构成重载。</li>
+</ol>
+<h1 id="对象-object-instance"><a href="#对象-object-instance" class="headerlink" title="对象(object,instance)"></a>对象(object,instance)</h1><ol>
+<li>对象是具体的事物;类是对对象的抽象;</li>
+<li>类可以看成一类对象的模板，对象可以看成该类的一个具体实例。</li>
+<li>类是用于描述同一类型的对象的一个抽象概念，类中定义了这一类对象所应具有的共同的属性</li>
+</ol>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><ol>
+<li>每个文件都只能由一个public class，且类名必须与文件名一致。可以定义多个普通类</li>
+<li>类里由三个成员，属性(field),方法(method),构造方法(constructor)</li>
+<li>类可以相互引用<pre><code class="java"><span class="keyword">package</span> Test;
+</code></pre>
+</li>
+</ol>
+<p>public class Testclass {</p>
+<pre><code>int age;
+String name;
+int score;
+ grade ge;//类名+属性名
 
+public static void main(String[] args) {
+grade g1 = new grade();
+Testclass stu1 = new Testclass();
+g1.grade = 2;
+stu1.ge = g1;
+System.out.printf(&quot;年级&quot;+stu1.ge);}</code></pre><p>  }</p>
+<p>class grade{<br>    int grade;<br>}</p>
+<pre><code>
+</code></pre>
       
     </div>
     
@@ -511,7 +541,7 @@
   <p><span>本文标题:</span><a href="/2019/12/19/java/">java复习</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2019年12月19日 - 16:12</p>
-  <p><span>最后更新:</span>2019年12月19日 - 19:12</p>
+  <p><span>最后更新:</span>2019年12月22日 - 00:12</p>
   <p><span>原始链接:</span><a href="/2019/12/19/java/" title="java复习">http://azrookie.com/2019/12/19/java/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2019/12/19/java/"  aria-label="复制成功！"></i></span>
   </p>
@@ -803,7 +833,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量和常量的命名规范"><span class="nav-number">2.</span> <span class="nav-text">变量和常量的命名规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动转化"><span class="nav-number">3.</span> <span class="nav-text">自动转化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scanner获取键盘输入"><span class="nav-number">4.</span> <span class="nav-text">Scanner获取键盘输入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量和常量的命名规范"><span class="nav-number">2.</span> <span class="nav-text">变量和常量的命名规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动转化"><span class="nav-number">3.</span> <span class="nav-text">自动转化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scanner获取键盘输入"><span class="nav-number">4.</span> <span class="nav-text">Scanner获取键盘输入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法"><span class="nav-number">5.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象-object-instance"><span class="nav-number">6.</span> <span class="nav-text">对象(object,instance)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">7.</span> <span class="nav-text">类</span></a></li></ol></div>
             
 
           </div>
@@ -837,7 +867,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6k</span>
+    <span title="Site words total count">6.4k</span>
   
 </div>
 

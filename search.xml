@@ -56,7 +56,37 @@
 
 </li>
 </ol>
-]]></content>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ol>
+<li>主类中方法前加static，表名该方法是类的共享成员，可以被该类所有的实例化对象访问，当类加载时，static方法就被加载，其声明周期从属于类。若是不定义static，也可以通过对象调用普通方法。<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Testmethod</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> n = scanner.nextInt();</span><br><span class="line">	<span class="keyword">int</span> m = scanner.nextInt();</span><br><span class="line">	<span class="keyword">int</span> x = sum(n,m);</span><br><span class="line">	System.out.println(<span class="string">"n+m="</span>+x);<span class="comment">//直接调用</span></span><br><span class="line">	</span><br><span class="line">	Testmethod th = <span class="keyword">new</span> Testmethod();</span><br><span class="line">	<span class="keyword">int</span> a = th.sum(<span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>);</span><br><span class="line">	System.out.println(a);<span class="comment">//对象调用</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n ,<span class="keyword">int</span> m)</span> </span>&#123; 	<span class="comment">//static 修饰的函数可以在主类中直接调用</span></span><br><span class="line">	<span class="keyword">return</span> m+n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m,<span class="keyword">int</span> x)</span> </span>&#123;<span class="comment">//没有static要先创建对象，在通过对象调用方法</span></span><br><span class="line">	<span class="keyword">return</span> n+m+x;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法的重载(overload)：函数名相同但参数列表不同(参数个数，顺序，类型)，只有返回值和形参名称不构成重载。</li>
+</ol>
+<h1 id="对象-object-instance"><a href="#对象-object-instance" class="headerlink" title="对象(object,instance)"></a>对象(object,instance)</h1><ol>
+<li>对象是具体的事物;类是对对象的抽象;</li>
+<li>类可以看成一类对象的模板，对象可以看成该类的一个具体实例。</li>
+<li>类是用于描述同一类型的对象的一个抽象概念，类中定义了这一类对象所应具有的共同的属性</li>
+</ol>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><ol>
+<li>每个文件都只能由一个public class，且类名必须与文件名一致。可以定义多个普通类</li>
+<li>类里由三个成员，属性(field),方法(method),构造方法(constructor)</li>
+<li>类可以相互引用<pre><code class="java"><span class="keyword">package</span> Test;
+</code></pre>
+</li>
+</ol>
+<p>public class Testclass {</p>
+<pre><code>int age;
+String name;
+int score;
+ grade ge;//类名+属性名
+
+public static void main(String[] args) {
+grade g1 = new grade();
+Testclass stu1 = new Testclass();
+g1.grade = 2;
+stu1.ge = g1;
+System.out.printf(&quot;年级&quot;+stu1.ge);}</code></pre><p>  }</p>
+<p>class grade{<br>    int grade;<br>}</p>
+<pre><code>
+</code></pre>]]></content>
       <categories>
         <category>java</category>
       </categories>
