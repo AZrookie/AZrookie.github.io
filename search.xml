@@ -68,25 +68,73 @@
 <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><ol>
 <li>每个文件都只能由一个public class，且类名必须与文件名一致。可以定义多个普通类</li>
 <li>类里由三个成员，属性(field),方法(method),构造方法(constructor)</li>
-<li>类可以相互引用<pre><code class="java"><span class="keyword">package</span> Test;
-</code></pre>
+<li>类可以相互引用<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Testclass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="keyword">int</span> score;</span><br><span class="line">	 grade ge;<span class="comment">//类名+属性名</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	grade g1 = <span class="keyword">new</span> grade();</span><br><span class="line">	Testclass stu1 = <span class="keyword">new</span> Testclass();</span><br><span class="line">	g1.grade = <span class="number">2</span>;</span><br><span class="line">	stu1.ge = g1;</span><br><span class="line">	System.out.printf(<span class="string">"年级"</span>+stu1.ge);&#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">grade</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> grade;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ol>
-<p>public class Testclass {</p>
-<pre><code>int age;
-String name;
-int score;
- grade ge;//类名+属性名
+<h1 id="构造方法-constructor"><a href="#构造方法-constructor" class="headerlink" title="构造方法(constructor)"></a>构造方法(constructor)</h1><ol>
+<li><p>用于对象的初始化，在对象创建时被调用，构造器的名称应该与类的名称一致，    虽然有返回值，但不能加return(返回值必然时本类)，即public+类名(不用加返回值类型名)</p>
+</li>
+<li><p>构造方法同样可以重载，但是当形参和实参重复时，就要用this关键字，this指代正在创建的对象。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">hero</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> hp ;</span><br><span class="line">   <span class="keyword">int</span> speed;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">hero</span> <span class="params">(<span class="keyword">int</span> hp,<span class="keyword">int</span> speed)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.hp = hp;  <span class="comment">//this.hp 指代创建对象的hp，等号后面的hp是形参hp</span></span><br><span class="line">		<span class="keyword">this</span>.speed = speed;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public static void main(String[] args) {
-grade g1 = new grade();
-Testclass stu1 = new Testclass();
-g1.grade = 2;
-stu1.ge = g1;
-System.out.printf(&quot;年级&quot;+stu1.ge);}</code></pre><p>  }</p>
-<p>class grade{<br>    int grade;<br>}</p>
-<pre><code>
-</code></pre>]]></content>
+</li>
+</ol>
+<h1 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h1><ol>
+<li>类和类之间的关系有5种，分别是：</li>
+</ol>
+<p><img src="/2019/12/19/java/%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.png" alt></p>
+<ul>
+<li>自身：hero类</li>
+<li>同包子类：charactor包里继承了hero包的类(ADhero)</li>
+<li>不同包子类：charactor1和property包里的继承了hero的类(support)</li>
+<li>同包类：charactor包里除了hero的所有类</li>
+<li>其他类：除上述类外的所有类</li>
+</ul>
+<ol start="2">
+<li>修饰符类型：</li>
+</ol>
+<ul>
+<li>private只能自己访问，其余任何类都不能访问或继承<br><img src="/2019/12/19/java/private.png" alt></li>
+<li>package/friendly/default,没有修饰符是的默认修饰符，同包的子类和其他类可以继承和访问，但其他类的子类和类就不能访问和继承。<br><img src="/2019/12/19/java/default.png" alt></li>
+<li>protected，除其他类不能访问外，同包和不同包都可以继承。<br><img src="/2019/12/19/java/protected.png" alt></li>
+<li>public，任何地方，都可以访问<br><img src="/2019/12/19/java/public.png" alt></li>
+</ul>
+<ol start="3">
+<li>适用范围：</li>
+</ol>
+<ul>
+<li>属性通常使用private封装起来</li>
+<li>方法一般使用public用于被调用</li>
+<li>会被子类继承的方法，通常使用protected</li>
+<li>package用的不多，一般新手会用package,因为还不知道有修饰符这个东西</li>
+</ul>
+<p>-再就是作用范围最小原则<br>  简单说，能用private就用private，不行就放大一级，用package,再不行就用protected，最后用public。这样就能把数据尽量的封装起来，没有必要露出来的，就不用露出来了</p>
+<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><ol>
+<li>又叫singleton，一个类在一个JVM里只有一个实例村在。有两种办法，两种办法的步骤都是</li>
+</ol>
+<ul>
+<li>将构造方法私有化，使其不能被外部方法更改</li>
+<li>将类属性实例化(二者主要区别就在这里)</li>
+<li>写public static(类方法)，返回instance(实例)</li>
+</ul>
+<p>懒汉式：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleleton</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	giantDragon g1 = giantDragon.getInstance();</span><br><span class="line">	giantDragon g2 = giantDragon.getInstance();</span><br><span class="line">	System.out.println(g1==g2);<span class="comment">//返回true，两者是同一对象</span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">giantDragon</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">giantDragon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;<span class="comment">//构造器私有化</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> giantDragon instance;<span class="comment">//定义一个类属性，</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> giantDragon <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(instance==<span class="keyword">null</span>) &#123;<span class="comment">//调用getIstance函数，如果没有实例，就新建一个</span></span><br><span class="line">			instance = <span class="keyword">new</span> giantDragon();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;<span class="comment">//如果已经有的话就返回实例</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>饿汉式</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleleton</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	giantDragon g1 = giantDragon.getInstance();</span><br><span class="line">	giantDragon g2 = giantDragon.getInstance();</span><br><span class="line">	System.out.println(g1==g2);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">giantDragon</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">giantDragon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> giantDragon instance = <span class="keyword">new</span> giantDragon();<span class="comment">//二者差别就在于此，饿汉式是加载类的时侯就加载完成的，即不管是否调用getInstance，类属性都被被实例化，而懒汉式只有当调用时才会实例化</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> giantDragon <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>饿汉式是立即加载的方式，无论是否会用到这个对象，都会加载。<br>如果在构造方法里写了性能消耗较大，占时较久的代码，比如建立与数据库的连接，那么就会在启动的时候感觉稍微有些卡顿。</li>
+</ol>
+<p>懒汉式，是延迟加载的方式，只有使用的时候才会加载。 并且有线程安全的考量。<br>使用懒汉式，在启动的时候，会感觉到比饿汉式略快，因为并没有做对象的实例化。 但是在第一次调用的时候，会进行实例化操作，感觉上就略慢。</p>
+<p>看业务需求，如果业务上允许有比较充分的启动和初始化时间，就使用饿汉式，否则就使用懒汉式</p>
+<h1 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h1><ol>
+<li>使用枚举类型时，要另外定义一个新的public类，因为一个Java文件只能有一个public类，常用于switch结构里(用来定义常量)，可以防止case越界引起程序的混乱。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">hhh</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(Season s: Season.Values())&#123;</span><br><span class="line">			System.out.println(s);<span class="comment">//增强型循环，变量类型+中间变量+要输出的内容</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//在另外一个文件里定义枚举类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Season&#123;</span><br><span class="line">	SPRING,SUMMER,AUTUMN,WINTER<span class="comment">//没有分号</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>java</category>
       </categories>
