@@ -182,7 +182,7 @@
       </tags>
   </entry>
   <entry>
-    <title>平常的问题</title>
+    <title>各种工具的问题和解决办法</title>
     <url>/2019/12/01/problem/</url>
     <content><![CDATA[<h1 id="devc-中文乱码"><a href="#devc-中文乱码" class="headerlink" title="devc++中文乱码"></a>devc++中文乱码</h1><p>是因为dev采用ANCI编码，不是用UTF-8编码<br>解决办法： </p>
 <ul>
@@ -194,13 +194,36 @@
 </ul>
 </li>
 </ul>
+<hr>
 <h1 id="dev中斜杠报错"><a href="#dev中斜杠报错" class="headerlink" title="dev中斜杠报错"></a>dev中斜杠报错</h1><p>是不支持c++注释语法，误点击编辑器选项<br>解决办法：将<code>支持所有ANCI标准设置为NO</code><br><img src="/2019/12/01/problem/devc++1.png" alt></p>
+<hr>
+<h1 id="hexo中出现的中文乱码现象"><a href="#hexo中出现的中文乱码现象" class="headerlink" title="hexo中出现的中文乱码现象"></a>hexo中出现的中文乱码现象</h1><p> 第一步： 首先找到根目录下_config.yml文件，将langue字段设为zh-Hans或者zh-CN（简体中文），具体何种类型取决于theme主题中source文件中的language文件夹中有何种语言文件。<br><img src="/2019/12/01/problem/config_language.png" alt></p>
+<p><img src="/2019/12/01/problem/theme_language.png" alt><br> 第二步： 出现乱码可能是因为用记事本编辑没有使用UTF-8编码，解决办法：下载文本编辑器（例如sublime）进行编辑。</p>
+<p><img src="/2019/12/01/problem/sublime_encode.png" alt><br> 第三步： 点击sublime中file下的save with Encoding，选择UTF-8，<br> 直接点击save可能会出现警告.</p>
+<hr>
+<h1 id="hexo的图片上传"><a href="#hexo的图片上传" class="headerlink" title="hexo的图片上传"></a>hexo的图片上传</h1><p>  在根目录下建立与文章同名的文件夹，将图片放进去引用即可，或者用网络地址引用。<br> <img src="/2019/12/01/problem/image_post.png" alt></p>
+<hr>
+<h1 id="图标点击显示找不到页面。"><a href="#图标点击显示找不到页面。" class="headerlink" title="图标点击显示找不到页面。"></a>图标点击显示找不到页面。</h1><p><img src="/2019/12/01/problem/icon.png" alt><br>第一步：打开主题目录设置文件，找到menu。<br><img src="/2019/12/01/problem/menu.png" alt><br>第二步：将每个图标斜杠/后的空格删去。<br><img src="/2019/12/01/problem/menu1.png" alt></p>
+<hr>
+<h1 id="文章添加多个tags"><a href="#文章添加多个tags" class="headerlink" title="文章添加多个tags"></a>文章添加多个tags</h1><p>不能直接在tags标签后用空格隔开标签，应该用方括号中间用逗号隔开,<br>否则会出现文章无法上传的问题。</p>
+<hr>
+<h1 id="hexo页面上传"><a href="#hexo页面上传" class="headerlink" title="hexo页面上传"></a>hexo页面上传</h1><ol>
+<li>标签和其他页面的格式要符合hexo的表准，单个标签用双引号，多个用方括号，中间不用双引号，否则页面无法上传。</li>
+</ol>
+<hr>
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><ol>
+<li>navicat 10061(MySQL服务未开启，无法连接到数据库)，是由于再金山毒霸里开启了开机加速，导致MySQL被禁止开机自启动，取消限制后任然没有作用，就可以通过手动启动来解决。</li>
+</ol>
+<ul>
+<li>win + R启动运行程序，输入services.msc<br><img src="/2019/12/01/problem/mysql.png" alt></li>
+<li>找到mysql服务打开即可<br><img src="/2019/12/01/problem/mysql1.png" alt></li>
+</ul>
 ]]></content>
       <categories>
         <category>problem solution</category>
       </categories>
       <tags>
-        <tag>c语言，乱码</tag>
+        <tag>解决办法，工具软件</tag>
       </tags>
   </entry>
   <entry>
@@ -379,28 +402,6 @@
       </categories>
       <tags>
         <tag>字符串，c语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo搭建过程中的问题</title>
-    <url>/2019/11/21/experience/</url>
-    <content><![CDATA[<h1 id="hexo中出现的中文乱码现象"><a href="#hexo中出现的中文乱码现象" class="headerlink" title="hexo中出现的中文乱码现象"></a>hexo中出现的中文乱码现象</h1><p> 第一步： 首先找到根目录下_config.yml文件，将langue字段设为zh-Hans或者zh-CN（简体中文），具体何种类型取决于theme主题中source文件中的language文件夹中有何种语言文件。<br> <a id="more"></a><br><img src="/2019/11/21/experience/config_language.png" alt></p>
-<p><img src="/2019/11/21/experience/theme_language.png" alt><br> 第二步： 出现乱码可能是因为用记事本编辑没有使用UTF-8编码，解决办法：下载文本编辑器（例如sublime）进行编辑。</p>
-<p><img src="/2019/11/21/experience/sublime_encode.png" alt><br> 第三步： 点击sublime中file下的save with Encoding，选择UTF-8，<br> 直接点击save可能会出现警告.</p>
-<hr>
-<h1 id="hexo的图片上传"><a href="#hexo的图片上传" class="headerlink" title="hexo的图片上传"></a>hexo的图片上传</h1><p>  在根目录下建立与文章同名的文件夹，将图片放进去引用即可，或者用网络地址引用。<br> <img src="/2019/11/21/experience/image_post.png" alt></p>
-<hr>
-<h1 id="图标点击显示找不到页面。"><a href="#图标点击显示找不到页面。" class="headerlink" title="图标点击显示找不到页面。"></a>图标点击显示找不到页面。</h1><p><img src="/2019/11/21/experience/icon.png" alt><br>第一步：打开主题目录设置文件，找到menu。<br><img src="/2019/11/21/experience/menu.png" alt><br>第二步：将每个图标斜杠/后的空格删去。<br><img src="/2019/11/21/experience/menu1.png" alt></p>
-<h1 id="文章添加多个tags"><a href="#文章添加多个tags" class="headerlink" title="文章添加多个tags"></a>文章添加多个tags</h1><p>不能直接在tags标签后用空格隔开标签，应该用方括号中间用逗号隔开,<br>否则会出现文章无法上传的问题。<br><code>tags: [c语言，字符串]</code></p>
-<h1 id="hexo页面上传"><a href="#hexo页面上传" class="headerlink" title="hexo页面上传"></a>hexo页面上传</h1><ol>
-<li>标签和其他页面的格式要符合hexo的表准，单个标签用双引号，多个用方括号，中间不用双引号，否则页面无法上传。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>problem solution</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
