@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="指针 通过指针引用数组元素，1234int a [5]=&amp;#123;1,2,3,4,5&amp;#125;;int *p=&amp;amp;a;(p+i)&#x2F;&#x2F;第i个元素的地址*(p+i)&#x2F;&#x2F;第i个元素 ！！！！数组名为第一个元素a[i]的地址，是一个指针常量，不能进行a++运算，要用a+1进行运算(递归注意，就是这里错的)。但是用int *p=a之后就可以用p++。  递归 概念：递归算法的思想实质就是分治策略，">
+<meta name="description" content="指针 通过指针引用数组元素，1234int a [5]=&amp;#123;1,2,3,4,5&amp;#125;;int *p=&amp;amp;a;(p+i)&#x2F;&#x2F;第i个元素的地址*(p+i)&#x2F;&#x2F;第i个元素 ！！！！数组名为第一个元素a[i]的地址，是一个指针常量，不能进行a++运算，要用a+1进行运算(递归注意，就是这里错的)。但是用int *p=a之后就可以用p++。 对数组进行操作的话，函数只要传入首个元素的地址">
 <meta name="keywords" content="c语言，数据结构，算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构与算法实战">
 <meta property="og:url" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98&#x2F;index.html">
 <meta property="og:site_name" content="welcome to my land">
-<meta property="og:description" content="指针 通过指针引用数组元素，1234int a [5]=&amp;#123;1,2,3,4,5&amp;#125;;int *p=&amp;amp;a;(p+i)&#x2F;&#x2F;第i个元素的地址*(p+i)&#x2F;&#x2F;第i个元素 ！！！！数组名为第一个元素a[i]的地址，是一个指针常量，不能进行a++运算，要用a+1进行运算(递归注意，就是这里错的)。但是用int *p=a之后就可以用p++。  递归 概念：递归算法的思想实质就是分治策略，">
+<meta property="og:description" content="指针 通过指针引用数组元素，1234int a [5]=&amp;#123;1,2,3,4,5&amp;#125;;int *p=&amp;amp;a;(p+i)&#x2F;&#x2F;第i个元素的地址*(p+i)&#x2F;&#x2F;第i个元素 ！！！！数组名为第一个元素a[i]的地址，是一个指针常量，不能进行a++运算，要用a+1进行运算(递归注意，就是这里错的)。但是用int *p=a之后就可以用p++。 对数组进行操作的话，函数只要传入首个元素的地址">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98&#x2F;%E9%80%92%E5%BD%921.jpeg">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98&#x2F;%E9%80%92%E5%BD%922.jpeg">
-<meta property="og:updated_time" content="2019-12-21T15:03:17.047Z">
+<meta property="og:updated_time" content="2019-12-23T04:15:37.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98&#x2F;%E9%80%92%E5%BD%921.jpeg">
 
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  562
+                  850
                 </span>
               
 
@@ -449,7 +449,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -473,6 +473,13 @@
         <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><ol>
 <li>通过指针引用数组元素，<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a [<span class="number">5</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> *p=&amp;a;</span><br><span class="line">(p+i)<span class="comment">//第i个元素的地址</span></span><br><span class="line">*(p+i)<span class="comment">//第i个元素</span></span><br></pre></td></tr></table></figure>
 ！！！！数组名为第一个元素a[i]的地址，是一个指针常量，不能进行a++运算，<br>要用a+1进行运算(递归注意，就是这里错的)。但是用<code>int *p=a</code>之后就可以用p++。</li>
+<li>对数组进行操作的话，函数只要传入首个元素的地址就可以(数组是连续内存)，再知道数组的长度，就可以对数组进行索引和一系列操作<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">average</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     <span class="keyword">int</span> n;</span><br><span class="line">     <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">     <span class="keyword">int</span> a[<span class="number">20</span>];</span><br><span class="line">     <span class="keyword">int</span> x = <span class="built_in">max</span>(a,n);</span><br><span class="line">     <span class="keyword">double</span> m = average(a,n);</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"max = %d,average =  %f"</span>,x,m);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">     <span class="keyword">int</span> *p;<span class="comment">//定义一个指针，指向a数组，这样可以执行p++操作（详见1）</span></span><br><span class="line">     <span class="keyword">int</span> <span class="built_in">max</span> = *p;</span><br><span class="line">     <span class="keyword">for</span>(p=a;p&lt;a+n;p++)&#123;  <span class="comment">//n是数组长度，p向后一个不是二进制的+1，而是数组元素类型占用内存+1(这样就直观表现为数组元素向后+1)</span></span><br><span class="line">     	<span class="keyword">if</span>(*p&gt;<span class="built_in">max</span>)&#123;</span><br><span class="line">     		<span class="built_in">max</span>=*p;</span><br><span class="line">     	&#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">return</span> <span class="built_in">max</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">average</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">       itn *p;</span><br><span class="line">       <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(p=a;p&lt;a+n;p++)&#123;</span><br><span class="line">       	sum+=(<span class="keyword">double</span>)*p;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">double</span> average = sum/(<span class="keyword">double</span>)n;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> average;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>对字符串数组进行操作时，容易忘记最后加上一个中止符号(‘\0’),<br>先省略。。。。。。</li>
+</ul>
+<ol start="3">
+<li>行指针和二维数组</li>
 </ol>
 <h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><ol>
 <li><p>概念：递归算法的思想实质就是分治策略，将一个问题拆解成不能再拆解的最小问题(递推分解)，再将最小问题的解返回给上一级(回归分治)。并且在运行到最小问题的时候一定要给出结束的条件，否则会无线递归，占用完内存最终导致程序崩溃。</p>
@@ -508,7 +515,7 @@
   <p><span>本文标题:</span><a href="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/">数据结构与算法实战</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2019年12月19日 - 20:12</p>
-  <p><span>最后更新:</span>2019年12月21日 - 23:12</p>
+  <p><span>最后更新:</span>2019年12月23日 - 12:12</p>
   <p><span>原始链接:</span><a href="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" title="数据结构与算法实战">http://azrookie.com/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/"  aria-label="复制成功！"></i></span>
   </p>
@@ -830,7 +837,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">7.3k</span>
+    <span title="Site words total count">8.4k</span>
   
 </div>
 
