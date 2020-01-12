@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="welcome to my land">
 <meta property="og:description" content="servlet的定义 servlet是sun公司开发的一款用于开发动态web资源的技术，web资源分为动态和静态的两种。 动态和静态的区别   动态web资源是客户端请求的动态资源，先将资源交于web容器，在由web容器连接数据库，数据库处理数据后交由web容器返回给客户端解析渲染处理 静态资源是web容器从内存中直接调取返回给客户端 静态资源一般是设计好的html页面，而动态资源是根据设计好的程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-11T15:55:46.224Z">
+<meta property="og:updated_time" content="2020-01-12T15:54:21.991Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  325
+                  791
                 </span>
               
 
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -484,7 +484,22 @@
 <li>将Java类部署到服务器上</li>
 </ul>
 <h1 id="一些杂谈"><a href="#一些杂谈" class="headerlink" title="一些杂谈"></a>一些杂谈</h1><ol>
-<li>得到表单提交的数据用String name = request.getParameter(“name”);<br>这里request.getParameter(“name”)的作用是获得提交的表单中name值为“name”的value，这是通过表单标签的action属性完成，这个属性是规定了表单获得的数据发送到哪个页面</li>
+<li><p>得到表单提交的数据用String name = request.getParameter(“name”);<br>这里request.getParameter(“name”)的作用是获得提交的表单中name值为“name”的value，这是通过表单标签的action属性完成，这个属性是规定了表单获得的数据发送到哪个页面</p>
+</li>
+<li><p>Servlet的框架是由两个Java包组成:javax.servlet和javax.servlet.http. 在javax.servlet包中定义了所有的Servlet类都必须实现或扩展的的通用接口和类.在javax.servlet.http包中定义了采用HTTP通信协议的HttpServlet类.</p>
+</li>
+<li><p>Servlet的框架的核心是javax.servlet.Servlet接口,所有的Servlet都必须实现这一接口.在Servlet接口中定义了5个方法,其中有3个方法代表了Servlet的声明周期:</p>
+</li>
+<li><p>init方法,负责初始化Servlet对象<br>service方法,负责相应客户的请求<br>destory方法,当Servlet对象退出声明周期时,负责释放占有的资源</p>
+</li>
+<li><p>ServletConfig:代表当前Servlet在web.xml中的配置信息（用的不多）</p>
+</li>
+</ol>
+<p>String getServletName()  – 获取当前Servlet在web.xml中配置的名字<br>String getInitParameter(String name) – 获取当前Servlet指定名称的初始化参数的值<br>Enumeration getInitParameterNames()  – 获取当前Servlet所有初始化参数的名字组成的枚举<br>ServletContext getServletContext()  – 获取代表当前web应用的ServletContext对象<br>在Servlet的配置文件中，可以使用一个或多个<init-param>标签为servlet配置一些初始化参数。</init-param></p>
+<p>当servlet配置了初始化参数后，web容器在创建servlet实例对象时，会自动将这些初始化参数封装到ServletConfig对象中，并在调用servlet的init方法时，将ServletConfig对象传递给servlet。进而，程序员通过ServletConfig对象就可以得到当前servlet的初始化参数信息。</p>
+<p>这样做的好处是：如果将数据库信息、编码方式等配置信息放在web.xml中，如果以后数据库的用户名、密码改变了，则直接很方便地修改web.xml就行了，避免了直接修改源代码的麻烦</p>
+<ol start="6">
+<li>不管是客户端还是服务端，要想跳转，就得把跳转页面放在web文件夹下，而不是放在WEB-INF文件夹下</li>
 </ol>
 
       
@@ -505,7 +520,7 @@
   <p><span>本文标题:</span><a href="/2020/01/11/servlet/">servlet的使用</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2020年01月11日 - 21:01</p>
-  <p><span>最后更新:</span>2020年01月11日 - 23:01</p>
+  <p><span>最后更新:</span>2020年01月12日 - 23:01</p>
   <p><span>原始链接:</span><a href="/2020/01/11/servlet/" title="servlet的使用">http://azrookie.com/2020/01/11/servlet/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2020/01/11/servlet/"  aria-label="复制成功！"></i></span>
   </p>
@@ -831,7 +846,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">9.8k</span>
+    <span title="Site words total count">10.3k</span>
   
 </div>
 
