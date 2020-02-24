@@ -96,7 +96,9 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98&#x2F;%E9%80%92%E5%BD%921.jpeg">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98&#x2F;%E9%80%92%E5%BD%922.jpeg">
-<meta property="og:updated_time" content="2019-12-23T04:15:37.730Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98&#x2F;stack.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98&#x2F;%E5%85%88%E5%BA%8F%E9%9D%9E%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86.jpg">
+<meta property="og:updated_time" content="2020-02-24T14:59:47.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98&#x2F;%E9%80%92%E5%BD%921.jpeg">
 
@@ -433,7 +435,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  850
+                  3.5k
                 </span>
               
 
@@ -449,7 +451,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  13
                 </span>
               
             </div>
@@ -496,6 +498,98 @@
 </li>
 </ol>
 <p><img src="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/%E9%80%92%E5%BD%921.jpeg" alt><br><img src="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/%E9%80%92%E5%BD%922.jpeg" alt></p>
+<h1 id="栈-stack"><a href="#栈-stack" class="headerlink" title="栈(stack)"></a>栈(stack)</h1><ol>
+<li>特性：先进后出，是一种只能对表尾进行插入和删除的运算受限线性表，将表尾称作栈顶，另一端称为栈底，插入删除元素分别叫做入栈(push)和出栈(pop)。<br><img src="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/stack.png" alt></li>
+<li>ElemType:是element type 的简体，代指元素类型，类似Java中的泛型，</li>
+<li>与define的区别：</li>
+</ol>
+<ul>
+<li>#define可以使用其他类型说明符对宏类型名进行拓展，但对typedef定义的类型名却不能这样<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INTERGE int </span></span><br><span class="line"><span class="keyword">unsigned</span> INTERGE n;<span class="comment">//真确</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> INTERGE </span><br><span class="line"><span class="keyword">unsigned</span> INTERGE n;<span class="comment">//错误，typedef不能用说明符进行拓展</span></span><br></pre></td></tr></table></figure></li>
+<li>顺序不同:#define 是前换后，typedef是后换前，<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI int<span class="comment">//将int用PI替代</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> PI<span class="comment">//将int重命名为PI</span></span><br></pre></td></tr></table></figure></li>
+<li>连续定义多个变量时，typedef能保证定义的所有变量是同一类型，而#define不能保证<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OI int*</span></span><br><span class="line">OI p1,p2;<span class="comment">//相当于int*p1，p2，只有p1是指针，p2是int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span>* OI</span><br><span class="line">OI p1 ，p2；<span class="comment">//p1，p2都是指针；</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="4">
+<li>栈的有关操作:</li>
+</ol>
+<ul>
+<li>初始化:<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">StackInit</span><span class="params">(Stack* s)</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//为栈申请空间</span></span><br><span class="line">  s-&gt;base=(DataType*)<span class="built_in">malloc</span>(length*<span class="keyword">sizeof</span>(DataType));</span><br><span class="line">  <span class="comment">//判断是否申成功</span></span><br><span class="line">  <span class="keyword">if</span>(!s-&gt;base)&#123;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">  &#125; </span><br><span class="line">  <span class="comment">//初始化栈数组空间</span></span><br><span class="line">  s-&gt;top = s-&gt;base;<span class="comment">//最开始栈顶等于栈底</span></span><br><span class="line">  s-&gt;stackSize = length;<span class="comment">//Stacksize表示栈的最大长度</span></span><br><span class="line">  <span class="keyword">return</span> ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>入栈:<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">StackPush</span> <span class="params">(Stack* s,DataType x)</span></span>&#123;</span><br><span class="line">  <span class="comment">//断言</span></span><br><span class="line">  assert(s);</span><br><span class="line">  <span class="keyword">if</span>(s-&gt;stackSize==s-&gt;top-s-&gt;base)&#123;<span class="comment">//栈的顶部减底部就是栈的长度 ,判断是否满栈 </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"空间已满，追加空间"</span>);</span><br><span class="line">    s-&gt;base = (DataType*)<span class="built_in">realloc</span>(s-&gt;base,(s-&gt;stackSize+length)*<span class="keyword">sizeof</span>(DataType));</span><br><span class="line">    <span class="comment">//为栈扩容，重新分配地址,最大容量在加length</span></span><br><span class="line">    <span class="keyword">if</span>(!s-&gt;base)&#123;</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125; </span><br><span class="line">    s-&gt;top = s-&gt;base+s-&gt;stackSize;<span class="comment">//将top向上移动stacksize个元素单位 </span></span><br><span class="line">    s-&gt;stackSize+=length;<span class="comment">//记录当前的栈的最大长度 </span></span><br><span class="line">  &#125; </span><br><span class="line">  *(s-&gt;top)=x;<span class="comment">//赋值 </span></span><br><span class="line">  s-&gt;top++;<span class="comment">//top移向上一个元素，为下一个赋值 </span></span><br><span class="line">  <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>出栈:<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">DataType <span class="title">StackPop</span><span class="params">(Stack* s)</span></span>&#123;</span><br><span class="line">  assert(s);</span><br><span class="line">  <span class="keyword">if</span>(StackEmpty(s))&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"栈为空"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> *--(s-&gt;top);</span><br><span class="line"><span class="comment">//优先级 '.' &gt; "--" = '*'</span></span><br><span class="line"><span class="comment">//s.top有两种可能</span></span><br><span class="line"><span class="comment">//一是指向栈顶元素的指针</span></span><br><span class="line"><span class="comment">//二是指向比栈顶元素更高一层的空元素</span></span><br><span class="line"><span class="comment">//从这里的实际情况来看，我判断是第二种情况，当s.top==0时，栈为空。</span></span><br><span class="line"><span class="comment">//--s.top是递减指针，这时s.top就指向真正的栈顶元素了</span></span><br><span class="line"><span class="comment">//*--s.top是是该元素，返回给e</span></span><br><span class="line"><span class="comment">//这样e就得到了真正的栈顶元素，同时栈内元素数目减一</span></span><br><span class="line"><span class="comment">//说白了就是e=stack.pop()操作。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>查看栈的大小<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">DataType <span class="title">StackSize</span><span class="params">(Stack* s)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (s-&gt;top-s-&gt;base);<span class="comment">//顶部-底部就是元素个数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>查看栈顶元素<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">DataType <span class="title">StackTop</span><span class="params">(Stack* s)</span></span>&#123;</span><br><span class="line">  assert(s);</span><br><span class="line">  <span class="keyword">if</span>(StackEmpty(s))&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"栈为空"</span>);</span><br><span class="line">    <span class="keyword">return</span>; </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> *(s-&gt;top<span class="number">-1</span>);<span class="comment">//s.top指向的是比栈顶更高一层的空间,因此要先-1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>判空<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">StackEmpty</span><span class="params">(Stack* s)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>==(s-&gt;top-s-&gt;base);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="realloc-再分配函数"><a href="#realloc-再分配函数" class="headerlink" title="realloc(再分配函数)"></a>realloc(再分配函数)</h1><ol>
+<li>用来冲新分配内存，原型是：(void<em>)realloc(void</em> ptr,size_t size);<br>ptr是需要重新分配内存的指针所指向的空间，size是新的内存空间大小。</li>
+<li>size可以比原来大或者小，当内存不够用时，就可以调用realloc来重新分配内存</li>
+<li>如果ptr指向NULL，那么作用和malloc是一样的，而size值为0时，ptr指向的空间就会被释放，类似free()。</li>
+<li>注意点：</li>
+</ol>
+<ul>
+<li>ptr必须是在动态内存分配成功的指针，像int *i，int a[2]这样的指针时不行的，即只有通过malloc，calloc，realloc分配成功的指针才能被再次分配内存</li>
+<li>再分配成功后，原来ptr指针就会被系统回收，一定不能对ptr指针做任何操作，包扩free，但是可以对realloc的返回值进行正常操作</li>
+<li>如果扩大内存，就会把数据复制到新地址（新地址可能与原地址相同也可能不同，单依旧不能对原地址进行任何操作），如果是缩小内存，原数据会被复制并截取新长度</li>
+<li>如果分配失败，ptr指向的内存不会被释放，内容也不会被改变，依然可以正常使用<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> input,n;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>* numbers = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span>* more_numbers = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span> (<span class="string">"Enter an integer value (0 to end): "</span>);<span class="comment">//输入0表示结束</span></span><br><span class="line">        <span class="built_in">scanf</span> (<span class="string">"%d"</span>, &amp;input);</span><br><span class="line">        count++;<span class="comment">//每次递增，表示内存分配的空间，因为realloc是复制再重新分配，而不是在原地址直接增加内存，因此要递增</span></span><br><span class="line">        more_numbers = (<span class="keyword">int</span>*) <span class="built_in">realloc</span> (numbers, count * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));<span class="comment">//分配count个空间</span></span><br><span class="line">        <span class="keyword">if</span> (more_numbers!=<span class="literal">NULL</span>) &#123;<span class="comment">//如果分配内存成功，那么more_numbers就非空</span></span><br><span class="line">            numbers=more_numbers;<span class="comment">//将numbers指向more_numbers</span></span><br><span class="line">            numbers[count<span class="number">-1</span>]=input;<span class="comment">//调用内存分配的函数都是连续空间，因此类似数组，可以用下标来访问。只不过内存大小shi可以改变的，即动态数组</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">free</span> (numbers);<span class="comment">//失败就释放指针</span></span><br><span class="line">            <span class="built_in">puts</span> (<span class="string">"Error (re)allocating memory"</span>);</span><br><span class="line">            <span class="built_in">exit</span> (<span class="number">1</span>);<span class="comment">//非正常运行导致程序退出</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">while</span>(input!=<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">"Numbers entered: "</span>);</span><br><span class="line">    <span class="keyword">for</span> (n=<span class="number">0</span>;n&lt;count;n++) <span class="built_in">printf</span>(<span class="string">"%d "</span>,numbers[n]);</span><br><span class="line">    <span class="built_in">free</span> (numbers);</span><br><span class="line">    system(<span class="string">"pause"</span>);<span class="comment">//暂停</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="一些退出用法"><a href="#一些退出用法" class="headerlink" title="一些退出用法"></a>一些退出用法</h1><p>exit（0）：正常运行程序并退出程序；</p>
+<p>exit（1）：非正常运行导致退出程序；</p>
+<p>return（）：返回函数，若在主函数中，则会退出函数并返回一值。</p>
+<p>详细说：</p>
+<ol>
+<li><p>return返回函数值，是关键字；  exit 是一个函数。</p>
+</li>
+<li><p>return是语言级别的，它表示了调用堆栈的返回；而exit是系统调用级别的，它表示了一个进程的结束。</p>
+</li>
+<li><p>return是函数的退出(返回)；exit是进程的退出。</p>
+</li>
+<li><p>return是C语言提供的，exit是操作系统提供的（或者函数库中给出的）。</p>
+</li>
+<li><p>return用于结束一个函数的执行，将函数的执行信息传出个其他调用函数使用；exit函数是退出应用程序，删除进程使用的内存空间，并将应用程序的一个状态返回给OS，这个状态标识了应用程序的一些运行信息，这个信息和机器和操作系统有关，一般是 0 为正常退出， 非0 为非正常退出。</p>
+</li>
+<li><p>非主函数中调用return和exit效果很明显，但是在main函数中调用return和exit的现象就很模糊，多数情况下现象都是一致的。</p>
+</li>
+</ol>
+<p>exit（0）与exit（1）对你的程序来说，没有区别。对使用你的程序的人或者程序来说，区别可就大了。<br>一般来说，exit 0 可以告知你的程序的使用者：你的程序是正常结束的。如果 exit 非 0 值，那么你的程序的使用者通常会认为你的程序产生了一个错误。</p>
+<p>以 shell 为例，在 shell 中调用完你的程序之后，用 echo $? 命令就可以看到你的程序的 exit 值。在 shell 脚本中，通常会根据上一个命令的 $? 值来进行一些流程控制。</p>
+<h1 id="assert-断言"><a href="#assert-断言" class="headerlink" title="assert(断言)"></a>assert(断言)</h1><ol>
+<li>assert是宏定义，其作用是类似if else，当条件满足时才会继续运行，否则终止程序运行，避免了if语句冗长的表达式，其结构为assert(int expression)，expression是表达式，当表达式返回值为0时结束，但是频繁调用assert会影响性能</li>
+<li>可以通过在包含include的语句前插入#include NDEBUG来禁用<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NDEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span></span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="指针与int相加"><a href="#指针与int相加" class="headerlink" title="指针与int相加"></a>指针与int相加</h1><ol>
+<li>指针与int n相加，则表示指针p的指向向后移动了n个p指向的元素所占有的空间值，相当于向后移了n个元素<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> a;</span><br><span class="line"><span class="keyword">char</span>* p;</span><br><span class="line">p=&amp;a;<span class="comment">//假设p值为2000，那么p+4就是2004；</span></span><br><span class="line">p=p+<span class="number">4</span>;</span><br><span class="line"><span class="keyword">int</span> b;</span><br><span class="line"><span class="keyword">int</span> *p1;</span><br><span class="line">p1=&amp;b;<span class="comment">//p值为2000，那么p+4就是2000+4*4=2016，因为int是4个字节</span></span><br><span class="line">p1+=<span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="gt-和-的区别"><a href="#gt-和-的区别" class="headerlink" title="-&gt;和.的区别"></a>-&gt;和.的区别</h1><p>.的左边是一个表达式结果为结构体的表达式，而-&gt;的左边是指向结构体的指针</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Tree</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">int</span> date;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">Tree</span> *<span class="title">length</span>;</span></span><br><span class="line">&#125;Tree,*PTree;</span><br><span class="line"></span><br><span class="line">Tree.date=a;<span class="comment">//Tree为结构体，用.</span></span><br><span class="line">PTree-&gt;date=b;<span class="comment">//PTree为指针，用-&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>#二叉树的遍历</p>
+<ol>
+<li>二叉树的遍历有三种，分别是先序遍历(DLR)，中序遍历(LDR)，后序遍历(LRD)<br>其中D是根节点，L和R分别是左子树和右子树，最常见的遍历方法有两种，分别是递归法和非递归法</li>
+<li></li>
+</ol>
+<ul>
+<li>先序递归法：递归法很容易理解，单相对来说数据大时会因为递归层数太大，调用的栈多，造成运算时间过长，占用内存过多。就相当于套娃，进入支树后，知数本身作为根节点，支树的支树作为子树<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrder</span><span class="params">(Tree e)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(t)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c"</span>,e-&gt;data);<span class="comment">//先输出e节点的值</span></span><br><span class="line">    PreOrder(e-&gt;Lchild);<span class="comment">//进入左子树，一直遍历至左子树为NULL；</span></span><br><span class="line">    PreOrder(e-&gt;Rchild);<span class="comment">//进入右子树，一直遍历至左子树为NULL；</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>先序非递归法：其实本质上与递归差不多，因为二叉树的遍历必然要用到栈，只不过由系统调用改为手动调用<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrder1</span><span class="params">(Tree e)</span></span>&#123;</span><br><span class="line">     Tree p = t;</span><br><span class="line">     Sqstack s;</span><br><span class="line">     InitStack(&amp;s);</span><br><span class="line"></span><br><span class="line">     <span class="keyword">while</span>(p||!StackEmpty(s))&#123;</span><br><span class="line">      <span class="keyword">if</span>(p)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,p-&gt;data);</span><br><span class="line">        push(&amp;s,p);</span><br><span class="line">        p = p-&gt;Lchild;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        Pop(&amp;s,p);</span><br><span class="line">        p = p-&gt;Rchild;</span><br><span class="line">      &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/%E5%85%88%E5%BA%8F%E9%9D%9E%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86.jpg" alt></li>
+</ul>
+<ol start="3">
+<li>函数传递参数中带&amp;与不带&amp;号区别<br>首先引用只有c++能使用，c不能使用引用</li>
+</ol>
+<ul>
+<li>C++ 引用<br>引用变量是一个别名，也就是说，它是某个已存在变量的另一个名字。一旦把引用初始化为某个变量，就可以使用该引用名称或变量名称来指向变量。</li>
+<li>C++ 引用 vs 指针<br>引用很容易与指针混淆，它们之间有三个主要的不同：</li>
+<li>不存在空引用。引用必须连接到一块合法的内存。</li>
+<li>一旦引用被初始化为一个对象，就不能被指向到另一个对象。指针可以在任何时候指向到另一个对象。</li>
+<li>引用必须在创建时被初始化。指针可以在任何时间被初始化。</li>
+<li>C++ 中创建引用<br>试想变量名称是变量附属在内存位置中的标签，您可以把引用当成是变量附属在内存位置中的第二个标签。因此，可以通过原始变量名称或引用来访问变量的内容</li>
+</ul>
 
       
     </div>
@@ -515,7 +609,7 @@
   <p><span>本文标题:</span><a href="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/">数据结构与算法实战</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2019年12月19日 - 20:12</p>
-  <p><span>最后更新:</span>2019年12月23日 - 12:12</p>
+  <p><span>最后更新:</span>2020年02月24日 - 22:02</p>
   <p><span>原始链接:</span><a href="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" title="数据结构与算法实战">http://azrookie.com/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/"  aria-label="复制成功！"></i></span>
   </p>
@@ -807,7 +901,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#指针"><span class="nav-number">1.</span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归"><span class="nav-number">2.</span> <span class="nav-text">递归</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#指针"><span class="nav-number">1.</span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归"><span class="nav-number">2.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#栈-stack"><span class="nav-number">3.</span> <span class="nav-text">栈(stack)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#realloc-再分配函数"><span class="nav-number">4.</span> <span class="nav-text">realloc(再分配函数)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些退出用法"><span class="nav-number">5.</span> <span class="nav-text">一些退出用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#assert-断言"><span class="nav-number">6.</span> <span class="nav-text">assert(断言)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指针与int相加"><span class="nav-number">7.</span> <span class="nav-text">指针与int相加</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gt-和-的区别"><span class="nav-number">8.</span> <span class="nav-text">-&gt;和.的区别</span></a></li></ol></div>
             
 
           </div>
@@ -841,7 +935,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">10.3k</span>
+    <span title="Site words total count">14.3k</span>
   
 </div>
 

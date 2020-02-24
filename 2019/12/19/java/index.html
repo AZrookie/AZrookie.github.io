@@ -100,7 +100,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;java&#x2F;default.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;java&#x2F;protected.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;java&#x2F;public.png">
-<meta property="og:updated_time" content="2019-12-28T07:49:20.703Z">
+<meta property="og:updated_time" content="2020-02-17T02:34:11.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;12&#x2F;19&#x2F;java&#x2F;%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png">
 
@@ -606,7 +606,7 @@
 </ol>
 <ul>
 <li>根据how2j的教程将sql的jar包下好并导入</li>
-<li>导入sql操作必要的包<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;<span class="comment">//创建数据库与Java的连接对象</span></span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;<span class="comment">//驱动管理类，用来获取数据库的连接</span></span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;<span class="comment">//用于sql的操作，各种sql语句等</span></span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;<span class="comment">//建立statement才能对数据库进行操作，statement对象：用来进行一些简单的无参查询sql语句</span></span><br></pre></td></tr></table></figure></li>
+<li>导入sql操作必要的包<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;<span class="comment">//创建数据库与Java的连接对象</span></span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;<span class="comment">//驱动管理类，用来获取数据库的连接</span></span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;<span class="comment">//用于报告与数据库相关的错误信息</span></span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;<span class="comment">//建立statement才能对数据库进行操作，statement对象：用来进行一些简单的无参查询sql语句</span></span><br></pre></td></tr></table></figure></li>
 <li>建立Connection和Statement对象，并赋空值<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Connection c=<span class="keyword">null</span>;</span><br><span class="line">Statement s = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure></li>
 <li>try-catch语句，首先加载驱动类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(com.mysql.jdbc.Driver);</span><br></pre></td></tr></table></figure>
 Class.forName(className)可以简单的理解为：获得字符串参数中指定的类，并初始化该类。返回与给定的字符串名称相关联类或接口的Class对象。</li>
@@ -646,6 +646,9 @@ Class.forName(className)可以简单的理解为：获得字符串参数中指�
 <li>统计表中有多少条数据<code>select count(*)from hero</code></li>
 <li>分页查询：<code>select form hero limit 0,5</code>每5个数据为一页查询。</li>
 </ol>
+<h1 id="数组函数"><a href="#数组函数" class="headerlink" title="数组函数"></a>数组函数</h1><ol>
+<li>array.sort:</li>
+</ol>
 
       
     </div>
@@ -665,7 +668,7 @@ Class.forName(className)可以简单的理解为：获得字符串参数中指�
   <p><span>本文标题:</span><a href="/2019/12/19/java/">java复习</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2019年12月19日 - 16:12</p>
-  <p><span>最后更新:</span>2019年12月28日 - 15:12</p>
+  <p><span>最后更新:</span>2020年02月17日 - 10:02</p>
   <p><span>原始链接:</span><a href="/2019/12/19/java/" title="java复习">http://azrookie.com/2019/12/19/java/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2019/12/19/java/"  aria-label="复制成功！"></i></span>
   </p>
@@ -957,7 +960,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量和常量的命名规范"><span class="nav-number">2.</span> <span class="nav-text">变量和常量的命名规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动转化"><span class="nav-number">3.</span> <span class="nav-text">自动转化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scanner获取键盘输入"><span class="nav-number">4.</span> <span class="nav-text">Scanner获取键盘输入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法"><span class="nav-number">5.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象-object-instance"><span class="nav-number">6.</span> <span class="nav-text">对象(object,instance)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">7.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造方法-constructor"><span class="nav-number">8.</span> <span class="nav-text">构造方法(constructor)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问修饰符"><span class="nav-number">9.</span> <span class="nav-text">访问修饰符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">10.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#枚举类型"><span class="nav-number">11.</span> <span class="nav-text">枚举类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库"><span class="nav-number">12.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jdbc"><span class="nav-number">13.</span> <span class="nav-text">jdbc</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量和常量的命名规范"><span class="nav-number">2.</span> <span class="nav-text">变量和常量的命名规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动转化"><span class="nav-number">3.</span> <span class="nav-text">自动转化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scanner获取键盘输入"><span class="nav-number">4.</span> <span class="nav-text">Scanner获取键盘输入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法"><span class="nav-number">5.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象-object-instance"><span class="nav-number">6.</span> <span class="nav-text">对象(object,instance)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">7.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造方法-constructor"><span class="nav-number">8.</span> <span class="nav-text">构造方法(constructor)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问修饰符"><span class="nav-number">9.</span> <span class="nav-text">访问修饰符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">10.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#枚举类型"><span class="nav-number">11.</span> <span class="nav-text">枚举类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库"><span class="nav-number">12.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jdbc"><span class="nav-number">13.</span> <span class="nav-text">jdbc</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组函数"><span class="nav-number">14.</span> <span class="nav-text">数组函数</span></a></li></ol></div>
             
 
           </div>
@@ -991,7 +994,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">10.3k</span>
+    <span title="Site words total count">14.3k</span>
   
 </div>
 

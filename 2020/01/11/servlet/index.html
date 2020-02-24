@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="welcome to my land">
 <meta property="og:description" content="servlet的定义 servlet是sun公司开发的一款用于开发动态web资源的技术，web资源分为动态和静态的两种。 动态和静态的区别   动态web资源是客户端请求的动态资源，先将资源交于web容器，在由web容器连接数据库，数据库处理数据后交由web容器返回给客户端解析渲染处理 静态资源是web容器从内存中直接调取返回给客户端 静态资源一般是设计好的html页面，而动态资源是根据设计好的程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-12T15:54:21.991Z">
+<meta property="og:updated_time" content="2020-01-23T12:28:53.388Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  791
+                  891
                 </span>
               
 
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -499,7 +499,10 @@
 <p>当servlet配置了初始化参数后，web容器在创建servlet实例对象时，会自动将这些初始化参数封装到ServletConfig对象中，并在调用servlet的init方法时，将ServletConfig对象传递给servlet。进而，程序员通过ServletConfig对象就可以得到当前servlet的初始化参数信息。</p>
 <p>这样做的好处是：如果将数据库信息、编码方式等配置信息放在web.xml中，如果以后数据库的用户名、密码改变了，则直接很方便地修改web.xml就行了，避免了直接修改源代码的麻烦</p>
 <ol start="6">
-<li>不管是客户端还是服务端，要想跳转，就得把跳转页面放在web文件夹下，而不是放在WEB-INF文件夹下</li>
+<li><p>不管是客户端还是服务端，要想跳转，就得把跳转页面放在web文件夹下，而不是放在WEB-INF文件夹下</p>
+</li>
+<li><p>servlet用web动态项目做的project，打开时要加127.0.0.1:8080/j2ee/listHero，不直接加listHero，并且点击增删查改操作时，点击跳转后会无法跳转，这也是由于上述原因，只要按上面格式输入就好(其实就是相对路径和绝对路径)，通过web动态项目run as就是相对路径，要加上项目名称</p>
+</li>
 </ol>
 
       
@@ -520,7 +523,7 @@
   <p><span>本文标题:</span><a href="/2020/01/11/servlet/">servlet的使用</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2020年01月11日 - 21:01</p>
-  <p><span>最后更新:</span>2020年01月12日 - 23:01</p>
+  <p><span>最后更新:</span>2020年01月23日 - 20:01</p>
   <p><span>原始链接:</span><a href="/2020/01/11/servlet/" title="servlet的使用">http://azrookie.com/2020/01/11/servlet/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2020/01/11/servlet/"  aria-label="复制成功！"></i></span>
   </p>
@@ -846,7 +849,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">10.3k</span>
+    <span title="Site words total count">14.3k</span>
   
 </div>
 
