@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="welcome to my land">
 <meta property="og:description" content="求各位数之和新解12345while(x!=0)&amp;#123;          temp=x%10;&#x2F;&#x2F;取出最后一位数          x=x&#x2F;10;&#x2F;&#x2F;去掉最后一位数          y=temp+y*10;&#x2F;&#x2F;在还原      &amp;#125; 上面代码是求出未知数各个位置的和。与之前从第一位开始求不同，这种更方便，无需根据具体位数设置相应个数的变量。 12345678910111213141">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-20T06:51:47.581Z">
+<meta property="og:updated_time" content="2020-02-28T09:42:36.855Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.7k
+                  1.9k
                 </span>
               
 
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  9
                 </span>
               
             </div>
@@ -503,6 +503,11 @@
 <li>p++操作完后指针已经移位,要想重新输出,就要另设新指针,令新指针指向数组首地址才能继续输出,否则输出的是随机数,容易忘记,所以用p+i更加保险</li>
 <li>数组名相当于指针常量,是不能像指针一样变动的,所以将数组名更改后数组的任然是原数组,不会变</li>
 </ol>
+<h1 id="数组的转置"><a href="#数组的转置" class="headerlink" title="数组的转置"></a>数组的转置</h1><ol>
+<li>建立一个新数组，将i和j颠倒重新输入，就能转置</li>
+<li>将左对角线右上方的数组元素与主对角线左下方的数组元素进行单方向交换<br>不一定是方阵，可以是任意MxN的矩阵<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;m; i++)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;n; j++)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (j&gt;i)</span><br><span class="line"></span><br><span class="line">&#123; <span class="comment">/*将主对角线右上方的数组元素与主对角线左下方的数组元素进行单方向交换*/</span></span><br><span class="line"></span><br><span class="line">temp=n[i][j];</span><br><span class="line"></span><br><span class="line">n[i][j]=n[j][i];</span><br><span class="line"></span><br><span class="line">n[j][i]=temp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"转置矩阵：\n"</span>);</span><br></pre></td></tr></table></figure></li>
+<li>用第一种方法转置后，如果i和j不一样大，那么就得新建立一个长为m的行指针，<br>不然会出现运行时错误<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (*P)[<span class="number">3</span>];<span class="comment">//原来是3x2矩阵</span></span><br><span class="line"><span class="keyword">int</span> (*a)[<span class="number">2</span>];<span class="comment">//转置后变为2x3矩阵，就要重新定义行指针</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
@@ -522,7 +527,7 @@
   <p><span>本文标题:</span><a href="/2019/11/24/pta/">函数输出水仙花数（求各位数之和新解）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2019年11月24日 - 11:11</p>
-  <p><span>最后更新:</span>2020年02月20日 - 14:02</p>
+  <p><span>最后更新:</span>2020年02月28日 - 17:02</p>
   <p><span>原始链接:</span><a href="/2019/11/24/pta/" title="函数输出水仙花数（求各位数之和新解）">http://azrookie.com/2019/11/24/pta/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2019/11/24/pta/"  aria-label="复制成功！"></i></span>
   </p>
@@ -814,7 +819,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#求各位数之和新解"><span class="nav-number">1.</span> <span class="nav-text">求各位数之和新解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逆序数输出（由末位新解联想）"><span class="nav-number">2.</span> <span class="nav-text">逆序数输出（由末位新解联想）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#另一种应用-回文数"><span class="nav-number">3.</span> <span class="nav-text">另一种应用(回文数)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#顺序查找法"><span class="nav-number">4.</span> <span class="nav-text">顺序查找法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二分查找"><span class="nav-number">5.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择排序法"><span class="nav-number">6.</span> <span class="nav-text">选择排序法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#p-和P-i的区别"><span class="nav-number">7.</span> <span class="nav-text">p++和P+i的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#求各位数之和新解"><span class="nav-number">1.</span> <span class="nav-text">求各位数之和新解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逆序数输出（由末位新解联想）"><span class="nav-number">2.</span> <span class="nav-text">逆序数输出（由末位新解联想）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#另一种应用-回文数"><span class="nav-number">3.</span> <span class="nav-text">另一种应用(回文数)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#顺序查找法"><span class="nav-number">4.</span> <span class="nav-text">顺序查找法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二分查找"><span class="nav-number">5.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择排序法"><span class="nav-number">6.</span> <span class="nav-text">选择排序法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#p-和P-i的区别"><span class="nav-number">7.</span> <span class="nav-text">p++和P+i的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组的转置"><span class="nav-number">8.</span> <span class="nav-text">数组的转置</span></a></li></ol></div>
             
 
           </div>
@@ -848,7 +853,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14.3k</span>
+    <span title="Site words total count">17k</span>
   
 </div>
 
