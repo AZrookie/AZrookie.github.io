@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="welcome to my land">
 <meta property="og:description" content="scanf输入字符串scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-08T05:40:12.670Z">
+<meta property="og:updated_time" content="2020-03-13T15:38:55.385Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  3.1k
                 </span>
               
 
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  13
                 </span>
               
             </div>
@@ -473,9 +473,12 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">30</span>],str2[<span class="number">30</span>],str3[<span class="number">30</span>];</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s%s%s"</span>,str1,str2,str3); </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h1 id="字符串存储在一个数组中"><a href="#字符串存储在一个数组中" class="headerlink" title="字符串存储在一个数组中"></a>字符串存储在一个数组中</h1><p>用二维数组定义。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">3</span>][<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str1[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>,str1[<span class="number">1</span>]);  <span class="comment">//输出第二个字符串</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="字符串数组"><a href="#字符串数组" class="headerlink" title="字符串数组"></a>字符串数组</h1><ol>
+<li>用二维数组定义。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">3</span>][<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str1[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>,str1[<span class="number">1</span>]);  <span class="comment">//输出第二个字符串</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>字符串数组第一个[]存储的是一位字符数组的地址，如果想获取具体某一个字符的话，就要加上列指针<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">3</span>][<span class="number">23</span>];</span><br><span class="line">str[<span class="number">2</span>];<span class="comment">//指向最后一行</span></span><br><span class="line">str[<span class="number">2</span>][<span class="number">0</span>];<span class="comment">//指向最后一行第一个字符</span></span><br></pre></td></tr></table></figure>
 
+</li>
+</ol>
 <hr>
 <h1 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h1><ol>
 <li>puts函数：函数中可以加入转义符，且在输出结束字符串后会自动转行<br><code>char str[]={&quot;hello\nworld!&quot;};</code></li>
@@ -508,6 +511,70 @@
 </li>
 </ol>
 <h1 id="键盘输入字符串，并将其地址存入指针数组中"><a href="#键盘输入字符串，并将其地址存入指针数组中" class="headerlink" title="键盘输入字符串，并将其地址存入指针数组中"></a>键盘输入字符串，并将其地址存入指针数组中</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">3</span>][<span class="number">34</span>];</span><br><span class="line"><span class="keyword">char</span> *p[<span class="number">3</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">	gets(str);</span><br><span class="line">	p[i]=str[i];<span class="comment">//关键就在这，str[i]实际上是二维数组每行的首地址，而</span></span><br><span class="line">	<span class="comment">//字符串正好就是按行地址输出的</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="字符串数组和指针数组区别"><a href="#字符串数组和指针数组区别" class="headerlink" title="字符串数组和指针数组区别"></a>字符串数组和指针数组区别</h1><ol>
+<li></li>
+</ol>
+<ul>
+<li>数组法占用空间大，必须开辟可以容纳最大字符串长度的空间，会造从内存的浪费，而指针数组存放的是指针，空间占用小。</li>
+<li>数组法操作运行次数多，每次进行字符串的交换都要进入strcpy函数，耗费时间比指针法多，指针法只需要交换指针所指的值就可以</li>
+<li>字符数组做形参时，数组大小要标出</li>
+<li>指针数组，使用时需要进行初始化赋值，或者需要指向具体的内存单元后，才能作为函数实参进行调用</li>
+<li>指针数组 作为函数形参时，数组大小可以不指定</li>
+</ul>
+<ol start="2">
+<li><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">    <span class="keyword">char</span> str[N][<span class="number">30</span>],tmp[<span class="number">30</span>];</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,&amp;str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;N-i;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">strcmp</span>(str[j],str[j+<span class="number">1</span>])&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">strcpy</span>(tmp,str[j]);</span><br><span class="line">                <span class="built_in">strcpy</span>(str[j],str[j+<span class="number">1</span>]);</span><br><span class="line">                <span class="built_in">strcpy</span>(str[j+<span class="number">1</span>],tmp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"After sorted:\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指针数组</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span> *p,<span class="keyword">char</span> *p1)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N,j,i;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">	<span class="keyword">char</span> str[N][<span class="number">30</span>];</span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">char</span> *p[N];</span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">		p[i]=str[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;N<span class="number">-1</span>;i++)&#123;</span><br><span class="line">          <span class="keyword">for</span> (j=<span class="number">0</span>;j&lt;N-i<span class="number">-1</span>;j++)&#123;</span><br><span class="line">          	<span class="keyword">if</span>(<span class="built_in">strcmp</span>(p[j],p[j+<span class="number">1</span>])&gt;<span class="number">0</span>)&#123;</span><br><span class="line">          		swap(p[j],p[j+<span class="number">1</span>]);</span><br><span class="line">          	&#125;</span><br><span class="line">          &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">		<span class="built_in">puts</span>(str[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span> *p,<span class="keyword">char</span> *p1)</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> *t=<span class="literal">NULL</span>；</span><br><span class="line">	t=p;</span><br><span class="line">	p=p1;</span><br><span class="line">	p1=t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="使用命令行输主函数参数"><a href="#使用命令行输主函数参数" class="headerlink" title="使用命令行输主函数参数"></a>使用命令行输主函数参数</h1><ol>
+<li>int main(int argc, char * argv[]){}<br>argc 是命令行输入的参数字符串个数，argv是字符指针数组，元素按顺序指向命令行的参数<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">c.exe <span class="number">1</span> + <span class="number">2</span>;</span><br><span class="line">argc=<span class="number">4</span>;</span><br><span class="line">argv[0]='c.exe';</span><br><span class="line">argv[<span class="number">1</span>]=<span class="string">'1'</span>;</span><br><span class="line">argv[<span class="number">2</span>]=<span class="string">'+'</span>;</span><br><span class="line">argv[<span class="number">3</span>]=<span class="string">'2'</span>;</span><br><span class="line">``` </span><br><span class="line"><span class="number">2.</span> 使用命令行首先要生成可执行文件，然后通过dos命令转到可执行文件所在目录，再输入参数</span><br><span class="line">```c</span><br><span class="line"><span class="comment">//假设可执行文件在D：\test</span></span><br><span class="line"></span><br><span class="line">d:</span><br><span class="line">cd test</span><br><span class="line">c.exe <span class="number">1</span> + <span class="number">2</span></span><br></pre></td></tr></table></figure></li>
+<li>字符串数组第一个[]存储的是一位字符数组的地址，如果想获取具体某一个字符的话，就要加上列指针<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">3</span>][<span class="number">23</span>];</span><br><span class="line">str[<span class="number">2</span>];<span class="comment">//指向最后一行</span></span><br><span class="line">str[<span class="number">2</span>][<span class="number">0</span>];<span class="comment">//指向最后一行第一个字符</span></span><br><span class="line"><span class="comment">//比如这里要判断是什么数学符号，就要用argv[2][0],而不是argv[2]</span></span><br><span class="line"><span class="comment">//因为字符数组形式和字符不等价</span></span><br></pre></td></tr></table></figure></li>
+<li>字符化为整型数<br>用aoti函数化整数，aotf化浮点数<br>iota将整数化为字符，fota将浮点数化为字符<br>传入字符的指针即可<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char *p='afsudiijsa';</span><br><span class="line">aoti(p);</span><br><span class="line"><span class="comment">//在主函数中，就是argv【1】和argv【3】，而不是*argv【1】</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="在printf函数中输出"><a href="#在printf函数中输出" class="headerlink" title="在printf函数中输出%"></a>在printf函数中输出%</h1><p>%是格式符，想要输出文本，就得用两个%%</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%d%%%d=%d\n"</span>,a,b,a%b);</span><br></pre></td></tr></table></figure>
+
+<h1 id="给字符数组赋值"><a href="#给字符数组赋值" class="headerlink" title="给字符数组赋值"></a>给字符数组赋值</h1><p>main()<br>{<br>char s[30];<br>strcpy(s, “Good News!”); /<em>给数组赋字符串</em>/<br>.<br>.<br>.<br>}<br>上面程序在编译时, 遇到char s[30]这条语句时, 编译程序会在内存的某处留<br>出连续30个字节的区域, 并将第一个字节的地址赋给s。当遇到strcpy( strcpy 为<br>Turbo C2.0的函数)时, 首先在目标文件的某处建立一个”Good News!/0” 的字符串。<br>其中/0表示字符串终止, 终止符是编译时自动加上的, 然后一个字符一个字符地复<br>制到s所指的内存区域。因此定义字符串数组时, 其元素个数至少应该比字符串的<br>长度多1。<br>注意:</p>
+<ol>
+<li>字符串数组不能用”=”直接赋值, 即s=”Good News!”是不合法的。所以应分<br>清字符串数组和字符串指针的不同赋值方法。</li>
+<li>对于长字符串, Turbo C2.0允许使用下述方法:<br>例如:<br>main()<br>{<br>char s[100];<br>strcpy(s, “The writer would like to thank you for”<br>“your interest in his book. He hopes you”<br>“can get some helps from the book.”);<br>.<br>.<br>.<br>}</li>
+</ol>
+<p>指针数组赋值
+　</p>
+<p>例如:<br>main()<br>{<br>char <em>f[2];<br>int <em>a[2];<br>f[0]=”thank you”; /</em>给字符型数组指针变量赋值</em>/<br>f[1]=”Good Morning”;<br><em>a[0]=1, <em>a[1]=-11; /</em>给整型数数组指针变量赋值</em>/<br>.<br>.<br>.<br>}</p>
+<p>无论是静态，局部还是全局数组只有在定义时才能初始话，否则必须通过其它方法，比如循环操作实现。</p>
+<p>任何<br>int a[3];<br>static int b[3];<br>a[3] = {1, 2, 3};<br>b[3] = {1, 2, 3};<br>没有在定义时初始化都是错误的！</p>
+<hr>
+<p>以下是转载：<br>学了这么多年的C语言，突然发现连字符串赋值都出错，真的很伤心。</p>
+<p>char a[10];<br>怎么给这个数组赋值呢？<br>1、定义的时候直接用字符串赋值<br>char a[10]=”hello”;<br>注意：不能先定义再给它赋值，如char a[10]; a[10]=”hello”;这样是错误的！<br>2、对数组中字符逐个赋值<br>char a[10]={‘h’,’e’,’l’,’l’,’o’};<br>3、利用strcpy<br>char a[10]; strcpy(a, “hello”);</p>
+<p>易错情况：<br>1、char a[10]; a[10]=”hello”;//一个字符怎么能容纳一个字符串？况且a[10]也是不存在的！<br>2、char a[10]; a=”hello”;//这种情况容易出现，a虽然是指针，但是它已经指向在堆栈中分配的10个字符空间，现在这个情况a又指向数据区中的hello常量，这里的指针a出现混乱，不允许！</p>
+<p>还有：不能使用关系运算符“＝＝”来比较两个字符串，只能用strcmp() 函数来处理。</p>
+<p>C语言的运算符根本无法操作字符串。在C语言中把字符串当作数组来处理，因此，对字符串的限制方式和对数组的一样，特别是，它们都不能用C语言的运算符进行复制和比较操作。</p>
+<p>直接尝试对字符串进行复制或比较操作会失败。例如，假定str1和str2有如下声明：</p>
+<p>char str1[10], str2[10];</p>
+<p>利用=运算符来把字符串复制到字符数组中是不可能的：</p>
+<p>str1 = “abc”;     /<strong>* WRONG *</strong>/</p>
+<p>str2 = str1;       /<strong>* WRONG *</strong>/</p>
+<p>C语言把这些语句解释为一个指针与另一个指针之间的（非法的）赋值运算。但是，使用=初始化字符数组是合法的：</p>
+<p>char str1[10] = “abc”;</p>
+<p>这是因为在声明中，=不是赋值运算符。</p>
+<p>试图使用关系运算符或判等运算符来比较字符串是合法的，但不会产生预期的结果：</p>
+<p>if (str1==str2) …    /<strong>* WRONG *</strong>/<br>这条语句把str1和str2作为指针来进行比较，而不是比较两个数组的内容。因为str1和str2有不同的地址，所以表达式str1 == str2的值一定为0。</p>
+<ol start="2">
+<li><p>C语言 谭浩强课本讲的很清楚：</p>
+<p>符号常量 与普通变量的区别：</p>
+</li>
+</ol>
+<p>符号常量 不占用存储空间，所以就没有内地址 了哦。</p>
+<p>大家都懂 C语言的基本语法，但是 很多细节问题，就只有不同深入学习才懂的。</p>
+<p>c和指针还是c专家编程上讲过，const修饰的是一个只读变量，所以可以用&amp;取得一个const变量的地址。</p>
+
       
     </div>
     
@@ -526,7 +593,7 @@
   <p><span>本文标题:</span><a href="/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2019年11月23日 - 21:11</p>
-  <p><span>最后更新:</span>2020年03月08日 - 13:03</p>
+  <p><span>最后更新:</span>2020年03月13日 - 23:03</p>
   <p><span>原始链接:</span><a href="/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串">http://azrookie.com/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/"  aria-label="复制成功！"></i></span>
   </p>
@@ -818,7 +885,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#scanf输入字符串"><span class="nav-number">1.</span> <span class="nav-text">scanf输入字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串存储在一个数组中"><span class="nav-number">2.</span> <span class="nav-text">字符串存储在一个数组中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串函数"><span class="nav-number">3.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组与函数名做参"><span class="nav-number">4.</span> <span class="nav-text">字符串数组与函数名做参</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除字符串中指定类型-由删除字符串中数字衍生而来"><span class="nav-number">5.</span> <span class="nav-text">删除字符串中指定类型(由删除字符串中数字衍生而来)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复制部分字符串"><span class="nav-number">6.</span> <span class="nav-text">复制部分字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#键盘输入字符串，并将其地址存入指针数组中"><span class="nav-number">7.</span> <span class="nav-text">键盘输入字符串，并将其地址存入指针数组中</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#scanf输入字符串"><span class="nav-number">1.</span> <span class="nav-text">scanf输入字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组"><span class="nav-number">2.</span> <span class="nav-text">字符串数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串函数"><span class="nav-number">3.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组与函数名做参"><span class="nav-number">4.</span> <span class="nav-text">字符串数组与函数名做参</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除字符串中指定类型-由删除字符串中数字衍生而来"><span class="nav-number">5.</span> <span class="nav-text">删除字符串中指定类型(由删除字符串中数字衍生而来)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复制部分字符串"><span class="nav-number">6.</span> <span class="nav-text">复制部分字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#键盘输入字符串，并将其地址存入指针数组中"><span class="nav-number">7.</span> <span class="nav-text">键盘输入字符串，并将其地址存入指针数组中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组和指针数组区别"><span class="nav-number">8.</span> <span class="nav-text">字符串数组和指针数组区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用命令行输主函数参数"><span class="nav-number">9.</span> <span class="nav-text">使用命令行输主函数参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在printf函数中输出"><span class="nav-number">10.</span> <span class="nav-text">在printf函数中输出%</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#给字符数组赋值"><span class="nav-number">11.</span> <span class="nav-text">给字符数组赋值</span></a></li></ol></div>
             
 
           </div>
@@ -852,7 +919,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">17.4k</span>
+    <span title="Site words total count">19.3k</span>
   
 </div>
 
