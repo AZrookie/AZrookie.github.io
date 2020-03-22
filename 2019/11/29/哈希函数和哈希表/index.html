@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="welcome to my land">
 <meta property="og:description" content="哈希表定义：根据哈希函数和冲突处理办法将数据存储在一段连续的空间中。 不同于其他查找函数需要对值进行匹配，哈希表在建立时为每一个数据建立一个独一无二的关键字，这样查找时可以根据关键字直接找到数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-19T08:38:43.313Z">
+<meta property="og:updated_time" content="2020-03-22T13:15:18.637Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  637
                 </span>
               
 
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  2
                 </span>
               
             </div>
@@ -508,28 +508,6 @@
 <hr>
 <h1 id="哈希表中查找元素"><a href="#哈希表中查找元素" class="headerlink" title="哈希表中查找元素"></a>哈希表中查找元素</h1><p>  与插入的方法差不多，按关键字寻找，遇到冲突按照法则寻找。</p>
 <hr>
-<h1 id="链表-哈希表的基础"><a href="#链表-哈希表的基础" class="headerlink" title="链表(哈希表的基础)"></a>链表(哈希表的基础)</h1><ol>
-<li><p>链表的实质就是由结构体转变而来，不过多了一个指针域。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125; node ;<span class="comment">//重命名结构体变量，方便下一步</span></span><br></pre></td></tr></table></figure>
-<p>重命名typedef可以避免字母打错等错误。</p>
-</li>
-<li><p>头节点：是链表的第一个节点，一般不存放数据(用来指向整个链表)。</p>
-</li>
-<li><p>malloc函数(动态内存分配，链表创建的基础)：其函数原型为void <em>malloc(unsigned int size)，size是输入数据的长度，返回类型是void</em>类型，需要指定类型。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Head = (node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));<span class="comment">//定义头节点</span></span><br><span class="line"><span class="comment">//node是重命名后的结构体变量名(即相当与指定int*类型指针一样，sizeof()*n用来计算n个结构体的长度。</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>！！！链表建立时都是建的结构体指针，而不是结构体。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node *Head;</span><br><span class="line">node *pend;</span><br><span class="line">node *pnew;</span><br></pre></td></tr></table></figure></li>
-<li><p>建立流程：</p>
-<ul>
-<li>定义头节点(Head)，尾节点(pend)，新节点(pnew)<br>由于要用头节点来指向整个链表，数据域不赋值，因此需要一个节点来代替头节点进行节点的更替。</li>
-<li>确定输入多少个值(由具体情况而定)，每次输入都要为pnew动态分配内存，输入值赋给新节点的数据域，旧节点的指针域指向新节点，新节点变为旧节点。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">node *Head;<span class="comment">//创建头节点</span></span><br><span class="line">    Head = (node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));</span><br><span class="line">	Head-&gt;next = <span class="literal">NULL</span>;<span class="comment">// 头节点后面没有新节点，所以是NULL</span></span><br><span class="line">	node *pnew,*pend;</span><br><span class="line">	pend = Head;<span class="comment">// 当输入数据为0个时，尾节点就等于头节点，用尾节点代替头节点进行连接操作</span></span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">for</span>(;n!=<span class="number">-1</span>;)&#123;</span><br><span class="line">		pnew = (node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));<span class="comment">//为新节点分配内存</span></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">		pnew-&gt;data = n;<span class="comment">// 新节点的数据域赋值为n</span></span><br><span class="line">		pend-&gt;next = pnew; <span class="comment">//旧节点的指针域指向新节点，不然下一步无法完成，因为旧节点没有新节点的地址，没有办法找到新节点</span></span><br><span class="line">		pend = pnew; <span class="comment">//新节点变为旧节点</span></span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">pend-&gt;next = <span class="literal">NULL</span>;<span class="comment">// 尾节点的指针域赋为NULL，表示后面没有新元素</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-</li>
-</ol>
 <hr>
 
       
@@ -550,7 +528,7 @@
   <p><span>本文标题:</span><a href="/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希函数和哈希表（其他查找函数）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2019年11月29日 - 22:11</p>
-  <p><span>最后更新:</span>2020年02月19日 - 16:02</p>
+  <p><span>最后更新:</span>2020年03月22日 - 21:03</p>
   <p><span>原始链接:</span><a href="/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/" title="哈希函数和哈希表（其他查找函数）">http://azrookie.com/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2019/11/29/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/"  aria-label="复制成功！"></i></span>
   </p>
@@ -842,7 +820,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希表"><span class="nav-number">1.</span> <span class="nav-text">哈希表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希函数"><span class="nav-number">2.</span> <span class="nav-text">哈希函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希函数的几种办法"><span class="nav-number">3.</span> <span class="nav-text">哈希函数的几种办法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理冲突方法"><span class="nav-number">4.</span> <span class="nav-text">处理冲突方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希表中查找元素"><span class="nav-number">5.</span> <span class="nav-text">哈希表中查找元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链表-哈希表的基础"><span class="nav-number">6.</span> <span class="nav-text">链表(哈希表的基础)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希表"><span class="nav-number">1.</span> <span class="nav-text">哈希表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希函数"><span class="nav-number">2.</span> <span class="nav-text">哈希函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希函数的几种办法"><span class="nav-number">3.</span> <span class="nav-text">哈希函数的几种办法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理冲突方法"><span class="nav-number">4.</span> <span class="nav-text">处理冲突方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希表中查找元素"><span class="nav-number">5.</span> <span class="nav-text">哈希表中查找元素</span></a></li></ol></div>
             
 
           </div>
@@ -876,7 +854,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">19.3k</span>
+    <span title="Site words total count">19k</span>
   
 </div>
 

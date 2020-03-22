@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="welcome to my land">
 <meta property="og:description" content="scanf输入字符串scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-13T15:38:55.385Z">
+<meta property="og:updated_time" content="2020-03-22T14:03:04.615Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.1k
+                  3.3k
                 </span>
               
 
@@ -574,6 +574,12 @@
 <p>符号常量 不占用存储空间，所以就没有内地址 了哦。</p>
 <p>大家都懂 C语言的基本语法，但是 很多细节问题，就只有不同深入学习才懂的。</p>
 <p>c和指针还是c专家编程上讲过，const修饰的是一个只读变量，所以可以用&amp;取得一个const变量的地址。</p>
+<h1 id="用指针指向字符串"><a href="#用指针指向字符串" class="headerlink" title="用指针指向字符串"></a>用指针指向字符串</h1><ol>
+<li>在结构体中，不能用字符串指针来代替结构体中的变量名<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">student</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> math,english,computer;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Stu s;</span><br><span class="line"><span class="keyword">char</span> *p=<span class="string">"math"</span>;</span><br><span class="line"><span class="keyword">char</span> *p1=<span class="string">"english"</span>;</span><br><span class="line"><span class="keyword">char</span>* p2=<span class="string">"computer"</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>,s.*p);<span class="comment">//这样写法是错误的，就是这么规定的</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>字符串指针所指向的是字符串常量，复制后就不能进行更改</li>
+<li>输出字符串时要用%s，用%c想输出单个字符会输出乱码</li>
+<li>字符串指针是可以移动的，可以用移动的指针来指定输出的位置<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p=<span class="string">"sfjalsafs"</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,(p+<span class="number">3</span>) );<span class="comment">//从a开始输出</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
@@ -593,7 +599,7 @@
   <p><span>本文标题:</span><a href="/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2019年11月23日 - 21:11</p>
-  <p><span>最后更新:</span>2020年03月13日 - 23:03</p>
+  <p><span>最后更新:</span>2020年03月22日 - 22:03</p>
   <p><span>原始链接:</span><a href="/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串">http://azrookie.com/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/"  aria-label="复制成功！"></i></span>
   </p>
@@ -885,7 +891,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#scanf输入字符串"><span class="nav-number">1.</span> <span class="nav-text">scanf输入字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组"><span class="nav-number">2.</span> <span class="nav-text">字符串数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串函数"><span class="nav-number">3.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组与函数名做参"><span class="nav-number">4.</span> <span class="nav-text">字符串数组与函数名做参</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除字符串中指定类型-由删除字符串中数字衍生而来"><span class="nav-number">5.</span> <span class="nav-text">删除字符串中指定类型(由删除字符串中数字衍生而来)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复制部分字符串"><span class="nav-number">6.</span> <span class="nav-text">复制部分字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#键盘输入字符串，并将其地址存入指针数组中"><span class="nav-number">7.</span> <span class="nav-text">键盘输入字符串，并将其地址存入指针数组中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组和指针数组区别"><span class="nav-number">8.</span> <span class="nav-text">字符串数组和指针数组区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用命令行输主函数参数"><span class="nav-number">9.</span> <span class="nav-text">使用命令行输主函数参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在printf函数中输出"><span class="nav-number">10.</span> <span class="nav-text">在printf函数中输出%</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#给字符数组赋值"><span class="nav-number">11.</span> <span class="nav-text">给字符数组赋值</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#scanf输入字符串"><span class="nav-number">1.</span> <span class="nav-text">scanf输入字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组"><span class="nav-number">2.</span> <span class="nav-text">字符串数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串函数"><span class="nav-number">3.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组与函数名做参"><span class="nav-number">4.</span> <span class="nav-text">字符串数组与函数名做参</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除字符串中指定类型-由删除字符串中数字衍生而来"><span class="nav-number">5.</span> <span class="nav-text">删除字符串中指定类型(由删除字符串中数字衍生而来)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复制部分字符串"><span class="nav-number">6.</span> <span class="nav-text">复制部分字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#键盘输入字符串，并将其地址存入指针数组中"><span class="nav-number">7.</span> <span class="nav-text">键盘输入字符串，并将其地址存入指针数组中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组和指针数组区别"><span class="nav-number">8.</span> <span class="nav-text">字符串数组和指针数组区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用命令行输主函数参数"><span class="nav-number">9.</span> <span class="nav-text">使用命令行输主函数参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在printf函数中输出"><span class="nav-number">10.</span> <span class="nav-text">在printf函数中输出%</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#给字符数组赋值"><span class="nav-number">11.</span> <span class="nav-text">给字符数组赋值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用指针指向字符串"><span class="nav-number">12.</span> <span class="nav-text">用指针指向字符串</span></a></li></ol></div>
             
 
           </div>
@@ -919,7 +925,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">19.3k</span>
+    <span title="Site words total count">19k</span>
   
 </div>
 
