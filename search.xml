@@ -258,6 +258,37 @@ argc是控制台传入主函数的字符串个数，而argv是指针数组，本
 <li>原型：void free(void *p);</li>
 <li>作用是释放p所指向的内存空间，p应为最近一次调用内存分配的函数，无返回值</li>
 </ul>
+<h1 id="链表-哈希表的基础"><a href="#链表-哈希表的基础" class="headerlink" title="链表(哈希表的基础)"></a>链表(哈希表的基础)</h1><ol>
+<li><p>链表的实质就是由结构体转变而来，不过多了一个指针域。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> data;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125; node ;<span class="comment">//重命名结构体变量，方便下一步</span></span><br></pre></td></tr></table></figure>
+<p>重命名typedef可以避免字母打错等错误。</p>
+</li>
+<li><p>头节点：是链表的第一个节点，一般不存放数据(用来指向整个链表)。</p>
+</li>
+<li><p>malloc函数(动态内存分配，链表创建的基础)：其函数原型为void <em>malloc(unsigned int size)，size是输入数据的长度，返回类型是void</em>类型，需要指定类型。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Head = (node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));<span class="comment">//定义头节点</span></span><br><span class="line"><span class="comment">//node是重命名后的结构体变量名(即相当与指定int*类型指针一样，sizeof()*n用来计算n个结构体的长度。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>！！！链表建立时都是建的结构体指针，而不是结构体。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">node *Head;</span><br><span class="line">node *pend;</span><br><span class="line">node *pnew;</span><br></pre></td></tr></table></figure></li>
+<li><p>建立流程：</p>
+<ul>
+<li>定义头节点(Head)，尾节点(pend)，新节点(pnew)<br>由于要用头节点来指向整个链表，数据域不赋值，因此需要一个节点来代替头节点进行节点的更替。</li>
+<li>确定输入多少个值(由具体情况而定)，每次输入都要为pnew动态分配内存，输入值赋给新节点的数据域，旧节点的指针域指向新节点，新节点变为旧节点。<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">node *Head;<span class="comment">//创建头节点</span></span><br><span class="line">     Head = (node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));</span><br><span class="line">   Head-&gt;next = <span class="literal">NULL</span>;<span class="comment">// 头节点后面没有新节点，所以是NULL</span></span><br><span class="line">   node *pnew,*pend;</span><br><span class="line">   pend = Head;<span class="comment">// 当输入数据为0个时，尾节点就等于头节点，用尾节点代替头节点进行连接操作</span></span><br><span class="line">   <span class="keyword">int</span> n;</span><br><span class="line">   <span class="keyword">for</span>(;n!=<span class="number">-1</span>;)&#123;</span><br><span class="line">     pnew = (node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));<span class="comment">//为新节点分配内存</span></span><br><span class="line">     <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">     pnew-&gt;data = n;<span class="comment">// 新节点的数据域赋值为n</span></span><br><span class="line">     pend-&gt;next = pnew; <span class="comment">//旧节点的指针域指向新节点，不然下一步无法完成，因为旧节点没有新节点的地址，没有办法找到新节点</span></span><br><span class="line">     pend = pnew; <span class="comment">//新节点变为旧节点</span></span><br><span class="line">   </span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line"> pend-&gt;next = <span class="literal">NULL</span>;<span class="comment">// 尾节点的指针域赋为NULL，表示后面没有新元素</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="结构体和链表中的问题"><a href="#结构体和链表中的问题" class="headerlink" title="结构体和链表中的问题"></a>结构体和链表中的问题</h1><ol>
+<li>头节点，首元节点， 头指针的区别：链表分为带头节点和不带头节点两种，带头结点的链表的头指针指向的第一个节点的数据域是空的(有时用来存放链表的长度)，头节点的指针域指向首元节点，不带头节点的链表的头指针指向首元节点，首元节点是存储数据的第一个节点。头节点存在的作用是为了使操作统一化，不用考虑对首元节点操作的特殊情况</li>
+<li>不带头节点是，如果对首元节点进行增删的操作的话，会改变头指针的值，解决办法有两种，一种是用二级指针指向头指针，这样就是二级指针的值在变化，另一种是返回新的头指针</li>
+<li>删除首元节点：直接将头节点指向头节点之后的节点就可以</li>
+<li>链表的增删查改都是通过指针移动到目标节点，在为pre和p赋值，而不是直接用p和pre向后走，这样经常容易出错</li>
+<li>永远不对头指针直接进行操作，一旦头指针改变，就找不会完整的链表，用工作指针来进行操作</li>
+<li>单链表的逆序是不能向数组那样简单的头尾颠倒，因为单链表的指向是单向的，只能指向后一个节点，用双链表就可以直接换，单链表用头插法重新建立链表输出</li>
+<li>如果想建立不带头节点的单链表的话，while中的if(head==NULL)中才能为head分配空间，因为一旦分配空间后head的值就会改变，不再是NULL，也就无法进入if语句</li>
+<li>两个有序链表的合并</li>
+</ol>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -693,17 +724,18 @@ return true;</code></pre><p>}</p>
   <entry>
     <title>字符串</title>
     <url>/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<h1 id="scanf输入字符串"><a href="#scanf输入字符串" class="headerlink" title="scanf输入字符串"></a>scanf输入字符串</h1><p>scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔</p>
-<a id="more"></a>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">30</span>],str2[<span class="number">30</span>],str3[<span class="number">30</span>];</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s%s%s"</span>,str1,str2,str3); </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+    <content><![CDATA[<h1 id="scanf与gets的区别"><a href="#scanf与gets的区别" class="headerlink" title="scanf与gets的区别"></a>scanf与gets的区别</h1><ol>
+<li>gets的分割符只有回车，而scanf的分隔符是所以空白字符(空格，制表符，回车)，因此gets能够读入空格，scanf不能<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">23</span>];</span><br><span class="line">gets(str);<span class="comment">//输入hello world，会原样输出，</span></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s"</span>,str);<span class="comment">//scanf遇到空格会停止读入，输出hello</span></span><br></pre></td></tr></table></figure></li>
+<li>对待buffer(缓冲区)里的空白字符不同：scanf在读取非空白字符之前会忽略掉空白字符(被忽略的空白字符会被scanf移走)，当读取结束后，会将分割符留在缓冲区中，而gets遇到回车就会结束输出，并将回车从缓冲区中移走，例如输入”\nhello\n”,scanf会先忽略\n，读入hello，遇到\n输入完成，将\n留在缓冲区，这是缓冲区里什么也没有，而gets遇到第一个\n就会停止输入，这时缓冲区里只剩hello\n，gets读入的是一个空串，即首字符为’\0’的字符串</li>
+<li>gets读走分隔符后会用’\0’来代替分隔符</li>
+<li>在程序中有时会遇到scanf，gets连用的，就会出先scanf留在缓冲区的空白字符是\n，导致gets只能读入空白字符串的情况，这时就可以用scanf(“%s”,str)来读走最后一个空表字符前的所有空表字符，再用getchar读入一个空白字符就可以解决问题</li>
+<li>用gets读取是无上限的，但要保证缓冲区足够大，才不会发生内存溢出</li>
+</ol>
 <hr>
 <h1 id="字符串数组"><a href="#字符串数组" class="headerlink" title="字符串数组"></a>字符串数组</h1><ol>
 <li>用二维数组定义。<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">3</span>][<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str1[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>,str1[<span class="number">1</span>]);  <span class="comment">//输出第二个字符串</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>字符串数组第一个[]存储的是一位字符数组的地址，如果想获取具体某一个字符的话，就要加上列指针<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">3</span>][<span class="number">23</span>];</span><br><span class="line">str[<span class="number">2</span>];<span class="comment">//指向最后一行</span></span><br><span class="line">str[<span class="number">2</span>][<span class="number">0</span>];<span class="comment">//指向最后一行第一个字符</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>字符串数组第一个[]存储的是一位字符数组的地址，如果想获取具体某一个字符的话，就要加上列指针<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">3</span>][<span class="number">23</span>];</span><br><span class="line">str[<span class="number">2</span>];<span class="comment">//指向最后一行</span></span><br><span class="line">str[<span class="number">2</span>][<span class="number">0</span>];<span class="comment">//指向最后一行第一个字符</span></span><br></pre></td></tr></table></figure></li>
+<li>二维数组名实际上是一个二级指针，而字符指针只是一个指向字符串的指针</li>
 </ol>
 <hr>
 <h1 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h1><ol>
@@ -804,7 +836,8 @@ return true;</code></pre><p>}</p>
 <li>在结构体中，不能用字符串指针来代替结构体中的变量名<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">student</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> math,english,computer;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Stu s;</span><br><span class="line"><span class="keyword">char</span> *p=<span class="string">"math"</span>;</span><br><span class="line"><span class="keyword">char</span> *p1=<span class="string">"english"</span>;</span><br><span class="line"><span class="keyword">char</span>* p2=<span class="string">"computer"</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>,s.*p);<span class="comment">//这样写法是错误的，就是这么规定的</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>字符串指针所指向的是字符串常量，复制后就不能进行更改</li>
 <li>输出字符串时要用%s，用%c想输出单个字符会输出乱码</li>
-<li>字符串指针是可以移动的，可以用移动的指针来指定输出的位置<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> *p=<span class="string">"sfjalsafs"</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,(p+<span class="number">3</span>) );<span class="comment">//从a开始输出</span></span><br></pre></td></tr></table></figure></li>
+<li>字符串指针是可以移动的，可以用移动的指针来指定输出的位置<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> *p=<span class="string">"sfjalsafs"</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,(p+<span class="number">3</span>) );<span class="comment">//从a开始输出</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 ]]></content>
       <categories>

@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="scanf输入字符串scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔">
+<meta name="description" content="scanf与gets的区别 gets的分割符只有回车，而scanf的分隔符是所以空白字符(空格，制表符，回车)，因此gets能够读入空格，scanf不能123char str[23];gets(str);&#x2F;&#x2F;输入hello world，会原样输出，scanf(&quot;%s&quot;,str);&#x2F;&#x2F;scanf遇到空格会停止读入，输出hello 对待buffer(缓冲区)里的空白字符不同：scanf在读取非空白字符">
 <meta name="keywords" content="字符串，c语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符串">
 <meta property="og:url" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2019&#x2F;11&#x2F;23&#x2F;%E5%AD%97%E7%AC%A6%E4%B8%B2&#x2F;index.html">
 <meta property="og:site_name" content="welcome to my land">
-<meta property="og:description" content="scanf输入字符串scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔">
+<meta property="og:description" content="scanf与gets的区别 gets的分割符只有回车，而scanf的分隔符是所以空白字符(空格，制表符，回车)，因此gets能够读入空格，scanf不能123char str[23];gets(str);&#x2F;&#x2F;输入hello world，会原样输出，scanf(&quot;%s&quot;,str);&#x2F;&#x2F;scanf遇到空格会停止读入，输出hello 对待buffer(缓冲区)里的空白字符不同：scanf在读取非空白字符">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-22T14:03:04.615Z">
+<meta property="og:updated_time" content="2020-03-24T08:00:38.665Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.3k
+                  3.6k
                 </span>
               
 
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  13
+                  15
                 </span>
               
             </div>
@@ -467,17 +467,18 @@
       
 
       
-        <h1 id="scanf输入字符串"><a href="#scanf输入字符串" class="headerlink" title="scanf输入字符串"></a>scanf输入字符串</h1><p>scanf输入的字符串中不能有空格，而gets()可以，若要用scanf输入多个字符，要先定义n(字符串个数)个字符数组，且在scanf内%s中间不用空格分隔</p>
-<a id="more"></a>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">30</span>],str2[<span class="number">30</span>],str3[<span class="number">30</span>];</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s%s%s"</span>,str1,str2,str3); </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="scanf与gets的区别"><a href="#scanf与gets的区别" class="headerlink" title="scanf与gets的区别"></a>scanf与gets的区别</h1><ol>
+<li>gets的分割符只有回车，而scanf的分隔符是所以空白字符(空格，制表符，回车)，因此gets能够读入空格，scanf不能<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">23</span>];</span><br><span class="line">gets(str);<span class="comment">//输入hello world，会原样输出，</span></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s"</span>,str);<span class="comment">//scanf遇到空格会停止读入，输出hello</span></span><br></pre></td></tr></table></figure></li>
+<li>对待buffer(缓冲区)里的空白字符不同：scanf在读取非空白字符之前会忽略掉空白字符(被忽略的空白字符会被scanf移走)，当读取结束后，会将分割符留在缓冲区中，而gets遇到回车就会结束输出，并将回车从缓冲区中移走，例如输入”\nhello\n”,scanf会先忽略\n，读入hello，遇到\n输入完成，将\n留在缓冲区，这是缓冲区里什么也没有，而gets遇到第一个\n就会停止输入，这时缓冲区里只剩hello\n，gets读入的是一个空串，即首字符为’\0’的字符串</li>
+<li>gets读走分隔符后会用’\0’来代替分隔符</li>
+<li>在程序中有时会遇到scanf，gets连用的，就会出先scanf留在缓冲区的空白字符是\n，导致gets只能读入空白字符串的情况，这时就可以用scanf(“%s”,str)来读走最后一个空表字符前的所有空表字符，再用getchar读入一个空白字符就可以解决问题</li>
+<li>用gets读取是无上限的，但要保证缓冲区足够大，才不会发生内存溢出</li>
+</ol>
 <hr>
 <h1 id="字符串数组"><a href="#字符串数组" class="headerlink" title="字符串数组"></a>字符串数组</h1><ol>
 <li>用二维数组定义。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str1[<span class="number">3</span>][<span class="number">20</span>];</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str1[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>,str1[<span class="number">1</span>]);  <span class="comment">//输出第二个字符串</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>字符串数组第一个[]存储的是一位字符数组的地址，如果想获取具体某一个字符的话，就要加上列指针<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">3</span>][<span class="number">23</span>];</span><br><span class="line">str[<span class="number">2</span>];<span class="comment">//指向最后一行</span></span><br><span class="line">str[<span class="number">2</span>][<span class="number">0</span>];<span class="comment">//指向最后一行第一个字符</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>字符串数组第一个[]存储的是一位字符数组的地址，如果想获取具体某一个字符的话，就要加上列指针<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[<span class="number">3</span>][<span class="number">23</span>];</span><br><span class="line">str[<span class="number">2</span>];<span class="comment">//指向最后一行</span></span><br><span class="line">str[<span class="number">2</span>][<span class="number">0</span>];<span class="comment">//指向最后一行第一个字符</span></span><br></pre></td></tr></table></figure></li>
+<li>二维数组名实际上是一个二级指针，而字符指针只是一个指向字符串的指针</li>
 </ol>
 <hr>
 <h1 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h1><ol>
@@ -578,7 +579,8 @@
 <li>在结构体中，不能用字符串指针来代替结构体中的变量名<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">student</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> math,english,computer;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Stu s;</span><br><span class="line"><span class="keyword">char</span> *p=<span class="string">"math"</span>;</span><br><span class="line"><span class="keyword">char</span> *p1=<span class="string">"english"</span>;</span><br><span class="line"><span class="keyword">char</span>* p2=<span class="string">"computer"</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>,s.*p);<span class="comment">//这样写法是错误的，就是这么规定的</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>字符串指针所指向的是字符串常量，复制后就不能进行更改</li>
 <li>输出字符串时要用%s，用%c想输出单个字符会输出乱码</li>
-<li>字符串指针是可以移动的，可以用移动的指针来指定输出的位置<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p=<span class="string">"sfjalsafs"</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,(p+<span class="number">3</span>) );<span class="comment">//从a开始输出</span></span><br></pre></td></tr></table></figure></li>
+<li>字符串指针是可以移动的，可以用移动的指针来指定输出的位置<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p=<span class="string">"sfjalsafs"</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,(p+<span class="number">3</span>) );<span class="comment">//从a开始输出</span></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -599,7 +601,7 @@
   <p><span>本文标题:</span><a href="/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2019年11月23日 - 21:11</p>
-  <p><span>最后更新:</span>2020年03月22日 - 22:03</p>
+  <p><span>最后更新:</span>2020年03月24日 - 16:03</p>
   <p><span>原始链接:</span><a href="/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="字符串">http://azrookie.com/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2019/11/23/%E5%AD%97%E7%AC%A6%E4%B8%B2/"  aria-label="复制成功！"></i></span>
   </p>
@@ -891,7 +893,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#scanf输入字符串"><span class="nav-number">1.</span> <span class="nav-text">scanf输入字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组"><span class="nav-number">2.</span> <span class="nav-text">字符串数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串函数"><span class="nav-number">3.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组与函数名做参"><span class="nav-number">4.</span> <span class="nav-text">字符串数组与函数名做参</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除字符串中指定类型-由删除字符串中数字衍生而来"><span class="nav-number">5.</span> <span class="nav-text">删除字符串中指定类型(由删除字符串中数字衍生而来)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复制部分字符串"><span class="nav-number">6.</span> <span class="nav-text">复制部分字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#键盘输入字符串，并将其地址存入指针数组中"><span class="nav-number">7.</span> <span class="nav-text">键盘输入字符串，并将其地址存入指针数组中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组和指针数组区别"><span class="nav-number">8.</span> <span class="nav-text">字符串数组和指针数组区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用命令行输主函数参数"><span class="nav-number">9.</span> <span class="nav-text">使用命令行输主函数参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在printf函数中输出"><span class="nav-number">10.</span> <span class="nav-text">在printf函数中输出%</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#给字符数组赋值"><span class="nav-number">11.</span> <span class="nav-text">给字符数组赋值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用指针指向字符串"><span class="nav-number">12.</span> <span class="nav-text">用指针指向字符串</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#scanf与gets的区别"><span class="nav-number">1.</span> <span class="nav-text">scanf与gets的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组"><span class="nav-number">2.</span> <span class="nav-text">字符串数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串函数"><span class="nav-number">3.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组与函数名做参"><span class="nav-number">4.</span> <span class="nav-text">字符串数组与函数名做参</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除字符串中指定类型-由删除字符串中数字衍生而来"><span class="nav-number">5.</span> <span class="nav-text">删除字符串中指定类型(由删除字符串中数字衍生而来)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复制部分字符串"><span class="nav-number">6.</span> <span class="nav-text">复制部分字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#键盘输入字符串，并将其地址存入指针数组中"><span class="nav-number">7.</span> <span class="nav-text">键盘输入字符串，并将其地址存入指针数组中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串数组和指针数组区别"><span class="nav-number">8.</span> <span class="nav-text">字符串数组和指针数组区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用命令行输主函数参数"><span class="nav-number">9.</span> <span class="nav-text">使用命令行输主函数参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在printf函数中输出"><span class="nav-number">10.</span> <span class="nav-text">在printf函数中输出%</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#给字符数组赋值"><span class="nav-number">11.</span> <span class="nav-text">给字符数组赋值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用指针指向字符串"><span class="nav-number">12.</span> <span class="nav-text">用指针指向字符串</span></a></li></ol></div>
             
 
           </div>
@@ -925,7 +927,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">19k</span>
+    <span title="Site words total count">20.3k</span>
   
 </div>
 
