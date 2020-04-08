@@ -62,7 +62,7 @@
 <h1 id="部署servlet时的错误"><a href="#部署servlet时的错误" class="headerlink" title="部署servlet时的错误"></a>部署servlet时的错误</h1><ol>
 <li>将WEB-INF文件错打成了WEB_INF,</li>
 </ol>
-]]></content>
+<h1 id="jdbc查询语句中String里面不加单引号，但是在sql中要加"><a href="#jdbc查询语句中String里面不加单引号，但是在sql中要加" class="headerlink" title="jdbc查询语句中String里面不加单引号，但是在sql中要加"></a>jdbc查询语句中String里面不加单引号，但是在sql中要加</h1>]]></content>
       <categories>
         <category>problem solution</category>
       </categories>
@@ -288,6 +288,45 @@ argc是控制台传入主函数的字符串个数，而argv是指针数组，本
 <li>单链表的逆序是不能向数组那样简单的头尾颠倒，因为单链表的指向是单向的，只能指向后一个节点，用双链表就可以直接换，单链表用头插法重新建立链表输出</li>
 <li>如果想建立不带头节点的单链表的话，while中的if(head==NULL)中才能为head分配空间，因为一旦分配空间后head的值就会改变，不再是NULL，也就无法进入if语句</li>
 <li>两个有序链表的合并</li>
+</ol>
+<h1 id="有序链表的合并"><a href="#有序链表的合并" class="headerlink" title="有序链表的合并"></a>有序链表的合并</h1><ol>
+<li>单链表的可以用选择插入，一边比较一边插入<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">先🕊了</span><br></pre></td></tr></table></figure></li>
+<li>或者连接完后在进行排序</li>
+</ol>
+<h1 id="文件操作有关函数"><a href="#文件操作有关函数" class="headerlink" title="文件操作有关函数"></a>文件操作有关函数</h1><ol>
+<li>ftell() 函数用于得到文件位置指针当前位置相对于文件首的偏移字节数；</li>
+<li>B中fseek()函数用于设置文件指针的位置；</li>
+<li>C中rewind()函数用于将文件内部的位置指针重新指向一个流(数据流/文件)的开头；</li>
+<li>D中ferror()函数可以用于检查调用输入输出函数时出现的错误。</li>
+<li>若读文件还未读到文件末尾， feof()函数的返回值是（ 0），到尾返回-1，一般不适用eof判断是否末尾，应为eof要返回两次才能确定结束，<br>用fgetc==NULL判断更方便</li>
+<li>已知函数的调用形式fread(buffer, size, count, fp)；其中buffer代表的是一个指针，指向要读入数据的存放地址。</li>
+<li>字符串赋值结束后要加上结束标志0。</li>
+<li>二进制文件现在一般使用的是dat后缀，但实际上不止这些，像jpg，avi等文件本质上也是一种二进制文件，不过由于需要特定的解码器打开，后缀名有所不同</li>
+<li>fscanf和fread返回值是读到的数据个数</li>
+<li>如果文件名要从键盘输入的话，就得在fopen里面的文件地址不加双引号，加了就是字符数组名，而我们要传的是指针</li>
+</ol>
+<h1 id="有时只有先判断条件符不符合时才能进入下一步，就先输入判断是否能进入循环体，再在循环体的末尾输入"><a href="#有时只有先判断条件符不符合时才能进入下一步，就先输入判断是否能进入循环体，再在循环体的末尾输入" class="headerlink" title="有时只有先判断条件符不符合时才能进入下一步，就先输入判断是否能进入循环体，再在循环体的末尾输入"></a>有时只有先判断条件符不符合时才能进入下一步，就先输入判断是否能进入循环体，再在循环体的末尾输入</h1><h1 id="文本文件与二进制文件的区别"><a href="#文本文件与二进制文件的区别" class="headerlink" title="文本文件与二进制文件的区别"></a>文本文件与二进制文件的区别</h1><ol>
+<li>文本文件本质上是一个二级制文件，在进行读写时，需要翻译，而二进制文件不需要，读写速度更快</li>
+<li>文本文件已于理解，二进制不易阅读和理解</li>
+<li>文本文件的利用率低，有的字符拥有过大的空间，占用内存大，二进制利用率高，占用内存少</li>
+<li>不同系统对文本文件的转义字符操作有所不同，因此需要针对操作系统作对应的更改，移植性差，二进制文件直接可以读写，移植性高</li>
+<li>文本文件对对应解码器的要求低，记事本基本上可以打开所有文本，但不同类型的二级制文件需要相应的解码器才能浏览</li>
+</ol>
+<p>#GetMemory</p>
+<ol>
+<li><p>栈中分配局部变量空间，是系统自动分配空间。定义一个 char a；系统会自动在栈上为其开辟空间。由于栈上的空间是自动分配自动回收的，所以栈上的数据的生存周期只是在函数的运行过程中，运行后就释放掉，不可以再访问。<br>堆区分配程序员申请的内存空间，堆上的数据只要程序员不释放空间，就一直可以访问到，不过缺点是一旦忘记释放会造成内存泄露。<br>静态区是分配静态变量，全局变量空间的。<br><img src="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/%E5%AD%98%E5%82%A8%E5%88%86%E5%B8%83.png" alt></p>
+</li>
+<li><p><img src="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/GetMemory1.png" alt> </p>
+</li>
+</ol>
+<p>分析：<br>毛病出在函数GetMemory1 中。编译器总是要为函数的每个参数制作临时副本，指针参数p的副本是 _p，编译器使 _p = p。如果函数体内的程序修改了_p的内容，就导致参数p的内容作相应的修改。这就是指针可以用作输出参数的原因。在本例中，_p申请了新的内存，只是把 _p所指的内存地址改变了，但是p丝毫未变。所以函数GetMemory并不能输出任何东西。事实上，每执行一次GetMemory1就会泄露一块内存，因为没有用free释放内存。Test1中调用GetMemory1时，函数参数为str的副本不是str本身</p>
+<ol start="3">
+<li><img src="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/GetMemory2.png" alt><br>结果：输出hello<br>分析：动态分配的内存不会自动释放；<br>没有测试是否成功分配了内存，应该有if (*p == NULL) { ……} 之类的语句处理内存分配失败的其情况。</li>
+<li><img src="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/GetMemory3.png" alt><br>结果：输出乱码。<br>分析：字符数组p存在于栈空间，是局部变量，函数返回后，内存空间被释放，因此输出无效值。字符数组的值是可以修改的，例如p[0] = ‘t‘。</li>
+<li><img src="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/GetMemory4.png" alt><br>结果：输出hello<br>分析：p指向的是字符串常量，字符串常量保存在只读的数据段，是全局区域，但不是像全局变量那样保存在普通数据段（静态存储区）。无法对p所指的内存的内容修改，例如p[0] = ‘y;这样的修改是错误的。</li>
+<li><img src="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/GetMemory5.png" alt><br>结果：输出hello<br>分析：直接返回常量区。</li>
+<li><img src="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/GetMemory6.png" alt><br>结果：能够输出world，但程序存在问题。<br>分析：程序出现了野指针。</li>
+<li>野指针只会出现在像C和C++这种没有自动内存垃圾回收功能的高级语言中, 所以java或c#肯定不会有野指针的概念. 当我们用malloc为一个指针分配一个空间后, 用完这个指针，把它free掉，但是没有让这个指针指向NULL或某一个特定的空间。如上面程序一样，将str进行free后，只是释放了指针所指的内存，但指针并没有释放掉，此时指针所指的是垃圾内存；这样的话，if语句永为真，if判断无效。delete也存在同样的问题。<br>防止产生野指针：（1）指针变量一定要初始化为NULL，因为任何指针变量刚被创建时不会自动成为NULL指针，它的缺省值是随机的。（2）当free或delete后，将指针指向NULL。通常判断一个指针是否合法，都是使用if语句测试该指针是否为NULL。</li>
 </ol>
 ]]></content>
       <categories>
@@ -608,6 +647,7 @@ return true;</code></pre><p>}</p>
 <li>找到mysql服务打开即可<br><img src="/2019/12/01/problem/mysql1.png" alt></li>
 </ul>
 <h1 id="复制代码时会有大量？号或者其他乱码太多不好删除"><a href="#复制代码时会有大量？号或者其他乱码太多不好删除" class="headerlink" title="复制代码时会有大量？号或者其他乱码太多不好删除"></a>复制代码时会有大量？号或者其他乱码太多不好删除</h1><p>用ctrl+f，利用替换，选择范围从头开始而不是从当前光标开始，将乱码替换为空格，比用手更快捷</p>
+<h1 id="IDEA导入文件"><a href="#IDEA导入文件" class="headerlink" title="IDEA导入文件"></a>IDEA导入文件</h1><p>一种是直接将文件移动到project目录下，另一种是拖动到IDEA界面中，自动移动</p>
 ]]></content>
       <categories>
         <category>problem solution</category>
@@ -711,8 +751,11 @@ return true;</code></pre><p>}</p>
 <h1 id="数组的转置"><a href="#数组的转置" class="headerlink" title="数组的转置"></a>数组的转置</h1><ol>
 <li>建立一个新数组，将i和j颠倒重新输入，就能转置</li>
 <li>将左对角线右上方的数组元素与主对角线左下方的数组元素进行单方向交换<br>不一定是方阵，可以是任意MxN的矩阵<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;m; i++)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;n; j++)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (j&gt;i)</span><br><span class="line"></span><br><span class="line">&#123; <span class="comment">/*将主对角线右上方的数组元素与主对角线左下方的数组元素进行单方向交换*/</span></span><br><span class="line"></span><br><span class="line">temp=n[i][j];</span><br><span class="line"></span><br><span class="line">n[i][j]=n[j][i];</span><br><span class="line"></span><br><span class="line">n[j][i]=temp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"转置矩阵：\n"</span>);</span><br></pre></td></tr></table></figure></li>
-<li>用第一种方法转置后，如果i和j不一样大，那么就得新建立一个长为m的行指针，<br>不然会出现运行时错误<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> (*P)[<span class="number">3</span>];<span class="comment">//原来是3x2矩阵</span></span><br><span class="line"><span class="keyword">int</span> (*a)[<span class="number">2</span>];<span class="comment">//转置后变为2x3矩阵，就要重新定义行指针</span></span><br></pre></td></tr></table></figure></li>
+<li>用第一种方法转置后，如果i和j不一样大，那么就得新建立一个长为m的行指针，<br>不然会出现运行时错误<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> (*P)[<span class="number">3</span>];<span class="comment">//原来是3x2矩阵</span></span><br><span class="line"><span class="keyword">int</span> (*a)[<span class="number">2</span>];<span class="comment">//转置后变为2x3矩阵，就要重新定义行指针</span></span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
+<h1 id="数组名不能自加仅限在主函数中，传入函数时，函数规定的类型是指针类型，相当于将数组名的地复制了一份"><a href="#数组名不能自加仅限在主函数中，传入函数时，函数规定的类型是指针类型，相当于将数组名的地复制了一份" class="headerlink" title="数组名不能自加仅限在主函数中，传入函数时，函数规定的类型是指针类型，相当于将数组名的地复制了一份"></a>数组名不能自加仅限在主函数中，传入函数时，函数规定的类型是指针类型，相当于将数组名的地复制了一份</h1><p>传给了形参列表中的参数，因此可以对形参自加</p>
 ]]></content>
       <categories>
         <category>c语言</category>
@@ -750,11 +793,11 @@ return true;</code></pre><p>}</p>
 <li>数组名做参：定义函数时，如果定义二维数组，那么列的值不能为空<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">void</span> fet (<span class="built_in">int</span> han[][<span class="number">20</span>])&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 <ul>
-<li>注意形参要带变量类型，但是调用函数时不需要，尤其是字符串数组，只要带入数组名即可不需要包括后面[]的大小<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">fet(<span class="name">han</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>注意形参要带变量类型，但是调用函数时不需要，尤其是字符串数组，只要带入数组名即可不需要包括后面[]的大小<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">fet(<span class="name">han</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>-</p>
+<ol start="4">
+<li>strcmp中，字符串数组和常量比较，常量字符串是用双引号，单个字符是用单引号</li>
+</ol>
 <h1 id="删除字符串中指定类型-由删除字符串中数字衍生而来"><a href="#删除字符串中指定类型-由删除字符串中数字衍生而来" class="headerlink" title="删除字符串中指定类型(由删除字符串中数字衍生而来)"></a>删除字符串中指定类型(由删除字符串中数字衍生而来)</h1><ol>
 <li>通过循环将后面一个元素一直赋给前一个元素(小技巧，非数字可以用&lt;0or&gt;9)<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span> <span class="params">(<span class="keyword">char</span> *str)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str[<span class="number">20</span>];</span><br><span class="line">	gets(str);</span><br><span class="line">    del(str);</span><br><span class="line">    <span class="built_in">puts</span>(str);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span> <span class="params">(<span class="keyword">char</span> *str)</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> i=<span class="number">0</span>,j;</span><br><span class="line">      <span class="keyword">for</span> (i=<span class="number">0</span>;*(str+i)!=<span class="string">'\0'</span>;i++)</span><br><span class="line">      &#123;</span><br><span class="line">      	<span class="keyword">if</span>((*(str+i)&gt;=<span class="string">'0'</span>)&amp;&amp;(*(str+i)&lt;=<span class="string">'9'</span>))&#123;</span><br><span class="line">      		<span class="keyword">for</span> (j=i;*(str+j+<span class="number">1</span>)!=<span class="string">'\0'</span>;j++)</span><br><span class="line">      		&#123;</span><br><span class="line">      			*(str+j)=*(str+j+<span class="number">1</span>);	</span><br><span class="line">      		&#125;</span><br><span class="line">      		*(str+j)=<span class="string">'\0'</span>;<span class="comment">//每次向前移，就将结束标志前移 </span></span><br><span class="line">      		i=<span class="number">0</span>;<span class="comment">//不用双重循环就得将i置0，从头开始继续判断 </span></span><br><span class="line">      	&#125;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 或者<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deleteString</span><span class="params">(<span class="keyword">char</span> *a,<span class="keyword">char</span> str[<span class="number">15</span>])</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line"><span class="keyword">char</span> str[<span class="number">15</span>];</span><br><span class="line">gets(str); </span><br><span class="line">deleteString(str,str);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deleteString</span><span class="params">(<span class="keyword">char</span> *a,<span class="keyword">char</span> str[<span class="number">15</span>])</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> *p;</span><br><span class="line">	<span class="keyword">char</span> *p1;</span><br><span class="line">	<span class="keyword">int</span> len=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(p=a;p&lt;a+<span class="built_in">strlen</span>(str);p++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!(<span class="number">65</span>&lt;=*p&amp;&amp;*p&lt;=<span class="number">90</span>||<span class="number">97</span>&lt;=*p&amp;&amp;*p&lt;=<span class="number">122</span>))&#123;</span><br><span class="line">		          <span class="keyword">for</span>(p1=p;*p1!=<span class="string">'\0'</span>;p1++)&#123;</span><br><span class="line">		          	*p1=*(p1+<span class="number">1</span>);</span><br><span class="line">		          	 p--;</span><br><span class="line">				  &#125;</span><br><span class="line">		   &#125;</span><br><span class="line">		      </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(p=a;p&lt;a+<span class="built_in">strlen</span>(str);p++)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c"</span>,*p);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
@@ -836,7 +879,10 @@ return true;</code></pre><p>}</p>
 <li>在结构体中，不能用字符串指针来代替结构体中的变量名<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">student</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> math,english,computer;</span><br><span class="line">&#125;Stu;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Stu s;</span><br><span class="line"><span class="keyword">char</span> *p=<span class="string">"math"</span>;</span><br><span class="line"><span class="keyword">char</span> *p1=<span class="string">"english"</span>;</span><br><span class="line"><span class="keyword">char</span>* p2=<span class="string">"computer"</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>,s.*p);<span class="comment">//这样写法是错误的，就是这么规定的</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>字符串指针所指向的是字符串常量，复制后就不能进行更改</li>
 <li>输出字符串时要用%s，用%c想输出单个字符会输出乱码</li>
-<li>字符串指针是可以移动的，可以用移动的指针来指定输出的位置<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> *p=<span class="string">"sfjalsafs"</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,(p+<span class="number">3</span>) );<span class="comment">//从a开始输出</span></span><br></pre></td></tr></table></figure>
+<li>字符串指针是可以移动的，可以用移动的指针来指定输出的位置<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> *p=<span class="string">"sfjalsafs"</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>,(p+<span class="number">3</span>) );<span class="comment">//从a开始输出</span></span><br></pre></td></tr></table></figure></li>
+<li>字符指针数组中存放的是字符串第一个字符的地址，而不是将字符串存放进去，字符指针也是</li>
+<li>字符串的判断结束要用<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(*s)</span><br><span class="line"><span class="keyword">while</span>(*s!=<span class="number">0</span>)</span><br><span class="line"><span class="keyword">while</span>(s)<span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 ]]></content>
