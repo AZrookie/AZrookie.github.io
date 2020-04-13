@@ -648,6 +648,12 @@ return true;</code></pre><p>}</p>
 </ul>
 <h1 id="复制代码时会有大量？号或者其他乱码太多不好删除"><a href="#复制代码时会有大量？号或者其他乱码太多不好删除" class="headerlink" title="复制代码时会有大量？号或者其他乱码太多不好删除"></a>复制代码时会有大量？号或者其他乱码太多不好删除</h1><p>用ctrl+f，利用替换，选择范围从头开始而不是从当前光标开始，将乱码替换为空格，比用手更快捷</p>
 <h1 id="IDEA导入文件"><a href="#IDEA导入文件" class="headerlink" title="IDEA导入文件"></a>IDEA导入文件</h1><p>一种是直接将文件移动到project目录下，另一种是拖动到IDEA界面中，自动移动</p>
+<h1 id="servlet无法部署"><a href="#servlet无法部署" class="headerlink" title="servlet无法部署"></a>servlet无法部署</h1><ol>
+<li>这是因为tomcat的版本一定要和jdk版本对应，不然就会报错，一般用default项目默认的jdk不会报错，但是万一仍然报错，就可以手动添加与tomcat相适应的jdk版本路径<br><img src="/2019/12/01/problem/Servlet.png" alt><br>我这里的是1.8版本，路径看自己放在那里，可以百度cmd命令查找</li>
+</ol>
+<h1 id="servlet访问资源不到"><a href="#servlet访问资源不到" class="headerlink" title="servlet访问资源不到"></a>servlet访问资源不到</h1><ol>
+<li>这里是因为在部署好的war包里可以更改虚拟目录，教程是默认目录，而我的IDEA是自动项目名加war命名的，因此直接访问资源是不行的，但是项目多时，推荐<br>使用IDEA的默认方法，这样好区分。<br><img src="/2019/12/01/problem/%E8%99%9A%E6%8B%9F%E7%9B%AE%E5%BD%95.png" alt><br>这里访问资源时就要加上红线部分的虚拟目录</li>
+</ol>
 ]]></content>
       <categories>
         <category>problem solution</category>
