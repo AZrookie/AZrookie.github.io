@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="welcome to my land">
 <meta property="og:description" content="数据类型 数据类型的实质是指向一定大小的内存空间的别名12int b[23];&#x2F;&#x2F;b是数组首元素的地址，而&amp;amp;b是整个数组 数据类型的封装void字面意思是无类型，void*则为无类型指针，即可以指向所有类型的指针，malloc就是典型的例子 函数本质上也是一种数据类型，因为满足变量的三定义，名称，返回值，参数  变量 既能读又能写的内存对象，不可以修改的叫常量 变量相当于门牌号，读写数据是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-03T13:07:47.852Z">
+<meta property="og:updated_time" content="2020-05-22T07:32:13.516Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  192
+                  1.4k
                 </span>
               
 
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -477,6 +477,29 @@
 <li>变量相当于门牌号，读写数据是向变量名所指的内存空间读写，而不是在变量名里读写</li>
 <li>内存四区模型和函数调用模型</li>
 </ol>
+<p>#输入一串数字，以回车作为结束符</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;La.data[i++]);</span><br><span class="line">		La.length++;</span><br><span class="line">		ch=getchar();</span><br><span class="line">		<span class="keyword">if</span>(ch==<span class="string">'\n'</span>)&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>#指针</p>
+<h2 id="如果定义了一个指针但是没有指向，要为指针分配空间才能存储数据，因为指针只是定义了，"><a href="#如果定义了一个指针但是没有指向，要为指针分配空间才能存储数据，因为指针只是定义了，" class="headerlink" title="如果定义了一个指针但是没有指向，要为指针分配空间才能存储数据，因为指针只是定义了，"></a>如果定义了一个指针但是没有指向，要为指针分配空间才能存储数据，因为指针只是定义了，</h2><p>但是指向不知道，会出现segmentation fault</p>
+<h2 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h2><p>int (<em>p)(int,int);<br>表示返回值为int,参数为两个int型的函数指针p。<br>以函数指针作为形参，即可实现函数名作为参专数，由另一个函数调用。<br>如使用方法：<br> 1、定义函数指针类型<br>使用typedef更直观更方便<br>// 定义一个原型为int Fun( int a );的函数指针<br>typedef int (</em>PTRFUN) ( int aPara );<br>typedef的功能是定义新的类型。这里定义了一种PTRFUN的类型，并定义这种类型为指向某种函数的指针，<br>这种函数以一个int为参数并返回char类型。后面就可以像使用int,char一样使用PTRFUN了。<br>##行指针<br>行指针只有取<em>才是首地址，才能和char *等价<br>二级指针就相当于二维数组的数组名，取一次</em>是每行的首地址，再去一次*是每行具体的元素</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">decode</span><span class="params">(<span class="keyword">char</span>**s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> pwd = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="built_in">strlen</span>(s[i]); j++)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="built_in">strlen</span>(s[<span class="number">4</span>]); k++)</span><br><span class="line"><span class="keyword">if</span> (s[i][j] == s[i][k]) cnt++;</span><br><span class="line">pwd = pwd * <span class="number">10</span> + cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> pwd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>#链表<br>##有序表的合并，用一个新表存储比较好的数据，而不是在原来的链表上操作<br>##链表逆置，就想到头插法</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode *<span class="title">reverse</span><span class="params">( struct ListNode *head )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> *<span class="title">L</span>=(<span class="title">struct</span> <span class="title">ListNode</span>*)<span class="title">malloc</span>(<span class="title">sizeof</span>(<span class="title">struct</span> <span class="title">ListNode</span>)),*<span class="title">p</span>,*<span class="title">q</span>;</span><span class="comment">//L就是新的头节点</span></span><br><span class="line">    L-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    p=head;<span class="comment">//遍历的是p，相当于中间变量</span></span><br><span class="line">    <span class="keyword">while</span>(p)</span><br><span class="line">    &#123;</span><br><span class="line">        q=(struct ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct ListNode));</span><br><span class="line">        q-&gt;data=p-&gt;data;</span><br><span class="line">        q-&gt;next=L-&gt;next;<span class="comment">//头插法</span></span><br><span class="line">        L-&gt;next=q;<span class="comment">//头插法  q,新节点</span></span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> L-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>#宏定义<br>##宏定义的类型是字符串，如果像转为其他格式需要提前转好</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N ((int)4)<span class="comment">//int型的数据</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N ((char)4)<span class="comment">//char型的数据</span></span></span><br></pre></td></tr></table></figure>
+<p>#c函数<br>##不区分大小写函数<br>stricmp</p>
+<p>#杂项<br>取模运算，范围是<br>rand（） % （b - a + 1）+ a，显然，rand（）% （b - a + 1）的范围是[0，b - a]，<br>再加上a之后的范围就是[a，b]下面的代码是生成[0，2]和[3，8]范围内的随机数<br>##删除文本文件中指定内容<br>    1.创建临时文件，便读取边删除，调用ststem函数删除元文件，在将文件改为原来的名字<br>    2.将文件全部读入内存，删除指定内容，用w方式打开文件，在读写进去（不推荐，只适合空间小的文件，可能把内存撑爆）<br>    3.删除文件后不断调用fseek函数调动指针位置（不推荐，不停调用底层代码，效率低，并且算法是最复杂的）</p>
+<p>##程序设计的一般思路<br>    1.分析设计：<br>        1.分析每个功能模块涉及到的操作，画出或写出流程图和伪代码<br>        2.在此基础上提炼出每个模块都涉及的一些反复执行的操作，设计成子函数，<br>    2.完成代码框架设计：<br>        1.完成主函数代码<br>        2.确定所有子函数功能即参数<br>    3.逐一完成每个子函数功能的实现及调试<br>    4.实现大部分功能，程序已经能运行演示<br>    5.优化代码</p>
+<p>##fscanf也是可以以转义符的格式读取数据的<br>例如fscanf(fp,”%s\n%s\t%s\n%s\t%s\n%c\n%s\n%s\n”,pNew-&gt;question,pNew-&gt;option_A,pNew-&gt;option_B,pNew-&gt;option_C,pNew-&gt;option_D,&amp;pNew-&gt;rightAnswear,pNew-&gt;difficulty,pNew-&gt;knowledge);</p>
+<p>##c语言读取文本文件时，devc用的时ANSI编码，而我的记事本我把它改成默认utf-8的编码，因此会显示乱码，问题不大，只要点击文件-&gt;另存为-&gt;文件类型的下面有个编码，选择ANSI即可。</p>
+<p>##字符串拼接的两种方法，strcat和sprintf，区别就是sprintf按照指定格式拼接，而stract直接拼接</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *firstName = <span class="string">"Theo"</span>;</span><br><span class="line">    <span class="keyword">char</span> *lastName = <span class="string">"Tsao"</span>;</span><br><span class="line">    <span class="keyword">char</span> *name = (<span class="keyword">char</span> *) <span class="built_in">malloc</span>(<span class="built_in">strlen</span>(firstName) + <span class="built_in">strlen</span>(lastName));</span><br><span class="line">    <span class="built_in">strcpy</span>(name, firstName);</span><br><span class="line">    <span class="built_in">strcat</span>(name, lastName);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, name);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *firstName = <span class="string">"Theo"</span>;</span><br><span class="line">    <span class="keyword">char</span> *lastName = <span class="string">"Tsao"</span>;</span><br><span class="line">    <span class="keyword">char</span> *name = (<span class="keyword">char</span> *) <span class="built_in">malloc</span>(<span class="built_in">strlen</span>(firstName) + <span class="built_in">strlen</span>(lastName));</span><br><span class="line">    <span class="built_in">sprintf</span>(name, <span class="string">"%s%s"</span>, firstName, lastName);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, name);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>##将缓存区清空，用fflush(stdin),可以不用getchar()清空缓存区，清空屏幕用system(“CLS”)<br>回到主界面用while循环；</p>
 
       
     </div>
@@ -496,7 +519,7 @@
   <p><span>本文标题:</span><a href="/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/">c语言提高</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2020年04月24日 - 13:04</p>
-  <p><span>最后更新:</span>2020年05月03日 - 21:05</p>
+  <p><span>最后更新:</span>2020年05月22日 - 15:05</p>
   <p><span>原始链接:</span><a href="/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/" title="c语言提高">http://azrookie.com/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/"  aria-label="复制成功！"></i></span>
   </p>
@@ -581,8 +604,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/11/servlet/" rel="next" title="servlet的使用">
-                <i class="fa fa-chevron-left"></i> servlet的使用
+              <a href="/2020/04/24/JAVAWeb/" rel="next" title="JAVAWeb">
+                <i class="fa fa-chevron-left"></i> JAVAWeb
               </a>
             
           </div>
@@ -590,10 +613,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/24/JAVAWeb/" rel="prev" title="JAVAWeb">
-                JAVAWeb <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -703,7 +722,7 @@ var jiathis_config={
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -725,7 +744,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -788,7 +807,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.1.</span> <span class="nav-text">变量</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果定义了一个指针但是没有指向，要为指针分配空间才能存储数据，因为指针只是定义了，"><span class="nav-number">1.2.</span> <span class="nav-text">如果定义了一个指针但是没有指向，要为指针分配空间才能存储数据，因为指针只是定义了，</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数指针"><span class="nav-number">1.3.</span> <span class="nav-text">函数指针</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -822,7 +841,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">31k</span>
+    <span title="Site words total count">32.8k</span>
   
 </div>
 

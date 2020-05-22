@@ -103,7 +103,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;login.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;BaseServlet.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;category.png">
-<meta property="og:updated_time" content="2020-05-18T12:45:24.689Z">
+<meta property="og:updated_time" content="2020-05-22T07:16:12.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;MVC.jpg">
 
@@ -440,7 +440,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  8k
+                  9.7k
                 </span>
               
 
@@ -456,7 +456,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  31
+                  37
                 </span>
               
             </div>
@@ -752,8 +752,52 @@
 <h2 id="使用前要将jquery-3-3-1-min-js导入到项目中。"><a href="#使用前要将jquery-3-3-1-min-js导入到项目中。" class="headerlink" title="使用前要将jquery-3.3.1.min.js导入到项目中。"></a>使用前要将jquery-3.3.1.min.js导入到项目中。</h2><h2 id="JQuery对象和js对象的互相转换"><a href="#JQuery对象和js对象的互相转换" class="headerlink" title="JQuery对象和js对象的互相转换"></a>JQuery对象和js对象的互相转换</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="comment">//js</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> divs = <span class="built_in">document</span>.getElemByTagName(<span class="string">"div"</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">//jquery</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> $divs = $(<span class="string">"div"</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">//将两者的内容替换为“aaa”</span></span></span><br><span class="line"><span class="actionscript"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;divs.lenght;i++)&#123;</span></span><br><span class="line"><span class="actionscript">	divs[i].innerHtml(<span class="string">"aaa"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="actionscript"><span class="comment">//jquery</span></span></span><br><span class="line"><span class="javascript">$(<span class="string">"div"</span>).html(<span class="string">"aaa"</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">//由此可见，jquery的方法简便许多，而js的方法重复性非常高，但是jquery方法只能由jquery对象使用，js无法使用，所以就需要两者之间的转换</span></span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">//js--&gt;jquery</span></span></span><br><span class="line"><span class="javascript">$(js对象)</span></span><br><span class="line"><span class="actionscript"><span class="comment">//jquery--&gt;js</span></span></span><br><span class="line">jq对象.get(索引)或者jq对象[索引]</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">//上面两行代码可以改写为</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">//js--&gt;jquery</span></span></span><br><span class="line"><span class="javascript">$(divs).html(<span class="string">"aaa"</span>);</span></span><br><span class="line"><span class="actionscript"><span class="comment">//jquery--&gt;js</span></span></span><br><span class="line"><span class="actionscript">$divs.get[<span class="number">0</span>].innerHtml(<span class="string">"aaa"</span>);</span></span><br><span class="line"><span class="actionscript">$divs[<span class="number">0</span>].innerHtml(<span class="string">"aaa"</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><ol>
-<li><a href="https://www.runoob.com/jquery/jquery-ref-selectors.html" target="_blank" rel="noopener">选择器语法</a></li>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><p>1.</p>
+<ul>
+<li>事件绑定：在方法中内嵌一个function对象。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$("#id").click(function()&#123;</span><br><span class="line">	alert("adfa");</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>入口函数：等页面加载完成后再进入入口函数的内容，=window.onload()<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line"></span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+两者的区别是onload只能绑定一次，而$可以绑定多次</li>
+<li>样式控制：就是通过.css方法修改元素的css样式<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;</span><br><span class="line">	$("#id"),css("background","red");</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><p><a href="https://www.runoob.com/jquery/jquery-ref-selectors.html" target="_blank" rel="noopener">选择器语法</a></p>
+</li>
+<li><p>分类：（具体语法在上面的超链接中）</p>
+</li>
+</ol>
+<ul>
+<li><p>基本选择器：<br>标签选择器：$(“html标签名”),获得所有匹配标签名的元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$("div")获取当前页面中的所有div元素</span><br></pre></td></tr></table></figure>
+<p>id选择器：$(“#id名”)，获得所有匹配id的元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$("#btn")获取所有id值为btn的元素</span><br></pre></td></tr></table></figure>
+<p>类选择器：$(“.类的属性值”)，获得所有匹配类名的元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(".hanahn")获得所有类的属性值与hanahn匹配的元素</span><br></pre></td></tr></table></figure>
+<p>中间加个逗号就可以选择多个条件。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$("#two,span")//选择id=two和span内的所有元素</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>层级选择器：<br>后代选择器：$(“A B”),获得A中的所有B元素，相当获取儿子辈和孙子辈的所有元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$("body span")获得body里的所有span元素</span><br></pre></td></tr></table></figure>
+<p>子选择器：$(“A &gt; B”)，获得A中的所有B子元素，相当只获取儿子辈的</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$("body &gt; span"),获得body里的儿子级别的span元素</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>属性选择器：<br>属性名称选择器：选择指定属性名且含有名叫XX属性的元素，属性值不管</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$("div[color]").css选择div元素，且div元素中有属性叫color的元素</span><br></pre></td></tr></table></figure>
+<p>属性选择器：选择指定属性=指定值的元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$("div[color='red']")获得div元素，且元素的color属性=red的元素</span><br></pre></td></tr></table></figure>
+<p>属性复合选择器：包含多个属性条件的元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$("div[color='red'][display]")，获得div元素，且满足color=red&amp;&amp;有display属性的元素</span><br><span class="line">此外还有类似正则的写法</span><br><span class="line">$("div[color!='red']")，获得div元素，且满足color不等于red的元素</span><br><span class="line">$("div[color^='r']")，获得div元素，且满足color的开头=r的元素</span><br><span class="line">$("div[color$='d']")，获得div元素，且满足color的结尾=d的元素</span><br><span class="line">$("div[color*='d']")，获得div元素，且满足color的内容含有d的元素</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>过滤选择器：<br>首元素选择器： A:first 获得选择元素的第一个元素<br>尾元素选择器： A:last 获得选择元素的最后一个元素<br>非元素选择器： A:not(条件) 不包括指定内容的元素，条件也是用选择器语法写的</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$("div:not(.one)")//选择class！=one的元素</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$("#div:no(.one)")class不为one的元素</span><br><span class="line"> ```  </span><br><span class="line"> 偶数选择器： A:even 从0计数 </span><br><span class="line"> 奇数选择器： A:odd 从0计数 </span><br><span class="line"> 等于索引选择器：A:eq(index) 等于指定索引的元素</span><br><span class="line"> 大于索引选择器： A:gt(index) 大于指定索引的元素</span><br><span class="line"> 等于索引选择器： A:lt(index) 小于指定索引的元素</span><br><span class="line"> 标题选择器: header () 获得标题为(h1~h6)的元素</span><br><span class="line"></span><br><span class="line">- 表单过滤选择器</span><br><span class="line"> 可用元素选择器： :enabled 获得可用元素</span><br><span class="line"> 不可用元素选择器： :disabled 获得不可用元素</span><br><span class="line"> 选中选择器： :checked 获得单选/复选框中的元素</span><br><span class="line"> 选中选择器： selected 获得下拉框中的元素</span><br><span class="line"> ```html</span><br><span class="line"> 注意下拉框选中的个数要获取select的子元素，option才能获取选中个数</span><br><span class="line">$("#b4").click(function () &#123;</span><br><span class="line">				alert($("select[name='job'] &gt; option:selected").length);</span><br><span class="line"></span><br><span class="line">			&#125;)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ol start="4">
 <li>DOM操作<ul>
 <li>内容操作：val获取值，text获取纯文本，html获取标签之间的内容<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(function () &#123;</span><br><span class="line">       var value = $("#myInput").val();//val获取value值</span><br><span class="line">       alert(value);</span><br><span class="line">       var html = $("#myDiv").html();//获取div间的所有元素，不止包括纯文本和标签</span><br><span class="line">       alert(html);</span><br><span class="line">        // var html = $("#myDiv").html("aaaa");//获取div间的所有元素，还可以更改标签内的内容，甚至可以写新标签</span><br><span class="line">        var text = $("#myDiv").text();</span><br><span class="line">        document.write(text);//获取div间的纯文本，不包括标签</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></li>
 <li>属性操作：attr获取/设置值，removeAttr删除属性，prop获取/设置值，removeProp删除属性,attr和prop区别，如果是操作的标签的固有属性，用prop，用的是自定义属性，用attr<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(function () &#123;</span><br><span class="line">        var name = $("#bj").attr("name");</span><br><span class="line">        alert(name);</span><br><span class="line">       $("#bj").attr("name","北京");</span><br><span class="line">        var name1 = $("#bj").attr("name");</span><br><span class="line">            alert(name1);</span><br><span class="line">        $("#bj").attr("discription","帝都");</span><br><span class="line">        $("#bj").removeAttr("discription");</span><br><span class="line">        var check= $("#hobby").prop("checked");</span><br><span class="line">        alert(check);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></li>
@@ -1107,6 +1151,46 @@
 <p>#注意点<br>baseservlet优化之后记得修改，激活成功，请登录<a href="login.html"></a>,改为login的绝对路径，因为原来activeservlet和login是在同一travel路经下的，而用的userservlet后，路径就回多一个/user，就不可能找到login的路径，同时，找login的路径，一定要把服务器打开找路径，不然找到的只是login静态资源的路径，服务器打开时也会找不到</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">active</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//1.获取激活码</span></span><br><span class="line">        String code = request.getParameter(<span class="string">"code"</span>);</span><br><span class="line">        <span class="keyword">if</span>(code != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//2.调用service完成激活</span></span><br><span class="line">            <span class="keyword">boolean</span> flag = service.active(code);</span><br><span class="line">            <span class="comment">//3.判断标记</span></span><br><span class="line">            String msg = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">                <span class="comment">//激活成功</span></span><br><span class="line">                msg = <span class="string">"激活成功，请&lt;a href='http://localhost/travel/login.html'&gt;登录&lt;/a&gt;"</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//激活失败</span></span><br><span class="line">                msg = <span class="string">"激活失败，请联系管理员!"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//将信息返回,注意这里不是用json返回，而是用response以html形式返回，用json只能显示键值对,不能显示点击超连接的效果</span></span><br><span class="line">            response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br><span class="line">            response.getWriter().write(msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<h1 id="servlet的定义"><a href="#servlet的定义" class="headerlink" title="servlet的定义"></a>servlet的定义</h1><ol>
+<li>servlet是sun公司开发的一款用于开发动态web资源的技术，web资源分为动态和静态的两种。</li>
+<li>动态和静态的区别</li>
+</ol>
+<ul>
+<li>动态web资源是客户端请求的动态资源，先将资源交于web容器，在由web容器连接数据库，数据库处理数据后交由web容器返回给客户端解析渲染处理</li>
+<li>静态资源是web容器从内存中直接调取返回给客户端</li>
+<li>静态资源一般是设计好的html页面，而动态资源是根据设计好的程序按照需求来动态响应</li>
+<li>静态资源的交互性差，动态资源的交互性好</li>
+<li>静态资源不需要数据库参与程序处理，而动态资源需要</li>
+</ul>
+<h1 id="servlet的实现方法"><a href="#servlet的实现方法" class="headerlink" title="servlet的实现方法"></a>servlet的实现方法</h1><p>sun在java中提供了servlet的接口，只需要完成两个步骤</p>
+<ul>
+<li>编写Java类，实现servlet接口</li>
+<li>将Java类部署到服务器上</li>
+</ul>
+<h1 id="一些杂谈"><a href="#一些杂谈" class="headerlink" title="一些杂谈"></a>一些杂谈</h1><ol>
+<li><p>得到表单提交的数据用String name = request.getParameter(“name”);<br>这里request.getParameter(“name”)的作用是获得提交的表单中name值为“name”的value，这是通过表单标签的action属性完成，这个属性是规定了表单获得的数据发送到哪个页面</p>
+</li>
+<li><p>Servlet的框架是由两个Java包组成:javax.servlet和javax.servlet.http. 在javax.servlet包中定义了所有的Servlet类都必须实现或扩展的的通用接口和类.在javax.servlet.http包中定义了采用HTTP通信协议的HttpServlet类.</p>
+</li>
+<li><p>Servlet的框架的核心是javax.servlet.Servlet接口,所有的Servlet都必须实现这一接口.在Servlet接口中定义了5个方法,其中有3个方法代表了Servlet的声明周期:</p>
+</li>
+<li><p>init方法,负责初始化Servlet对象<br>service方法,负责相应客户的请求<br>destory方法,当Servlet对象退出声明周期时,负责释放占有的资源</p>
+</li>
+<li><p>ServletConfig:代表当前Servlet在web.xml中的配置信息（用的不多）</p>
+</li>
+</ol>
+<p>String getServletName()  – 获取当前Servlet在web.xml中配置的名字<br>String getInitParameter(String name) – 获取当前Servlet指定名称的初始化参数的值<br>Enumeration getInitParameterNames()  – 获取当前Servlet所有初始化参数的名字组成的枚举<br>ServletContext getServletContext()  – 获取代表当前web应用的ServletContext对象<br>在Servlet的配置文件中，可以使用一个或多个<init-param>标签为servlet配置一些初始化参数。</init-param></p>
+<p>当servlet配置了初始化参数后，web容器在创建servlet实例对象时，会自动将这些初始化参数封装到ServletConfig对象中，并在调用servlet的init方法时，将ServletConfig对象传递给servlet。进而，程序员通过ServletConfig对象就可以得到当前servlet的初始化参数信息。</p>
+<p>这样做的好处是：如果将数据库信息、编码方式等配置信息放在web.xml中，如果以后数据库的用户名、密码改变了，则直接很方便地修改web.xml就行了，避免了直接修改源代码的麻烦</p>
+<ol start="6">
+<li><p>不管是客户端还是服务端，要想跳转，就得把跳转页面放在web文件夹下，而不是放在WEB-INF文件夹下</p>
+</li>
+<li><p>servlet用web动态项目做的project，打开时要加127.0.0.1:8080/j2ee/listHero，不直接加listHero，并且点击增删查改操作时，点击跳转后会无法跳转，这也是由于上述原因，只要按上面格式输入就好(其实就是相对路径和绝对路径)，通过web动态项目run as就是相对路径，要加上项目名称</p>
+</li>
+</ol>
+
       
     </div>
     
@@ -1125,7 +1209,7 @@
   <p><span>本文标题:</span><a href="/2020/04/24/JAVAWeb/">JAVAWeb</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2020年04月24日 - 13:04</p>
-  <p><span>最后更新:</span>2020年05月18日 - 20:05</p>
+  <p><span>最后更新:</span>2020年05月22日 - 15:05</p>
   <p><span>原始链接:</span><a href="/2020/04/24/JAVAWeb/" title="JAVAWeb">http://azrookie.com/2020/04/24/JAVAWeb/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2020/04/24/JAVAWeb/"  aria-label="复制成功！"></i></span>
   </p>
@@ -1210,8 +1294,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/" rel="next" title="c语言提高">
-                <i class="fa fa-chevron-left"></i> c语言提高
+              <a href="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" rel="next" title="数据结构与算法实战">
+                <i class="fa fa-chevron-left"></i> 数据结构与算法实战
               </a>
             
           </div>
@@ -1219,6 +1303,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/" rel="prev" title="c语言提高">
+                c语言提高 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -1328,7 +1416,7 @@ var jiathis_config={
               
                 <a href="/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1350,7 +1438,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1413,7 +1501,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MVC框架设计"><span class="nav-number">1.</span> <span class="nav-text">MVC框架设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网站案例结构"><span class="nav-number">2.</span> <span class="nav-text">网站案例结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能分析"><span class="nav-number">3.</span> <span class="nav-text">功能分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册功能"><span class="nav-number">3.1.</span> <span class="nav-text">注册功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前台效果-V层"><span class="nav-number">3.1.1.</span> <span class="nav-text">前台效果(V层)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JQuery"><span class="nav-number">4.</span> <span class="nav-text">JQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用前要将jquery-3-3-1-min-js导入到项目中。"><span class="nav-number">4.2.</span> <span class="nav-text">使用前要将jquery-3.3.1.min.js导入到项目中。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery对象和js对象的互相转换"><span class="nav-number">4.3.</span> <span class="nav-text">JQuery对象和js对象的互相转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">4.4.</span> <span class="nav-text">选择器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#navicat常用快捷键"><span class="nav-number">5.</span> <span class="nav-text">navicat常用快捷键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事项"><span class="nav-number">6.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后台代码"><span class="nav-number">6.1.</span> <span class="nav-text">后台代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证码"><span class="nav-number">6.2.</span> <span class="nav-text">验证码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL操作"><span class="nav-number">7.</span> <span class="nav-text">SQL操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作"><span class="nav-number">7.1.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表的操作"><span class="nav-number">7.2.</span> <span class="nav-text">表的操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单注册"><span class="nav-number">8.</span> <span class="nav-text">表单注册</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MVC框架设计"><span class="nav-number">1.</span> <span class="nav-text">MVC框架设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网站案例结构"><span class="nav-number">2.</span> <span class="nav-text">网站案例结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能分析"><span class="nav-number">3.</span> <span class="nav-text">功能分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册功能"><span class="nav-number">3.1.</span> <span class="nav-text">注册功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前台效果-V层"><span class="nav-number">3.1.1.</span> <span class="nav-text">前台效果(V层)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JQuery"><span class="nav-number">4.</span> <span class="nav-text">JQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用前要将jquery-3-3-1-min-js导入到项目中。"><span class="nav-number">4.2.</span> <span class="nav-text">使用前要将jquery-3.3.1.min.js导入到项目中。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery对象和js对象的互相转换"><span class="nav-number">4.3.</span> <span class="nav-text">JQuery对象和js对象的互相转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">4.4.</span> <span class="nav-text">选择器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#navicat常用快捷键"><span class="nav-number">5.</span> <span class="nav-text">navicat常用快捷键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事项"><span class="nav-number">6.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后台代码"><span class="nav-number">6.1.</span> <span class="nav-text">后台代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证码"><span class="nav-number">6.2.</span> <span class="nav-text">验证码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL操作"><span class="nav-number">7.</span> <span class="nav-text">SQL操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作"><span class="nav-number">7.1.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表的操作"><span class="nav-number">7.2.</span> <span class="nav-text">表的操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单注册"><span class="nav-number">8.</span> <span class="nav-text">表单注册</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#servlet的定义"><span class="nav-number">9.</span> <span class="nav-text">servlet的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#servlet的实现方法"><span class="nav-number">10.</span> <span class="nav-text">servlet的实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些杂谈"><span class="nav-number">11.</span> <span class="nav-text">一些杂谈</span></a></li></ol></div>
             
 
           </div>
@@ -1447,7 +1535,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">31k</span>
+    <span title="Site words total count">32.8k</span>
   
 </div>
 
