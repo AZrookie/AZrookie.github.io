@@ -95,7 +95,7 @@
 <meta property="og:description" content="数据类型 数据类型的实质是指向一定大小的内存空间的别名12int b[23];&#x2F;&#x2F;b是数组首元素的地址，而&amp;amp;b是整个数组 数据类型的封装void字面意思是无类型，void*则为无类型指针，即可以指向所有类型的指针，malloc就是典型的例子 函数本质上也是一种数据类型，因为满足变量的三定义，名称，返回值，参数  变量 既能读又能写的内存对象，不可以修改的叫常量 变量相当于门牌号，读写数据是">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98&#x2F;%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png">
-<meta property="og:updated_time" content="2020-06-18T14:06:44.794Z">
+<meta property="og:updated_time" content="2020-06-23T15:13:48.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98&#x2F;%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png">
 
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.6k
+                  7.1k
                 </span>
               
 
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  27
                 </span>
               
             </div>
@@ -532,8 +532,90 @@
 </ol>
 <ul>
 <li>指针也是一种数据类型，数据类型的实质就是一定大小的内存空间，那么指针就一定是一种数据类型，他的内存大小经过编译器计算是4个字节(字符指针和int指针都是4个字节)</li>
-<li><img src="/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png" alt><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>  i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span>** p2 = <span class="literal">NULL</span>;<span class="comment">//二级指针</span></span><br><span class="line">	<span class="keyword">int</span> num = <span class="number">5</span>;</span><br><span class="line">	<span class="comment">//给二级指针分配内存空间，每个内存空间里面存放者一个字符指针，就相当于字符指针数组</span></span><br><span class="line">	p2 = (<span class="keyword">char</span>**)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>*)*num);</span><br><span class="line">	<span class="comment">//printf("%d", sizeof(p2));</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		p2[i] = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * <span class="number">100</span>);<span class="comment">//给每个字符指针分配100个字节的空间</span></span><br><span class="line">		<span class="built_in">sprintf</span>(p2[i], <span class="string">"%d%d%d"</span>, i + <span class="number">1</span>, i + <span class="number">1</span>, i = <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, p2[i]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//释放内存,根据先申请后释放原则，就是栈</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (p2[i]!=<span class="literal">NULL</span>)<span class="comment">//释放字符串的空间</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">free</span>(p2[i]);</span><br><span class="line">			p2[i] = <span class="literal">NULL</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (p2!=<span class="literal">NULL</span>)<span class="comment">//释放字符指针的空间</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">free</span>(p2);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></li>
+<li><img src="/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png" alt><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>  i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span>** p2 = <span class="literal">NULL</span>;<span class="comment">//二级指针</span></span><br><span class="line">	<span class="keyword">int</span> num = <span class="number">5</span>;</span><br><span class="line">	<span class="comment">//给二级指针分配内存空间，每个内存空间里面存放者一个字符指针，就相当于字符指针数组</span></span><br><span class="line">	p2 = (<span class="keyword">char</span>**)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>*)*num);</span><br><span class="line">	<span class="comment">//printf("%d", sizeof(p2));</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		p2[i] = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * <span class="number">100</span>);<span class="comment">//给每个字符指针分配100个字节的空间</span></span><br><span class="line">		<span class="built_in">sprintf</span>(p2[i], <span class="string">"%d%d%d"</span>, i + <span class="number">1</span>, i + <span class="number">1</span>, i = <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, p2[i]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//释放内存,根据先申请后释放原则，就是栈</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (p2[i]!=<span class="literal">NULL</span>)<span class="comment">//释放字符串的空间</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">free</span>(p2[i]);</span><br><span class="line">			p2[i] = <span class="literal">NULL</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (p2!=<span class="literal">NULL</span>)<span class="comment">//释放字符指针的空间</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">free</span>(p2);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
+<p>#数组</p>
+<ol>
+<li><p>数组名是数组首元素的地址，而&amp;数组名是整个数组的地址</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> c[<span class="number">200</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//c是首元素的地址，c+1步长是4个字节</span></span><br><span class="line"><span class="comment">//&amp;c是整个数组的地址，&amp;c+1步长是200*4=800</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二维数组的名称除了sizeof和对名称取地址外，就是一个指向第一个一维数组的指针，一维数组也是除了对数组名进行sizeof和取地址外，都指向数组中首元素的地址</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/************二维数组*************/</span></span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">3</span>][<span class="number">5</span>];</span><br><span class="line">	<span class="keyword">int</span>(*p)[<span class="number">5</span>];</span><br><span class="line">	p = a;</span><br><span class="line">	<span class="keyword">int</span>(*p1)[<span class="number">3</span>][<span class="number">5</span>];</span><br><span class="line">	p1 = &amp;a;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"a=%d"</span>, a);<span class="comment">//a就是数组首元素的地址</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p=%d\n"</span>, p);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p+1=%d\n"</span>, p + <span class="number">1</span>);<span class="comment">//每次加1就是加一个元素的内存空间，就是5*4=20</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"&amp;a=%d"</span>, &amp;a);<span class="comment">//这个就是整个数组的地址，</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p1=%d\n"</span>, p1);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p1+1=%d\n"</span>, p1 + <span class="number">1</span>);<span class="comment">//加一就是加整个数组的步长，就是3*5*4=60个字节</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/*************一维数组************/</span></span><br><span class="line">	<span class="keyword">int</span> c[<span class="number">5</span>];</span><br><span class="line">	<span class="keyword">int</span>* p2 = <span class="literal">NULL</span>;</span><br><span class="line">	p2 = c;</span><br><span class="line">	<span class="keyword">int</span>(*p3)[<span class="number">5</span>];</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"c=%d"</span>, c);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p2=%d"</span>, p2);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p2+1%d"</span>, p2 + <span class="number">1</span>);<span class="comment">//就是整个数组，步长5*4=20</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组的下标可以为负数，但前提是当前指针已经偏移过，不然可能指向其他的随机地方</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">5</span>] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span> &#125;;</span><br><span class="line">	<span class="keyword">int</span>* p = a;</span><br><span class="line">	p = a + <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, p[<span class="number">-1</span>]);<span class="comment">//a+2是第三个元素，就是3，-1就相当于把当前指针向前移，就是第二个元素2，如果没有使p移动，直接写</span></span><br><span class="line">	<span class="comment">//写负的下标，就会指向a的前面一个元素，是随机的。</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<p>#结构体</p>
+<ol>
+<li>结构体之间的复制尽量使用手动复制而不是系统提供的p1=p2，因为当两个结构体都是在栈上时，p1=p2会将p2的内容全部拷贝至p1，但是如果结构体中有指针类型的数据例如Char *name，那么创建结构体时必然在堆上开辟空间，这时两个结构体的复制就是将p2.name的地址拷贝一份到p1.name,在最后的释放资源步骤中，释放完p2.name之后释放p1.name时就会报错，甚至泄露。解决方法是strcpy(p1.name,p2.name)                                         </li>
+<li>结构体取地址是代表整个结构体的地址，这点和数组不同，数组名就代表首地址，取&amp;代表整个数组，结构体名字就是结构体</li>
+</ol>
+<p>#变量名和内存的关系（从<a href="https://blog.csdn.net/u012252959/article/details/82662542" target="_blank" rel="noopener">这里</a>转载）</p>
+<p>有了前面两篇的基础，下面正式开扒变量名和内存的关系，先看一段大家很熟悉的代码：</p>
+<ol>
+<li>基本类型</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="keyword">int</span> i;</span><br><span class="line">　　scanf_s(<span class="string">"%d"</span>, &amp;i);</span><br><span class="line">　　<span class="comment">//int i;在这一句就为i分配了内存(但尚未对这块内存进行初始化)，所以可以通过&amp;i直接使用这块内存。赋值就更不用说啦，i = 3;。</span></span><br></pre></td></tr></table></figure>
+<p>　<br>-　变量名i，是为方便编程人员使用，是这块内存的别名，指代到块内存，对编程人员i代表这块内存中存储的值实际上是i指到这个内存，然后取值通常我们都是通过变量名来使用已知的内存的。</p>
+<ul>
+<li><p>i代表取这块内存中存储的值，而&amp;i代表取这块内存的址。程序本身是不为i这个变量名分配空间的。在最终的机器代码中，是不会出现变量名的，这一在分析反汇编语言时可以看出。那么编译器是如何处理变量名的呢，变量名会存储在符号表中，并将符号表中的索引对应到实际物理空间(地址)<br>上去，当调用这个变量时，查找符号表就可以找到对应的地址并取值了。</p>
+</li>
+<li><p>上面分析的是基本数据类型(如int、char等)的变量名。C中除了变量名之外，还有函数名、常量名、指针名、数组名、结构名等。和变量名不同，这些标识符都是直接对应着地址的。基本数据类型的变量，和地址的对应关系需要取址符&amp;才能得到地址，而其余的这些，名字本身就对应着地址。</p>
+</li>
+</ul>
+<p>　　例如char *pc = “se”;，就是将字符串常量”se”的首地址(位于静态存储区)赋值给了字符指针pc。这也就解释了为什么不需要为pc分配地址就可以为其赋值，而不会遇到类似下面代码所带来的野指针问题：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="keyword">int</span> *pi;　　*pi = <span class="number">1</span>;</span><br><span class="line">　　<span class="comment">//int *pi句，是为pi分配空间，而不是开辟pi所指向的空间。没有置空的话pi可能会乱指向，引起内存崩溃。</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>不同类型变量的变量名和内存间的关系:</li>
+</ol>
+<ul>
+<li>C对常量是怎么处理的呢？比如上面的i=3;中的常量3，存储常量3的地址并不是随机分配的，是在程序中的数据段中(.data?这个我也还不是很确定，希望知道的前辈们给个指导)，也就是程序本身并不为3分配内存，而是直接写入指令。3是数字常量，对于字符常量和字符串常量，又分别是怎么处理的呢？字符常量和数字常量是一样的处理方式，都是类似汇编中的立即数，直接写入指令；<br>　　而字符串常量，则是存储在静态存储区，可以使用&amp;(“string”)取得具体地址。也就是字符串常量名字本身指代着地址，只是不能直接操作(和int i中的i相同)。<br>再看各种类型的变量名，c中的数据类型除常量之外大致有5种：<br>基本数据类型：int、float、double、char等：<br>　　对各基本数据类型的变量名及其声明时的处理方式都是一样的，声明时即分配内存，并使用变量名直接操作这段内存；使用取地址符号&amp;取得地址的数字表示，至于声明时要不要做初始化，要看是不是全局变量或者 static变量了。<br>这类变量名指向一个地址空间，但不能直接当做地址使用，而是通过取址符&amp;操作其地址。</li>
+<li>构造数据类型：数组、结构、联合：</li>
+<li>数组：数组在声明时，即分配了空间，int a[5];<br>　　一旦声明a[5]，相当于有a、a[0]、a[1]、a[2]、a[3]、a[4]这6个变量名。a[i]的指代方式和普通的变量名int i相同，指到一个对应的内存空间；关键是变量名a，本身就可以做地址用。我们知道a是数组名，但a并不代表整个数组的地址，而是指向数组首元素的地址（虽然在数值上是相同的，下面会有详细解释），所以可以有 int <em>p = a;。那么&amp;a又怎么解释呢？对于int i而言，i代表一个空间，&amp;i表示i所代表的空间地址；那么&amp;a应该也是表示a所代表的地址了，也就是整个数组的地址。<br>　　a、&amp;a和&amp;a[0]同代表地址，且由于数组是顺序存储，所以a、&amp;a和&amp;a[0]所表示的地址在数据上是相同的，但是实际的指代意义却是不同的：<br>a是个int<em>类型的数据，相当于&amp;(</em>a)，是指向数组首元素的地址；<br>&amp;a指代整个数组，是个int(</em>)[]类型的数据，是指针数组的地址；<br>&amp;a[0]则是仅指代一个存储int的空间，是int<em>类型的数据。载编译器编译时会转为机器能看懂的形式，就是（a+i）的样子，由此可以推断获得数据实际上是靠a+偏移量（i）</em>a所指向数据类型的字节数。<br>　　也就是数组名，本身可以作为地址使用，指代该数组的首元素的地址。</li>
+<li>结构体<br>　　结构体在声明的时候，就分配了空间。结构体和数组不同，结构体类型的变量名并不能直接当作地址使用，这一点和基本数据类型相同。需要对结构体名使用取址符&amp;才能进行地址操作，并且取址所得到地址代表的是指向结构体的指针，只是在数据上和结构体中的首元素地址相同。<br>　　对于结构体中的各个元素，其名称的指代关系和其数据类型相同，并不因为是结构体的元素而受到影响。具体见下面代码：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stu</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	<span class="keyword">char</span> sex</span><br><span class="line">	<span class="keyword">char</span>* name;  </span><br><span class="line">	<span class="keyword">int</span> score[<span class="number">5</span>];</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i; </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">stu</span> <span class="title">st1</span>;</span><span class="comment">//st1是结构体stu类型       </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d/n"</span>, &amp;st1);<span class="comment">//&amp;st1是 stu*类型</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d/n"</span>, &amp;st1.age);    <span class="comment">//&amp;st1.age是 int*类型，st1.age就是个int型，名字指向地址，但不能直接作地址</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d/n"</span>, &amp;st1.sex);    <span class="comment">//&amp;st1.sex是 char*类型，名字解析同上   </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d/n"</span>, &amp;st1.name);   <span class="comment">//&amp;st1.name是 char**类型，st1.name是char*类型</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d/n"</span>, st1.score);   <span class="comment">// st1.score是个数组类型，名字代表数组中首元素的地址  </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>3)<br>       联合：联合是特殊的结构体，为节省空间，在其各元素依次存储，各元素的首地址均相对变量的基地址偏移为0，具体各变量名的分析和结构体同。<br>指针类型<br>　　声明一个指针类型 int <em>p;，则是为存储指针p分配空间，而并不会为p所指向的内存做任何动作，这就是野指针的原因。如下代码，p就是一个未指向任何已知内存的指针，为</em>p赋值，自然会出现错误：<br>　　int *p;　　*p = 1;<br>　　指针中，char *是个很特殊的指针。一般的指针，仅指向一个所定义类型的内存，而char *则可以指向一个字符串，之所以可以实现这个功能是字符串结尾符’/0’的存在标识了字符串的结束。如下的代码，就是将pc指向了“string”所指代的静态存储区地址。</p>
+<p>　　char *pc = “string”;<br>　　这就是char *pc = “string”;合法，而int *p =1;不合法的原因。因此，不管指针变量是全局的还是局部的、静态的还是非静态的，都应该在声明它的同时进行初始化，要么赋予一个有效的地址，要么赋予NULL。</p>
+<p>　　另外，声明一个指针，只是在栈区为指针本身的存储分配了地址，而不限制指针所指向的内存到底是在栈区还是在堆区还是在静态存储区。这也就造成了 函数调用返回值 会因实现不同而有不同意义，是函数调用结束后返回值有效性不同的原因。详见《从字符串截取说指针和地址》</p>
+<p>空类型</p>
+<p>　　C中有void关键字，但其实C中是并没有空类型的。比如我们不能做如下定义：</p>
+<pre><code>void a;</code></pre><p>　　因为C、C++是静态类型的语言，定义变量就会分配内存。然而，不同类型的变量所占内存不同，如果定义一个任意类型的变量，就无法为其分配内存。所以，C、C++中没有任意类型的变量。</p>
+<p>　　但是定义void *p;是合法的，void *所定义的p表示以指针，所指向的类型未定。因为void *p;声明是为指针p分配了空间，无论指针指向什么类型，存储指针所需的空间的固定的，所以不存在因为所需空间大小而无法为p分配空间的问题。</p>
+<p>　　但void *p的使用也是很受限制的，由于不知道其指向的数据类型，所以是不能对p进行自增操作的；void的主要作用有两点，一个是限制函数的返回值，一个是限制函数的参数类型；void *则常用于指针的类型转换。如下代码：</p>
+<p>　　int *pi;　　float *pf;<br>　　如果想将pi指向pf所指向的内存空间，就必须进行类型转换：pi = (int *)pf;。</p>
+<p>　　而如果是void *p，就不需要转换，可以直接为指针赋值。这样的直接赋值，只能是将一个已知类型的指针赋值给void *p，而不能是将void *p未加强制转换地赋值给一个已知类型的指针，如：</p>
+<pre><code>void *p;    int *pi;    float *pf;    p = pf;   // pf = p;就是非法的，不能将 &quot;void *&quot; 类型的值分配到 &quot;float *&quot; 类型的实体    p = pi;</code></pre><p>　　但需要注意的是，即使进行了转换，p仍然是个void<em>类型的指针，不能对其进行sizeof(p)等涉及所指类型的操作，同样地p也不能直接用于具体数据类型的操作。如下面的代码中</em>p = 1.73; 和printf(“%f”, *p)都是非法的：</p>
+<pre><code>void *p;    float *pf;    p = pf;
+*p = 1.73;           //*pf  = 1.73;合法    printf(&quot;%f&quot;, *p);    //printf(&quot;%f&quot;, *pf); 合法</code></pre><p>　　这样说来，void *的意义何在呢？可以使用强制类型转换使用void *p作为中介，见下面的代码：</p>
+<p>　　float <em>pf;　　void *p;　　float f=1.6;　　p = (void</em>)&f;　　pf = (float*)p;<br>　　这样，float *pf就指向了float f所在的地址，但注意p依然不能直接使用。这个例子，只是为我们展示了void *有这样的功能，但平常代码中很少这样无意义地转换，更多地是将void *作为函数参数，这样就可以接受任意类型的指针了，典型的如内存操作函数memcpy和memset的函数，其原型分别为：</p>
+<p>　　void * memcpy(void <em>dest, const void *src, size_t len);　　void * memset ( void * buffer, int c, size_t num );<br>　　也可以编写自己的将void *作为函数参数的函数，由于char是C中最小长度的变量，其它任何变量的长度都是它的整数倍。可以使用char</em>作为中转，详见下面的函数实现：</p>
+<p>//这里差不 多是前后数反转放, 4个字节4次交换<br>//这里 形参=实参  void* =float*   ,相反则不行.<br>void swap(void *pvData1, void *pvData2, int iDataSize)<br>{<br>    unsigned char  *pcData1 = NULL;<br>    unsigned char  *pcData2 = NULL;<br>    unsigned char  ucTmp1;<br>    pcData1 = (unsigned char *)pvData1;<br>    pcData2 = (unsigned char *)pvData2;<br>    do{<br>        ucTmp1= *pcData1;<br>        *pcData1     = *pcData2;<br>        *pcData2     = ucTmp1;<br>        pcData1++;        pcData2++;<br>    }<br>    while (–iDataSize &gt; 0);<br>}<br>int main()<br>{<br>    float fa = 1.23,fb = 2.32;<br>    float *f1=&amp;fa, *f2=&fb;<br>    int iDataSize = sizeof(float)/sizeof(char);<br>    swap(f1, f2, iDataSize);<br>    cout&lt;&lt;fa&lt;&lt;” “&lt;&lt;fb&lt;&lt;endl;<br>    return 0;<br>} </p>
+<p>NULL</p>
+<p>　　C中对NULL的预定义有两个：</p>
+<p>　　#define NULL    0　　#define NULL    ((void *)0)<br>　　并且标准C规定，在初始化、赋值或比较时，如果一边是变量或指针类型的表达式，则编译器可以确定另一边的常数0为空指针，并生成正确的空指针值。即在指针上下文中“值为0的整型常量表达式”在编译时转换为空指针。那么也就是上面的两个的定义在指针上下文中是一致的了。</p>
+<p>　　我们经常在声明一个指针时，为避免野指针的情况常用的int *pi = NULL;中的NULL，是会被自动转换为(void *)0的。所以下面的代码也是合法的：</p>
+<p>int *pi = 0;if(pi == 0){ …… }</p>
+<p>前面是形容词,后面的被修饰的名词才是重点</p>
+<p>指针函数(返回指针的函数,函数指针(指向函数的指针<br>指针常量(指针是常量, 常量指针(指向常量的指针 . 这就好理解了</p>
+<p>函数类型 和 函数指针</p>
+<p>　　尽管函数并不是变量，但它在内存中仍有其物理地址。每个函数都有一个入口地址，由函数名指向这个入口地址，函数名相当于一个指向其函数入口的指针常量。</p>
+<p>　　可以将函数名赋值给一个指针，使该指针指向这个函数的入口，即是函数指针。</p>
+<p>　　这里注意和指针函数区分开来：</p>
+<p>　　指针函数是一个返回指针的函数，指针函数具体定义方式：</p>
+<p>　　　　char *Convert(char *pName , int length);</p>
+<p>　　函数指针的定义要和具体所指向的函数的形式一致，如对函数int Max(int a, int b)定义一个函数指针：</p>
+<p>　　int (<em>pMax)(int a, int b);　　pMax = Max;<br>　　int (</em>pMax)(int a, int b)句中，函数指针pMax外的括号一定要带上[s1] ，因为“()”的优先级高于“*”，如果无括号，就变成了int *pMax(int a, int b)的形式，变成了一个函数(指针函数)的声明了。pMax=Max句将代表函数int Max(int a, int b)入口地址的其函数名Max，赋值给了指向同类型函数的指针pMax。这样pMax就和Max有相同的指代作用，并且pMax还可以指向与int Max(int a, int b)同参同返回值的函数。</p>
+<p>　　int Max(int a, int b);　　int Min(int a, int b);<br>　　int (<em>p)(int a, int b);    int max, min;    p = Max;    max = (</em>p)(3, 5);   //进行调用时，也要记得带括号(<em>p)    p = Min;    min = (</em>p)(3, 5)<br>　　执行中对指针p指向进行截图：</p>
+<p>　　最后需要注意的是，由于函数在内存中的分布方式并不是齐整的，所以函数指针并没有++自增运算和—自减运算。</p>
+<p> [s1]</p>
+<p>　　通过括号强行将pMax首先与“*”结合，也就意味着，pMax是一个指针；接着与后面的“()”结合，说明该指针指向的是一个函数，然后再与前面的int结合，也就是说，该函数的返回值是int。由此可见，pfun是一个指向返回值为int的函数的指针。</p>
 
       
     </div>
@@ -553,7 +635,7 @@
   <p><span>本文标题:</span><a href="/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/">c语言提高</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2020年04月24日 - 13:04</p>
-  <p><span>最后更新:</span>2020年06月18日 - 22:06</p>
+  <p><span>最后更新:</span>2020年06月23日 - 23:06</p>
   <p><span>原始链接:</span><a href="/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/" title="c语言提高">http://azrookie.com/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/"  aria-label="复制成功！"></i></span>
   </p>
@@ -638,8 +720,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/24/JAVAWeb/" rel="next" title="JAVAWeb">
-                <i class="fa fa-chevron-left"></i> JAVAWeb
+              <a href="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" rel="next" title="数据结构与算法实战">
+                <i class="fa fa-chevron-left"></i> 数据结构与算法实战
               </a>
             
           </div>
@@ -648,8 +730,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/06/12/Spring/" rel="prev" title="Spring">
-                Spring <i class="fa fa-chevron-right"></i>
+              <a href="/2020/04/24/JAVAWeb/" rel="prev" title="JAVAWeb">
+                JAVAWeb <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -879,7 +961,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">38.8k</span>
+    <span title="Site words total count">86.3k</span>
   
 </div>
 

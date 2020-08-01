@@ -103,8 +103,11 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;login.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;BaseServlet.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;category.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;%E7%AC%AC%E4%B8%80%E8%8C%83%E5%BC%8F.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;%E7%AC%AC%E4%B8%80%E8%8C%83%E5%BC%8F1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;%E7%AC%AC%E4%B8%89%E8%8C%83%E5%BC%8F.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;Servlet.png">
-<meta property="og:updated_time" content="2020-06-17T12:04:07.920Z">
+<meta property="og:updated_time" content="2020-06-23T02:39:07.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;azrookie.com&#x2F;2020&#x2F;04&#x2F;24&#x2F;JAVAWeb&#x2F;MVC.jpg">
 
@@ -441,7 +444,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  12.5k
+                  13.9k
                 </span>
               
 
@@ -457,7 +460,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  49
+                  54
                 </span>
               
             </div>
@@ -953,7 +956,7 @@
 <li>注意使用非页展示使要将redis打开，不然会报timeout错误</li>
 <li>特别注意，从github上复制的代码，前端一定要修改拼接字符串中的单引号，因为复制粘贴后就会又斜杆分隔符产生。</li>
 </ol>
-<h1 id="SQL操作"><a href="#SQL操作" class="headerlink" title="SQL操作"></a>SQL操作</h1><h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><ol>
+<h1 id="SQL数据库"><a href="#SQL数据库" class="headerlink" title="SQL数据库"></a>SQL数据库</h1><h2 id="数据库基本操作"><a href="#数据库基本操作" class="headerlink" title="数据库基本操作"></a>数据库基本操作</h2><ol>
 <li>注释：–空格(单行注释)，/**/多行注释，#mysql独有</li>
 <li>CRUD：增删改查，create，retrieve(查询)，update，delete<ul>
 <li>创建数据库(create)<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--直接创建数据库</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> 数据库名;</span><br><span class="line"><span class="comment">--如果不存在数据库1就创建数据库2</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="keyword">if</span> <span class="keyword">not</span> esists db2;</span><br><span class="line"><span class="comment">--创建数据库并制定字符集</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> db3 <span class="keyword">default</span> <span class="built_in">character</span> <span class="keyword">set</span> gbk;</span><br></pre></td></tr></table></figure></li>
@@ -1184,6 +1187,68 @@
 
 </li>
 </ul>
+<p>##表的约束</p>
+<ol>
+<li>约束是为了保证数据的正确性，完整性，有效性，限定非法数据的插入</li>
+<li>分类：</li>
+</ol>
+<ul>
+<li>主键约束：primary key（自动增长）auto_increment<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> stu(</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span>, </span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">--添加非空</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> stu <span class="keyword">MODIFY</span> <span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span>;</span><br><span class="line"><span class="comment">--删除非空,只需要修改列名的属性</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> stu <span class="keyword">MODIFY</span> <span class="keyword">id</span> <span class="built_in">int</span>;</span><br></pre></td></tr></table></figure></li>
+<li>非空约束：not null<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> stu(</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">int</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">--添加非空</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> stu <span class="keyword">MODIFY</span> <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>;</span><br><span class="line"><span class="comment">--删除非空,只需要修改列名的属性</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> stu <span class="keyword">MODIFY</span> <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>);</span><br></pre></td></tr></table></figure></li>
+<li>唯一约束：unique<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> stu(</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">unique</span>, </span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">--添加非空</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> stu <span class="keyword">MODIFY</span> <span class="keyword">id</span> <span class="built_in">int</span> <span class="keyword">unique</span>;</span><br><span class="line"><span class="comment">--删除非空,只需要修改列名的属性</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> stu <span class="keyword">MODIFY</span> <span class="keyword">id</span> <span class="built_in">int</span>;</span><br></pre></td></tr></table></figure></li>
+<li>主键约束：foreign key constraint 外键名称 foreign Key (当前表的外键) reference 表名(列名)<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> stu <span class="keyword">drop</span> <span class="keyword">foreign</span> <span class="keyword">key</span> 外键名称 <span class="comment">--删除外键</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> stu <span class="keyword">add</span> <span class="keyword">constraint</span> employee_foreign <span class="keyword">foreign</span> <span class="keyword">key</span> (<span class="keyword">id</span>) <span class="keyword">reference</span> employee(UID)<span class="comment">--添加外键</span></span><br><span class="line"><span class="comment">--设置级联更新,这样一张表更新，另一张表就会更新</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> stu <span class="keyword">add</span> <span class="keyword">constraint</span> employee_foreign <span class="keyword">foreign</span> <span class="keyword">key</span> (<span class="keyword">id</span>) <span class="keyword">reference</span> employee(UID) <span class="keyword">on</span> <span class="keyword">update</span> <span class="keyword">cascade</span></span><br><span class="line"><span class="comment">--级联删除</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> stu <span class="keyword">add</span> <span class="keyword">constraint</span> employee_foreign <span class="keyword">foreign</span> <span class="keyword">key</span> (<span class="keyword">id</span>) <span class="keyword">reference</span> employee(UID) <span class="keyword">on</span> <span class="keyword">delete</span> <span class="keyword">cascade</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>##数据库的多表操作</p>
+<ol>
+<li>表之间的关系有四种，一对一，一对多，多对一，多对多</li>
+<li>一对多实现,在多的表中建立外键，指向一的表的主键</li>
+<li>多对多的实现，需要第三张中间表，中间表至少包含两个字段，这两个字段作为第三张表的外键，分别指向两张表的主键。并且为了保证两个主键不会出现一摸一样的情况，需要联合主键  primary key(rid,uid)</li>
+<li>一对一实现，在任意一个表中添加外键指向另一表的主键，并且令外键唯一</li>
+</ol>
+<p>##数据库涉及范式</p>
+<ol>
+<li>就是数据库涉及时的规范</li>
+<li>分类：有六类，但是一般项目只要前面三式</li>
+</ol>
+<ul>
+<li><p>第一范式：每一列都是不可分割的原子项，就是每一列都是单独的列，里面不包含其他子列。<br><img src="/2020/04/24/JAVAWeb/%E7%AC%AC%E4%B8%80%E8%8C%83%E5%BC%8F.png" alt><br>这里面的系就可以拆分为系名和系主任两个独立选项</p>
+</li>
+<li><p>第二范式：在第一范式的基础上，非码属性必须完全依赖于候选码（在第一范式的基础上消除非主属性对主码的部分函数依赖），消除部分依赖<br>上面的表中存在这许多问题，这些问题的解决就需要用到二三范式。</p>
+</li>
+<li><p>存在的问题：首先，数据有冗余。姓名，系名和系主任有大量重复，其次数据添加存在问题，添加新开设的系和系主任时数据不合法，最后数据删除存在问题，一名同学毕业后回将其所在的系和系主任都删除</p>
+</li>
+<li><p>函数依赖：A–&gt;B，如果通过A属性的值，可以确定唯一b属性的值，就称b依赖于a。例如表中学号–&gt;姓名（姓名依赖于学号，通过学号可以找到唯一姓名），（学号，课程）–&gt;分数(通过学号和课程可以确定唯一的分数，依赖于属性组)</p>
+</li>
+<li><p>完全函数依赖：A–&gt;B，如果A是一个属性组，则B属性值需要依赖A属性组中的所有属性值，例如（学号，课程名称）–&gt;分数</p>
+</li>
+<li><p>部分函数依赖：A–&gt;B，如果A是一个属性组，B属性的确定只需要A属性组的一些属性值，例如（学号，课程名称）–&gt;姓名</p>
+</li>
+<li><p>传递函数依赖：A–&gt;B,B–&gt;C,如果通过A属性的值，可以确定唯一B属性的值，在通过B属性的值可以确定唯一C属性的值，例如学号–&gt;系名，系名–&gt;系主任。</p>
+</li>
+<li><p>码：在一张表中，一个属性或属性组，被其他所有属性所完全依赖，则称这个属性（属性值）为该表的码，例如（学号，课程名称）<br>主属性：码属性组的所有属性<br>非主属性：除码属性的所有属性</p>
+</li>
+</ul>
+<p><img src="/2020/04/24/JAVAWeb/%E7%AC%AC%E4%B8%80%E8%8C%83%E5%BC%8F1.png" alt><br>第二范式是为了消除非主属性对主属性的部分依赖，就是要把表拆分为完全依赖的表，解决第一个数据冗余问题，第一张表中，分数完全依赖于学号和课程名称，第二张表中，姓名系主任，系名都完全依赖学号，因此可以删除一大部分冗余数据。但是第二三个问题没有解决，还需要第三范式。</p>
+<ul>
+<li>第三范式：在第一二范式的基础上，任何非主属性不依赖于其他非主属性（消除传递依赖）<br><img src="/2020/04/24/JAVAWeb/%E7%AC%AC%E4%B8%89%E8%8C%83%E5%BC%8F.png" alt><br>系主任完成依赖于系名，系名依赖于学号，因此系主任传递依赖于学号，就可以拆分，同理系名也传递依赖学号，就可以把这两个分出去。就解决了插入和删除对其他数据的影响。因此判断表设计是否合理，就是看其有没有数据冗余，插入删除数据会不会对其他数据产生影响。</li>
+</ul>
+<p>##数据库的多表查询</p>
+<ol>
+<li>多表查询会查询除许多不需要的数据，这时就需要去除这些无用的数据，需要用到内连接，外连接和子查询。</li>
+<li>内连接：分为隐式和显式，隐式用where来删除无用的信息。显式是select 字段 from 表1 inner join 表2 on 条件</li>
+<li>外连接：也分为左外和右外，select 字段 from 表1 left （outer） join 表2 on 条件，括号中可写可不写，左连接是查询左表所有数据和右表的并集部分，就是左表全部查询，右表如果没有对应信息就会默认空，右表相反，语句吧left改为right即可。</li>
+<li>子查询：</li>
+</ol>
+<ul>
+<li>子查询的结果是单行单列的，子查询可以作为条件，使用运算符（&gt; &lt; =）去判断。<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> 表<span class="number">1</span> <span class="keyword">where</span> 字段 = (<span class="keyword">select</span> <span class="keyword">MAX</span>(字段) <span class="keyword">from</span> 表<span class="number">2</span>)</span><br></pre></td></tr></table></figure></li>
+<li>查询结果是多行单列的,查询的结果作为集合在其中查询<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emploment e <span class="keyword">where</span> e.id <span class="keyword">in</span> (<span class="keyword">select</span> * <span class="keyword">form</span> depaetment  <span class="keyword">where</span> <span class="keyword">name</span> = <span class="string">'市场部'</span> <span class="keyword">or</span> <span class="keyword">name</span> = <span class="string">'技术部'</span>)</span><br></pre></td></tr></table></figure></li>
+<li>查询结果是多行多列的，子查询可以作为虚拟表进行查询<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> depr t1, (<span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> emp.date &gt; <span class="number">12</span>) t2 <span class="keyword">where</span> t1.id = t2.id</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
 <h1 id="表单注册"><a href="#表单注册" class="headerlink" title="表单注册"></a>表单注册</h1><ol>
 <li><div> 可定义文档中的分区或节（division/section）。<div>标签可以把文档分割为独立的、不同的部分。它可以用作严格的组织工具，并且不使用任何格式与其关联。如果用 id 或 class 来标记 <div>，那么该标签的作用会变得更加有效。并且不推荐使用align属性来确定div的对齐方式，通过样式来确定对齐方式</div></div></div></li>
 <li><p>表单中的action属性是指定向哪个地方发送表单数据，是本站就写相对URL，外部网站就写绝对URL</p>
@@ -1308,12 +1373,6 @@
 <li>在左边小窗口中的设置中选择取消紧凑中间包选项即可</li>
 <li>alt+7，显示类下的所有方法</li>
 </ol>
-<p>#Mybatis<br>草稿：记录Mybatis的工作流程</p>
-<ol>
-<li>通过字节码将SqlMapConfig.xml将配置读入文件(通过类加载器的getResoueceAsStream读入jvm中)，通过xml解析技术将获得的配置信息（驱动，url，用户名，密码，数据源，mappers），其中mapper是自定义的一种javabean，其中存放者要执行的sql语句和方法的全限定类名还有返回类型，对应每个接口单独对应的xml文件。</li>
-<li>通过SqlSessionFactorybuilder（cfg），在builder中调用DefaultSqlSessionFactory的实现类，创建了一个工厂（构件者，builder模式，相当于包工队），在通过工厂生产SQLSession，在DefaultSqlSession中调用代理模式，生产代理对象（在不改变源码的基础上加强方法）。</li>
-<li>调用代理对象中的方法，封装好之后返回。</li>
-</ol>
 
       
     </div>
@@ -1333,7 +1392,7 @@
   <p><span>本文标题:</span><a href="/2020/04/24/JAVAWeb/">JAVAWeb</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 AZrookie 的个人博客">AZrookie</a></p>
   <p><span>发布时间:</span>2020年04月24日 - 13:04</p>
-  <p><span>最后更新:</span>2020年06月17日 - 20:06</p>
+  <p><span>最后更新:</span>2020年06月23日 - 10:06</p>
   <p><span>原始链接:</span><a href="/2020/04/24/JAVAWeb/" title="JAVAWeb">http://azrookie.com/2020/04/24/JAVAWeb/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://azrookie.com/2020/04/24/JAVAWeb/"  aria-label="复制成功！"></i></span>
   </p>
@@ -1418,8 +1477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" rel="next" title="数据结构与算法实战">
-                <i class="fa fa-chevron-left"></i> 数据结构与算法实战
+              <a href="/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/" rel="next" title="c语言提高">
+                <i class="fa fa-chevron-left"></i> c语言提高
               </a>
             
           </div>
@@ -1428,8 +1487,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/24/c%E8%AF%AD%E8%A8%80%E6%8F%90%E9%AB%98/" rel="prev" title="c语言提高">
-                c语言提高 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/06/20/ssm%E6%A1%86%E6%9E%B6/" rel="prev" title="ssm框架">
+                ssm框架 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1625,7 +1684,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MVC框架设计"><span class="nav-number">1.</span> <span class="nav-text">MVC框架设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网站案例结构"><span class="nav-number">2.</span> <span class="nav-text">网站案例结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能分析"><span class="nav-number">3.</span> <span class="nav-text">功能分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册功能"><span class="nav-number">3.1.</span> <span class="nav-text">注册功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前台效果-V层"><span class="nav-number">3.1.1.</span> <span class="nav-text">前台效果(V层)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后台处理"><span class="nav-number">3.1.2.</span> <span class="nav-text">后台处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用到的技术"><span class="nav-number">3.2.</span> <span class="nav-text">用到的技术</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JQuery"><span class="nav-number">4.</span> <span class="nav-text">JQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用前要将jquery-3-3-1-min-js导入到项目中。"><span class="nav-number">4.2.</span> <span class="nav-text">使用前要将jquery-3.3.1.min.js导入到项目中。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery对象和js对象的互相转换"><span class="nav-number">4.3.</span> <span class="nav-text">JQuery对象和js对象的互相转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">4.4.</span> <span class="nav-text">选择器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ajax"><span class="nav-number">5.</span> <span class="nav-text">Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念：JavaScript-object-notation-JavaScript对象表示法-，作用类似于Java中的实体类，用来封装数据的。现在多用于存储和交换信息，类似xml，但比xml更小，更快，更易解析"><span class="nav-number">5.1.</span> <span class="nav-text">概念：JavaScript object notation(JavaScript对象表示法)，作用类似于Java中的实体类，用来封装数据的。现在多用于存储和交换信息，类似xml，但比xml更小，更快，更易解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">5.2.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#navicat常用快捷键"><span class="nav-number">6.</span> <span class="nav-text">navicat常用快捷键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事项"><span class="nav-number">7.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后台代码"><span class="nav-number">7.1.</span> <span class="nav-text">后台代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证码"><span class="nav-number">7.2.</span> <span class="nav-text">验证码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL操作"><span class="nav-number">8.</span> <span class="nav-text">SQL操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作"><span class="nav-number">8.1.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表的操作"><span class="nav-number">8.2.</span> <span class="nav-text">表的操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单注册"><span class="nav-number">9.</span> <span class="nav-text">表单注册</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#servlet"><span class="nav-number">10.</span> <span class="nav-text">servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#servlet的实现方法"><span class="nav-number">10.1.</span> <span class="nav-text">servlet的实现方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些杂谈"><span class="nav-number">11.</span> <span class="nav-text">一些杂谈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tomcat匹配的jdk"><span class="nav-number">12.</span> <span class="nav-text">tomcat匹配的jdk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署servlet时的错误"><span class="nav-number">13.</span> <span class="nav-text">部署servlet时的错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jdbc查询语句中String里面不加单引号，但是在sql中要加"><span class="nav-number">14.</span> <span class="nav-text">jdbc查询语句中String里面不加单引号，但是在sql中要加</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MVC框架设计"><span class="nav-number">1.</span> <span class="nav-text">MVC框架设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网站案例结构"><span class="nav-number">2.</span> <span class="nav-text">网站案例结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能分析"><span class="nav-number">3.</span> <span class="nav-text">功能分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册功能"><span class="nav-number">3.1.</span> <span class="nav-text">注册功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前台效果-V层"><span class="nav-number">3.1.1.</span> <span class="nav-text">前台效果(V层)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后台处理"><span class="nav-number">3.1.2.</span> <span class="nav-text">后台处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用到的技术"><span class="nav-number">3.2.</span> <span class="nav-text">用到的技术</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JQuery"><span class="nav-number">4.</span> <span class="nav-text">JQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用前要将jquery-3-3-1-min-js导入到项目中。"><span class="nav-number">4.2.</span> <span class="nav-text">使用前要将jquery-3.3.1.min.js导入到项目中。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery对象和js对象的互相转换"><span class="nav-number">4.3.</span> <span class="nav-text">JQuery对象和js对象的互相转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">4.4.</span> <span class="nav-text">选择器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ajax"><span class="nav-number">5.</span> <span class="nav-text">Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念：JavaScript-object-notation-JavaScript对象表示法-，作用类似于Java中的实体类，用来封装数据的。现在多用于存储和交换信息，类似xml，但比xml更小，更快，更易解析"><span class="nav-number">5.1.</span> <span class="nav-text">概念：JavaScript object notation(JavaScript对象表示法)，作用类似于Java中的实体类，用来封装数据的。现在多用于存储和交换信息，类似xml，但比xml更小，更快，更易解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">5.2.</span> <span class="nav-text">语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#navicat常用快捷键"><span class="nav-number">6.</span> <span class="nav-text">navicat常用快捷键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事项"><span class="nav-number">7.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后台代码"><span class="nav-number">7.1.</span> <span class="nav-text">后台代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证码"><span class="nav-number">7.2.</span> <span class="nav-text">验证码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL数据库"><span class="nav-number">8.</span> <span class="nav-text">SQL数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库基本操作"><span class="nav-number">8.1.</span> <span class="nav-text">数据库基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表的操作"><span class="nav-number">8.2.</span> <span class="nav-text">表的操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单注册"><span class="nav-number">9.</span> <span class="nav-text">表单注册</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#servlet"><span class="nav-number">10.</span> <span class="nav-text">servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#servlet的实现方法"><span class="nav-number">10.1.</span> <span class="nav-text">servlet的实现方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些杂谈"><span class="nav-number">11.</span> <span class="nav-text">一些杂谈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tomcat匹配的jdk"><span class="nav-number">12.</span> <span class="nav-text">tomcat匹配的jdk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署servlet时的错误"><span class="nav-number">13.</span> <span class="nav-text">部署servlet时的错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jdbc查询语句中String里面不加单引号，但是在sql中要加"><span class="nav-number">14.</span> <span class="nav-text">jdbc查询语句中String里面不加单引号，但是在sql中要加</span></a></li></ol></div>
             
 
           </div>
@@ -1659,7 +1718,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">38.8k</span>
+    <span title="Site words total count">86.3k</span>
   
 </div>
 
